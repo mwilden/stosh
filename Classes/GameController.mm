@@ -125,7 +125,7 @@ using namespace Chess;
    pendingTo = SQ_NONE;
 
    [moveListView setText: @""];
-   [self showPiecesAnimate: NO];
+   [self showPieces];
    engineIsPlaying = NO;
    [engineController abortSearch];
    [engineController sendCommand: @"ucinewgame"];
@@ -616,7 +616,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Update board
       pieceViews = [[NSMutableArray alloc] init];
-      [self showPiecesAnimate: NO];
+      [self showPieces];
 
       // Stop engine:
       if ([self computersTurnToMove]) {
@@ -719,7 +719,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Update board
       pieceViews = [[NSMutableArray alloc] init];
-      [self showPiecesAnimate: NO];
+      [self showPieces];
 
       // Stop engine:
       if ([self computersTurnToMove]) {
@@ -734,10 +734,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 /// showPiecesAnimate: creates the piece image views and attaches them as
-/// subviews to the board view.  There is a boolean parameter which tells
-/// the method whether the pieces should appear gradually or instantly.
+/// subviews to the board view.
 
-- (void)showPiecesAnimate:(BOOL)animate {
+- (void)showPieces {
    float sqSize = [boardView sqSize];
    CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
    for (Square sq = SQ_A1; sq <= SQ_H8; sq++) {
@@ -757,18 +756,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [piv release];
       }
    }
-   if (animate) {
-      CGContextRef context = UIGraphicsGetCurrentContext();
-      [UIView beginAnimations: nil context: context];
-      [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-      [UIView setAnimationDuration: 1.2];
-      for (PieceImageView *piv in pieceViews)
-         [piv setAlpha: 1.0];
-      [UIView commitAnimations];
-   }
-   else
-      for (PieceImageView *piv in pieceViews)
-         [piv setAlpha: 1.0];
+   for (PieceImageView *piv in pieceViews)
+      [piv setAlpha: 1.0];
 }
 
 
@@ -957,7 +946,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
 
-   [self showPiecesAnimate: YES];
+   [self showPieces];
    [self updateMoveList];
 
    engineIsPlaying = NO;
@@ -978,7 +967,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
 
-   [self showPiecesAnimate: YES];
+   [self showPieces];
    [moveListView setText: [game moveListString]];
 
    engineIsPlaying = NO;
@@ -1009,7 +998,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [piv removeFromSuperview];
    [pieceViews release];
    pieceViews = [[NSMutableArray alloc] init];
-   [self showPiecesAnimate: NO];
+   [self showPieces];
    NSLog(@"finished redrawing pieces");
 }
 

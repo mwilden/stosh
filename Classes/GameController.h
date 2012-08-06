@@ -67,7 +67,7 @@
 - (void)replayMove;
 - (void)takeBackAllMoves;
 - (void)replayAllMoves;
-- (void)showPiecesAnimate:(BOOL)animate;
+- (void)showPieces;
 - (PieceImageView *)pieceImageViewForSquare:(Square)sq;
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
