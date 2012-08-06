@@ -523,8 +523,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    NSString *title = [sender title];
 
    // Ignore duplicate presses on the "Game" and "Move" buttons:
-   if ([gameMenu isVisible] && [title isEqualToString: @"Game"] ||
-       [moveMenu isVisible] && [title isEqualToString: @"Move"])
+   if (([gameMenu isVisible] && [title isEqualToString: @"Game"]) ||
+       ([moveMenu isVisible] && [title isEqualToString: @"Move"]))
       return;
 
    // Dismiss action sheet popovers, if visible:
