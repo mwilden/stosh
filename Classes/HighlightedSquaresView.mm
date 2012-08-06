@@ -41,22 +41,6 @@
 /// Perhaps we should switch to something prettier later.
 
 - (void)drawRect:(CGRect)rect {
-   if ([[Options sharedOptions] showLegalMoves]) {
-      [[[Options sharedOptions] highlightColor] set];
-      CGContextRef context = UIGraphicsGetCurrentContext();
-      for (int i = 0; squares[i] != SQ_NONE; i++) {
-         int f = int(square_file(squares[i])), r = 7-int(square_rank(squares[i]));
-         CGRect squareRect = CGRectMake(f*sqSize, r*sqSize, sqSize, sqSize);
-         CGContextFillEllipseInRect(context, CGRectInset(squareRect, 0.4*sqSize, 0.4*sqSize));
-      }
-      if (selectedSquare != SQ_NONE) {
-         int f = int(square_file(selectedSquare));
-         int r = 7-int(square_rank(selectedSquare));
-         CGRect squareRect = CGRectMake(f*sqSize, r*sqSize, sqSize, sqSize);
-         UIRectFrame(squareRect);
-         UIRectFrame(CGRectInset(squareRect, 1.0f, 1.0f));
-      }
-   }
 }
 
 

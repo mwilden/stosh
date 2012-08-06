@@ -120,15 +120,6 @@
          [cell setAccessoryView: sw];
          [sw release];
       }
-      else if (row == 2) {
-         [[cell textLabel] setText: @"Show legal moves"];
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] showLegalMoves] animated: NO];
-         [sw addTarget: self action: @selector(toggleShowLegalMoves:)
-             forControlEvents:UIControlEventValueChanged];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
    }
    else if (section == 1) {
       if (row == 0) {
@@ -344,10 +335,6 @@
       [boardViewController showBookMoves];
    else
       [boardViewController hideBookMoves];
-}
-
-- (void)toggleShowLegalMoves:(id)sender {
-   [[Options sharedOptions] setShowLegalMoves: [sender isOn]];
 }
 
 - (void)togglePermanentBrain:(id)sender {

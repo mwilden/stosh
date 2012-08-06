@@ -30,7 +30,6 @@
 - (void)deselect:(UITableView *)tableView;
 - (void)toggleShowAnalysis:(id)sender;
 - (void)toggleShowBookMoves:(id)sender;
-- (void)toggleShowLegalMoves:(id)sender;
 - (void)togglePermanentBrain:(id)sender;
 - (void)toggleFigurines:(id)sender;
 - (void)toggleSound:(id)sender;

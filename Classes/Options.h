@@ -53,7 +53,6 @@ enum GameLevel {
    BOOL figurineNotation;
    BOOL showAnalysis;
    BOOL showBookMoves;
-   BOOL showLegalMoves;
    BOOL permanentBrain;
 
    GameMode gameMode;
@@ -92,7 +91,6 @@ enum GameLevel {
 @property (nonatomic, readwrite) BOOL figurineNotation;
 @property (nonatomic, readwrite) BOOL showAnalysis;
 @property (nonatomic, readwrite) BOOL showBookMoves;
-@property (nonatomic, readwrite) BOOL showLegalMoves;
 @property (nonatomic, readwrite) BOOL permanentBrain;
 @property (nonatomic, assign) GameMode gameMode;
 @property (nonatomic, assign) GameLevel gameLevel;

@@ -25,7 +25,7 @@
 @synthesize darkSquareImage, lightSquareImage;
 @dynamic colorScheme, pieceSet, figurineNotation;
 @dynamic playStyle, bookVariety, bookVarietyWasChanged, moveSound;
-@dynamic showAnalysis, showBookMoves, showLegalMoves, permanentBrain;
+@dynamic showAnalysis, showBookMoves, permanentBrain;
 @dynamic gameMode, gameLevel, gameModeWasChanged, gameLevelWasChanged;
 @dynamic saveGameFile, emailAddress, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
@@ -49,13 +49,6 @@
       }
       else
          showBookMoves = [defaults boolForKey: @"showBookMoves2"];
-
-      if (![defaults objectForKey: @"showLegalMoves2"]) {
-         showLegalMoves = YES;
-         [defaults setBool: YES forKey: @"showLegalMoves2"];
-      }
-      else
-         showLegalMoves = [defaults boolForKey: @"showLegalMoves2"];
 
       if (![defaults objectForKey: @"permanentBrain2"]) {
          permanentBrain = NO;
@@ -413,19 +406,6 @@
    showBookMoves = shouldShowBookMoves;
    [[NSUserDefaults standardUserDefaults] setBool: showBookMoves
                                            forKey: @"showBookMoves2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)showLegalMoves {
-   return showLegalMoves;
-}
-
-
-- (void)setShowLegalMoves:(BOOL)shouldShowLegalMoves {
-   showLegalMoves = shouldShowLegalMoves;
-   [[NSUserDefaults standardUserDefaults] setBool: showLegalMoves
-                                           forKey: @"showLegalMoves2"];
    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
