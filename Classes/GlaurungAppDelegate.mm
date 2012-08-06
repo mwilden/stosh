@@ -85,8 +85,7 @@ using namespace Chess;
 	
 	gameController =
 	[[GameController alloc] initWithBoardView: [viewController boardView]
-								 moveListView: [viewController moveListView]
-							  searchStatsView: [viewController searchStatsView]];
+								 moveListView: [viewController moveListView]];
 	
 	/* Chess init */
 	init_mersenne();

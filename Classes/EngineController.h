@@ -43,7 +43,6 @@
 - (void)commitCommands;
 - (BOOL)commandIsWaiting;
 - (NSString *)getCommand;
-- (void)sendSearchStats:(NSString *)searchStats;
 - (void)sendBestMove:(NSString *)bestMove ponderMove:(NSString *)ponderMove;
 - (void)ponderhit;
 - (void)pondermiss;

@@ -31,7 +31,6 @@
 @interface GameController : NSObject <UIActionSheetDelegate> {
    EngineController *engineController;
    BoardView *boardView;
-   UILabel *searchStatsView;
    MoveListView *moveListView;
    Game *game;
    NSMutableArray *pieceViews;
@@ -46,13 +45,11 @@
    LastMoveView *lastMoveView;
 }
 
-@property (nonatomic, readonly) UILabel *searchStatsView;
 @property (nonatomic, readonly) Game *game;
 @property (nonatomic, readonly) BOOL rotated;
 
 - (id)initWithBoardView:(BoardView *)bv
-           moveListView:(MoveListView *)mlv
-        searchStatsView:(UILabel *)ssv;
+           moveListView:(MoveListView *)mlv;
 - (void)startEngine;
 - (void)startNewGame;
 - (void)updateMoveList;
@@ -75,7 +72,6 @@
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
 - (void)playClickSound;
-- (void)displaySearchStats:(NSString *)searchStats;
 - (void)doEngineMove:(Move)m;
 - (void)engineGo;
 - (void)engineMadeMove:(NSArray *)array;
@@ -88,7 +84,6 @@
 - (void)gameFromPGNString:(NSString *)pgnString;
 - (void)gameFromFEN:(NSString *)fen;
 - (void)changePlayStyle;
-- (void)startThinking;
 - (BOOL)engineIsThinking;
 - (void)piecesSetUserInteractionEnabled:(BOOL)enable;
 - (void)redrawPieces;

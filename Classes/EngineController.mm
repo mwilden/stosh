@@ -110,11 +110,6 @@ EngineController *GlobalEngineController; // HACK
 }
 
 
-- (void)sendSearchStats:(NSString *)searchStats {
-   [gameController displaySearchStats: searchStats];
-}
-
-
 - (void)sendBestMove:(NSString *)bestMove ponderMove:(NSString *)ponderMove {
    NSLog(@"received best move: %@ ponder move: %@", bestMove, ponderMove);
    if (!ignoreBestmove)

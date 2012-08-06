@@ -28,7 +28,7 @@
 
 @implementation BoardViewController
 
-@synthesize boardView, moveListView, gameController, searchStatsView;
+@synthesize boardView, moveListView, gameController;
 
 /// init
 
@@ -64,7 +64,6 @@
   [contentView release];
 
   // Board
-  //boardView = [[BoardView alloc] initWithFrame: CGRectMake(0.0f, 44.0f, 768.0f, 768.0f)];
   boardView = [[BoardView alloc] initWithFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
   [contentView addSubview: boardView];
 
@@ -75,14 +74,6 @@
   [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
   [moveListView setEditable: NO];
   [contentView addSubview: moveListView];
-
-  // Search stats
-  searchStatsView = [[UILabel alloc] initWithFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
-  [searchStatsView setFont: [UIFont systemFontOfSize: 14.0]];
-  //[searchStatsView setTextAlignment: UITextAlignmentCenter];
-  [searchStatsView setBackgroundColor: [UIColor whiteColor]];
-  [contentView addSubview: searchStatsView];
-  [searchStatsView release];
 
   // Toolbar
   UIToolbar *toolbar =
@@ -188,12 +179,10 @@
        [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
       [boardView setFrame: CGRectMake(5.0f, 49.0f, 640.0f, 640.0f)];
       [moveListView setFrame: CGRectMake(656.0f, 116.0f, 360.0f, 573.0f)];
-      [searchStatsView setFrame: CGRectMake(656.0f, 695.0f, 360.0f, 20.0f)];
    }
    else {
       [boardView setFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
       [moveListView setFrame: CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
-      [searchStatsView setFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
    }
    [gameController updateMoveList];
 }
@@ -303,8 +292,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             else
                [gameController engineGo];
          }
-         else
-            [gameController startThinking];
          break;
       case 5:
          break;

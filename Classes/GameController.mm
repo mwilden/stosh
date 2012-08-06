@@ -30,15 +30,11 @@ using namespace Chess;
 
 @implementation GameController
 
-@synthesize searchStatsView, game, rotated;
-
 - (id)initWithBoardView:(BoardView *)bv
-           moveListView:(MoveListView *)mlv
-        searchStatsView:(UILabel *)ssv {
+           moveListView:(MoveListView *)mlv {
    if (self == [super init]) {
       boardView = bv;
       moveListView = mlv;
-      searchStatsView = ssv;
 
       game = [[Game alloc] initWithGameController: self];
       pieceViews = [[NSMutableArray alloc] init];
@@ -129,7 +125,6 @@ using namespace Chess;
    pendingTo = SQ_NONE;
 
    [moveListView setText: @""];
-   [searchStatsView setText: @""];
    [self showPiecesAnimate: NO];
    engineIsPlaying = NO;
    [engineController abortSearch];
@@ -404,9 +399,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    // Game over?
    [self gameEndTest];
-
-   // Clear the search stats view
-   [searchStatsView setText: @""];
 
    // HACK to handle promotions
    if (prom)
@@ -806,10 +798,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 - (void)playClickSound {
    if ([[Options sharedOptions] moveSound])
       AudioServicesPlaySystemSound(clickSound);
-}
-
-- (void)displaySearchStats:(NSString *)searchStats {
-  [searchStatsView setText: @""];
 }
 
 - (void)doEngineMove:(Move)m {

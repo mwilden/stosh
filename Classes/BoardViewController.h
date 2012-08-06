@@ -28,7 +28,6 @@
    RootView *rootView;
    UIView *contentView;
    BoardView *boardView;
-   UILabel *searchStatsView;
    MoveListView *moveListView;
    GameController *gameController;
    UINavigationController *navigationController;
@@ -41,7 +40,6 @@
 
 @property (nonatomic, readonly) BoardView *boardView;
 @property (nonatomic, readonly) MoveListView *moveListView;
-@property (nonatomic, readonly) UILabel *searchStatsView;
 @property (nonatomic, assign) GameController *gameController;
 
 - (void)toolbarButtonPressed:(id)sender;
