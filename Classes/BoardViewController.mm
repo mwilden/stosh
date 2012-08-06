@@ -18,8 +18,6 @@
 
 #import "BoardViewController.h"
 #import "GameController.h"
-#import "GameDetailsTableController.h"
-#import "LoadFileListController.h"
 #import "MoveListView.h"
 #import "Options.h"
 #import "OptionsViewController.h"
@@ -141,7 +139,7 @@
                          delegate: self
                 cancelButtonTitle: @"Cancel"
                  destructiveButtonTitle: nil
-                otherButtonTitles: @"New game", @"Save game", @"Load game", @"Edit position",  nil];
+                otherButtonTitles: @"New game", @"Edit position",  nil];
    newGameMenu = [[UIActionSheet alloc] initWithTitle: nil
                                              delegate: self
                                     cancelButtonTitle: @"Cancel"
@@ -155,8 +153,6 @@
                                  otherButtonTitles:
                                         @"Take back", @"Step forward", @"Take back all", @"Step forward all", @"Move now", nil];
    optionsMenu = nil;
-   saveMenu = nil;
-   loadMenu = nil;
    popoverMenu = nil;
 }
 
@@ -216,8 +212,6 @@
    [newGameMenu release];
    [moveMenu release];
    [optionsMenu release];
-   [saveMenu release];
-   [loadMenu release];
    [popoverMenu release];
    [super dealloc];
 }
@@ -243,15 +237,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         [newGameMenu showFromBarButtonItem: gameButton animated: YES];
          break;
       case 1:
-         [self showSaveGameMenu];
-         break;
-      case 2:
-         [self showLoadGameMenu];
-         break;
-      case 3:
          [self editPosition];
-         break;
-      case 4:
          break;
       default:
          NSLog(@"Not implemented yet");
@@ -316,16 +302,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [optionsMenu dismissPopoverAnimated: YES];
       [optionsMenu release];
       optionsMenu = nil;
-   }
-   if (saveMenu != nil) {
-      [saveMenu dismissPopoverAnimated: YES];
-      [saveMenu release];
-      saveMenu = nil;
-   }
-   if (loadMenu != nil) {
-      [loadMenu dismissPopoverAnimated: YES];
-      [loadMenu release];
-      loadMenu = nil;
    }
    if (popoverMenu != nil) {
       [popoverMenu dismissPopoverAnimated: YES];
@@ -408,84 +384,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [navigationController release];
    [boardView hideLastMove];
    [gameController gameFromFEN: fen];
-}
-
-
-- (void)showSaveGameMenu {
-   GameDetailsTableController *gdtc =
-      [[GameDetailsTableController alloc]
-         initWithBoardViewController: self
-                                game: [gameController game]];
-   navigationController =
-      [[UINavigationController alloc] initWithRootViewController: gdtc];
-   [gdtc release];
-  saveMenu = [[UIPopoverController alloc]
-               initWithContentViewController: navigationController];
-  [saveMenu presentPopoverFromBarButtonItem: gameButton
-                   permittedArrowDirections: UIPopoverArrowDirectionAny
-                                   animated: YES];
-}
-
-
-- (void)saveMenuDonePressed {
-   NSLog(@"save game done");
-   FILE *pgnFile =
-      fopen([[PGN_DIRECTORY
-                stringByAppendingPathComponent: [[Options sharedOptions]
-                                                   saveGameFile]] UTF8String],
-            "a");
-   if (pgnFile != NULL) {
-      fprintf(pgnFile, "%s", [[[gameController game] pgnString] UTF8String]);
-      fclose(pgnFile);
-   }
-   [saveMenu dismissPopoverAnimated: YES];
-   [saveMenu release];
-   saveMenu = nil;
-   [navigationController release];
-   NSLog(@"save game done");
-}
-
-
-- (void)saveMenuCancelPressed {
-   NSLog(@"save game canceled");
-   [saveMenu dismissPopoverAnimated: YES];
-   [saveMenu release];
-   saveMenu = nil;
-   [navigationController release];
-}
-
-
-- (void)showLoadGameMenu {
-   LoadFileListController *lflc =
-      [[LoadFileListController alloc] initWithBoardViewController: self];
-   navigationController =
-      [[UINavigationController alloc] initWithRootViewController: lflc];
-   [lflc release];
-   loadMenu = [[UIPopoverController alloc]
-                initWithContentViewController: navigationController];
-   [loadMenu presentPopoverFromBarButtonItem: gameButton
-                   permittedArrowDirections: UIPopoverArrowDirectionAny
-                                   animated: YES];
-}
-
-
-- (void)loadMenuCancelPressed {
-   NSLog(@"load game canceled");
-   [loadMenu dismissPopoverAnimated: YES];
-   [loadMenu release];
-   loadMenu = nil;
-   [navigationController release];
-}
-
-
-- (void)loadMenuDonePressedWithGame:(NSString *)gameString {
-   NSLog(@"load menu done, gameString = %@", gameString);
-   [loadMenu dismissPopoverAnimated: YES];
-   [loadMenu release];
-   loadMenu = nil;
-   [navigationController release];
-   [gameController gameFromPGNString: gameString];
-   [boardView hideLastMove];
 }
 
 

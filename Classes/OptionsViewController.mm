@@ -18,11 +18,9 @@
 
 #import "AboutController.h"
 #import "BoardViewController.h"
-#import "EditUserNameController.h"
 #import "Options.h"
 #import "OptionsViewController.h"
 #import "SimpleOptionTableController.h"
-#import "StrengthOptionController.h"
 
 @implementation OptionsViewController
 
@@ -195,15 +193,6 @@
                                                 animated: YES];
          [sotc release];
       }
-      else if (row == 2) {
-         // Strength
-         StrengthOptionController *soc;
-         soc = [[StrengthOptionController alloc]
-                  initWithParentViewController: self];
-         [[self navigationController] pushViewController: soc
-                                                animated: YES];
-         [soc release];
-      }
    }
    else if (section == 2) {
       if (row == 0) {
@@ -223,15 +212,6 @@
          [[self navigationController] pushViewController: sotc
                                                 animated: YES];
          [sotc release];
-      }
-   }
-   else if (section == 3) {
-      if (row == 0) {
-         // User name
-         EditUserNameController *eunc = [[EditUserNameController alloc]
-                                           initWithParentViewController: self];
-         [[self navigationController] pushViewController: eunc animated: YES];
-         [eunc release];
       }
    }
    else if (section == 4) {

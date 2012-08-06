@@ -48,12 +48,6 @@
 - (void)editPosition;
 - (void)editPositionCancelPressed;
 - (void)editPositionDonePressed:(NSString *)fen;
-- (void)showSaveGameMenu;
-- (void)saveMenuDonePressed;
-- (void)saveMenuCancelPressed;
-- (void)showLoadGameMenu;
-- (void)loadMenuCancelPressed;
-- (void)loadMenuDonePressedWithGame:(NSString *)gameString;
 - (void)stopActivityIndicator;
 
 @end
