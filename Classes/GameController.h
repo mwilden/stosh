@@ -82,7 +82,6 @@
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
 - (void)showHint;
-- (NSString *)emailPgnString;
 - (void)playClickSound;
 - (void)displayPV:(NSString *)pv;
 - (void)displaySearchStats:(NSString *)searchStats;

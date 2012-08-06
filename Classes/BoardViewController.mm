@@ -173,7 +173,7 @@
                          delegate: self
                 cancelButtonTitle: @"Cancel"
                  destructiveButtonTitle: nil
-                otherButtonTitles: @"New game", @"Save game", @"Load game", @"E-mail game", @"Edit position", @"Level/Game mode", nil];
+                otherButtonTitles: @"New game", @"Save game", @"Load game", @"Edit position", @"Level/Game mode", nil];
    newGameMenu = [[UIActionSheet alloc] initWithTitle: nil
                                              delegate: self
                                     cancelButtonTitle: @"Cancel"
@@ -188,7 +188,6 @@
                                         @"Take back", @"Step forward", @"Take back all", @"Step forward all", @"Move now", nil];
    optionsMenu = nil;
    saveMenu = nil;
-   emailMenu = nil;
    levelsMenu = nil;
    loadMenu = nil;
    popoverMenu = nil;
@@ -258,7 +257,6 @@
    [moveMenu release];
    [optionsMenu release];
    [saveMenu release];
-   [emailMenu release];
    [levelsMenu release];
    [loadMenu release];
    [popoverMenu release];
@@ -272,13 +270,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       if (buttonIndex == 1)
          [gameController startNewGame];
    }
-   else if ([[alertView title] isEqualToString:
-                                  @"Exit Stockfish and send e-mail?"]) {
-      if (buttonIndex == 1)
-         [[UIApplication sharedApplication]
-            openURL: [[NSURL alloc] initWithString:
-                                       [gameController emailPgnString]]];
-   }
 }
 
 
@@ -288,7 +279,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    NSLog(@"Menu: %@ selection: %d", title, buttonIndex);
    if (actionSheet == gameMenu || [title isEqualToString: @"Game"]) {
-      UIActionSheet *menu;
       switch(buttonIndex) {
       case 0:
         [newGameMenu showFromBarButtonItem: gameButton animated: YES];
@@ -300,15 +290,12 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [self showLoadGameMenu];
          break;
       case 3:
-         [self showEmailGameMenu];
-         break;
-      case 4:
          [self editPosition];
          break;
-      case 5:
+      case 4:
          [self showLevelsMenu];
          break;
-      case 6:
+      case 5:
          break;
       default:
          NSLog(@"Not implemented yet");
@@ -420,11 +407,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [saveMenu dismissPopoverAnimated: YES];
       [saveMenu release];
       saveMenu = nil;
-   }
-   if (emailMenu != nil) {
-      [emailMenu dismissPopoverAnimated: YES];
-      [emailMenu release];
-      emailMenu = nil;
    }
    if (loadMenu != nil) {
       [loadMenu dismissPopoverAnimated: YES];
@@ -565,8 +547,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    GameDetailsTableController *gdtc =
       [[GameDetailsTableController alloc]
          initWithBoardViewController: self
-                                game: [gameController game]
-                               email: NO];
+                                game: [gameController game]];
    navigationController =
       [[UINavigationController alloc] initWithRootViewController: gdtc];
    [gdtc release];
@@ -637,47 +618,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [navigationController release];
    [gameController gameFromPGNString: gameString];
    [boardView hideLastMove];
-}
-
-
-- (void)showEmailGameMenu {
-   GameDetailsTableController *gdtc =
-      [[GameDetailsTableController alloc]
-         initWithBoardViewController: self
-                                game: [gameController game]
-                               email: YES];
-   navigationController =
-      [[UINavigationController alloc] initWithRootViewController: gdtc];
-   [gdtc release];
-   emailMenu = [[UIPopoverController alloc]
-                initWithContentViewController: navigationController];
-   [emailMenu presentPopoverFromBarButtonItem: gameButton
-                    permittedArrowDirections: UIPopoverArrowDirectionAny
-                                    animated: YES];
-}
-
-
-- (void)emailMenuDonePressed {
-   NSLog(@"email game done");
-   [emailMenu dismissPopoverAnimated: YES];
-   [emailMenu release];
-   emailMenu = nil;
-   [navigationController release];
-   [[[[UIAlertView alloc] initWithTitle: @"Exit Stockfish and send e-mail?"
-                                message: @""
-                               delegate: self
-                      cancelButtonTitle: @"Cancel"
-                      otherButtonTitles: @"OK", nil] autorelease]
-      show];
-}
-
-
-- (void)emailMenuCancelPressed {
-   NSLog(@"email game canceled");
-   [emailMenu dismissPopoverAnimated: YES];
-   [emailMenu release];
-   emailMenu = nil;
-   [navigationController release];
 }
 
 

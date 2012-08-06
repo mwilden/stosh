@@ -18,7 +18,6 @@
 
 #import "BoardViewController.h"
 #import "DateTagViewController.h"
-#import "EmailAddressController.h"
 #import "Game.h"
 #import "GameDetailsTableController.h"
 #import "Options.h"
@@ -33,13 +32,11 @@
 @synthesize game;
 
 - (id)initWithBoardViewController:(BoardViewController *)bvc
-                             game:(Game *)aGame
-                            email:(BOOL)mail {
+                             game:(Game *)aGame {
    if (self = [super initWithStyle: UITableViewStyleGrouped]) {
       //[self setTitle: @"Edit Game Data"];
       boardViewController = bvc;
       game = aGame;
-      email = mail;
       [self setContentSizeForViewInPopover: CGSizeMake(320.0f, 400.0f)];
    }
    return self;
@@ -50,21 +47,17 @@
    [super loadView];
    [[self navigationItem] setRightBarButtonItem:
                              [[[UIBarButtonItem alloc]
-                                 initWithTitle: (email? @"E-mail" : @"Save")
+                                 initWithTitle: (@"Save")
                                          style: UIBarButtonItemStylePlain
                                         target: self
-                                        action: (email?
-                                                 @selector(emailMenuDonePressed) :
-                                                 @selector(saveMenuDonePressed))]
+                                        action: (@selector(saveMenuDonePressed))]
                                 autorelease]];
    [[self navigationItem] setLeftBarButtonItem:
                              [[[UIBarButtonItem alloc]
                                  initWithTitle: @"Cancel"
                                          style: UIBarButtonItemStylePlain
                                         target: boardViewController
-                                        action: (email?
-                                                 @selector(emailMenuCancelPressed) :
-                                                 @selector(saveMenuCancelPressed))]
+                                        action: (@selector(saveMenuCancelPressed))]
                                 autorelease]];
 }
 
@@ -155,18 +148,10 @@
       [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
    }
    else if (section == 1) {
-      if (email) {
-         [[cell textLabel] setText: @"Recipient"];
-         [[cell detailTextLabel] setText: [[Options sharedOptions] emailAddress]];
-         //[cell setValueText: [[Options sharedOptions] emailAddress]];
-         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-      }
-      else {
-         [[cell textLabel] setText: @"File name"];
-         [[cell detailTextLabel] setText: [[Options sharedOptions] saveGameFile]];
-         //[cell setValueText: [[Options sharedOptions] saveGameFile]];
-         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-      }
+     [[cell textLabel] setText: @"File name"];
+     [[cell detailTextLabel] setText: [[Options sharedOptions] saveGameFile]];
+     //[cell setValueText: [[Options sharedOptions] saveGameFile]];
+     [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
    }
    return cell;
 }
@@ -227,19 +212,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
          assert(NO);
       [pgnTFC release];
    }
-   else if (section == 1) { // E-mail address or PGN file
-      if (email) {
-         EmailAddressController *eac = [[EmailAddressController alloc]
-                                          initWithGameDetailsController: self];
-         [[self navigationController] pushViewController: eac animated: YES];
-         [eac release];
-      }
-      else {
-         SaveFileListController *sflc = [[SaveFileListController alloc]
-                                           initWithGameDetailsController: self];
-         [[self navigationController] pushViewController: sflc animated: YES];
-         [sflc release];
-      }
+   else if (section == 1) { // PGN file
+     SaveFileListController *sflc = [[SaveFileListController alloc]
+                                       initWithGameDetailsController: self];
+     [[self navigationController] pushViewController: sflc animated: YES];
+     [sflc release];
    }
 }
 
@@ -259,24 +236,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex {
    if (buttonIndex == 1) {
-      if ([[alertView message] isEqualToString: @"You have not specified the result of the game. Really e-mail game without a result?"])
-         [boardViewController emailMenuDonePressed];
-      else
-         [boardViewController saveMenuDonePressed];
+     [boardViewController saveMenuDonePressed];
    }
-}
-
-
-- (void)emailMenuDonePressed {
-   if ([[game result] isEqualToString: @"*"])
-      [[[[UIAlertView alloc] initWithTitle: @"Game has no result"
-                                   message: @"You have not specified the result of the game. Really e-mail game without a result?"
-                                  delegate: self
-                         cancelButtonTitle: @"Cancel"
-                         otherButtonTitles: @"OK", nil] autorelease]
-         show];
-   else
-      [boardViewController emailMenuDonePressed];
 }
 
 

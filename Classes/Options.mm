@@ -27,7 +27,7 @@
 @dynamic playStyle, bookVariety, bookVarietyWasChanged, moveSound;
 @dynamic showAnalysis, showBookMoves, permanentBrain;
 @dynamic gameMode, gameLevel, gameModeWasChanged, gameLevelWasChanged;
-@dynamic saveGameFile, emailAddress, fullUserName;
+@dynamic saveGameFile, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
 @dynamic playStyleWasChanged, strength, strengthWasChanged;
 @dynamic serverName, serverPort;
@@ -112,11 +112,6 @@
          [defaults setObject: @"My Games.pgn" forKey: @"saveGameFile2"];
       }
 
-      emailAddress = [defaults objectForKey: @"emailAddress2"];
-      if (!emailAddress) {
-         emailAddress = [@"" retain];
-         [defaults setObject: @"" forKey: @"emailAddress2"];
-      }
       fullUserName = [defaults objectForKey: @"fullUserName2"];
       if (!fullUserName) {
          fullUserName = [@"Me" retain];
@@ -407,7 +402,6 @@
    [bookVariety release];
    [pieceSet release];
    [saveGameFile release];
-   [emailAddress release];
    [fullUserName release];
    [super dealloc];
 }
@@ -467,20 +461,6 @@
    saveGameFile = [newFileName retain];
    [[NSUserDefaults standardUserDefaults] setObject: saveGameFile
                                              forKey: @"saveGameFile2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (NSString *)emailAddress {
-   return emailAddress;
-}
-
-
-- (void)setEmailAddress:(NSString *)newEmailAddress {
-   [emailAddress release];
-   emailAddress = [newEmailAddress retain];
-   [[NSUserDefaults standardUserDefaults] setObject: emailAddress
-                                             forKey: @"emailAddress2"];
    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

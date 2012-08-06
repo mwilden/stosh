@@ -968,13 +968,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-/// emailPgnString returns an NSString representing a mailto: URL with the
-/// current game in PGN notation included in the body.
-- (NSString *)emailPgnString {
-   return [game emailPgnString];
-}
-
-
 - (void)playClickSound {
    if ([[Options sharedOptions] moveSound])
       AudioServicesPlaySystemSound(clickSound);

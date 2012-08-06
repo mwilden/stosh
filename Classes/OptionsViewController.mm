@@ -66,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
    switch(section) {
-   case 0: return 3;
+   case 0: return 2;
    case 1: return 5;
    case 2: return 4;
    case 3: return 1;

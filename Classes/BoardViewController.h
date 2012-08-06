@@ -37,7 +37,7 @@
    UIActivityIndicatorView *activityIndicator;
    UIActionSheet *gameMenu, *newGameMenu, *moveMenu;
    UIBarButtonItem *gameButton, *optionsButton;
-   UIPopoverController *optionsMenu, *saveMenu, *emailMenu, *levelsMenu, *loadMenu;
+   UIPopoverController *optionsMenu, *saveMenu, *levelsMenu, *loadMenu;
    UIPopoverController *popoverMenu;
 }
 
@@ -64,9 +64,6 @@
 - (void)showLoadGameMenu;
 - (void)loadMenuCancelPressed;
 - (void)loadMenuDonePressedWithGame:(NSString *)gameString;
-- (void)showEmailGameMenu;
-- (void)emailMenuDonePressed;
-- (void)emailMenuCancelPressed;
 - (void)stopActivityIndicator;
 - (void)hideAnalysis;
 - (void)hideBookMoves;

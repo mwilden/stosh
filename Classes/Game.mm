@@ -530,19 +530,6 @@ static NSString* breakLinesInString(NSString *string) {
 }
 
 
-/// emailPgnString is similar to pgnString, but returns a string that can be
-/// used as a mailto: URL.
-
-- (NSString *)emailPgnString {
-   return
-      [[NSString stringWithFormat:
-                         @"mailto:%@?subject=&Chess game&body=%@",
-                 [[Options sharedOptions] emailAddress],
-                 [self pgnString]]
-         stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-}
-
-
 /// uciGameString returns a string representing the game in a format suitable
 /// for input to an UCI engine, e.g. "position startpos moves e2e4 e7e5 ..."
 

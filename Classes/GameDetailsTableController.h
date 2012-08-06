@@ -24,17 +24,14 @@
 @interface GameDetailsTableController : UITableViewController {
    BoardViewController *boardViewController;
    Game *game;
-   BOOL email;
 }
 
 @property (nonatomic, readonly) Game *game;
 
 - (id)initWithBoardViewController:(BoardViewController *)bvc
-                             game:(Game *)aGame
-                            email:(BOOL)mail;
+                             game:(Game *)aGame                            ;
 - (void)deselect:(UITableView *)tableView;
 - (void)updateTableCells;
-- (void)emailMenuDonePressed;
 - (void)saveMenuDonePressed;
 
 @end

@@ -66,7 +66,6 @@ enum GameLevel {
    NSString *saveGameFile;
 
    NSString *fullUserName;
-   NSString *emailAddress;
 
    BOOL displayMoveGestureStepForwardHint;
    BOOL displayMoveGestureTakebackHint;
@@ -98,7 +97,6 @@ enum GameLevel {
 @property (nonatomic, readonly) BOOL gameLevelWasChanged;
 @property (nonatomic, readonly) BOOL playStyleWasChanged;
 @property (nonatomic, retain) NSString *saveGameFile;
-@property (nonatomic, retain) NSString *emailAddress;
 @property (nonatomic, retain) NSString *fullUserName;
 @property (nonatomic, readonly) BOOL displayMoveGestureStepForwardHint;
 @property (nonatomic, readonly) BOOL displayMoveGestureTakebackHint;
