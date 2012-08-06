@@ -36,11 +36,6 @@ parentViewController:(OptionsViewController *)ovc {
                        retain];
          slotName = [@"playStyle" retain];
       }
-      else if ([optionName isEqualToString: @"Book variety"]) {
-         contents = [[NSArray arrayWithObjects: @"Low", @"Medium", @"High", nil]
-                       retain];
-         slotName = [@"bookVariety" retain];
-      }
       else if ([optionName isEqualToString: @"Piece set"]) {
          contents = [[NSArray arrayWithObjects:
                                  @"Alpha", @"Berlin", @"Cheq", @"Leipzig", @"Modern", @"USCF", @"XBoard", @"Invisible", nil]

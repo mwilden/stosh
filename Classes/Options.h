@@ -46,13 +46,10 @@ enum GameLevel {
    UIImage *darkSquareImage, *lightSquareImage;
    NSString *colorScheme;
    NSString *playStyle;
-   NSString *bookVariety;
-   BOOL bookVarietyWasChanged;
    NSString *pieceSet;
    BOOL moveSound;
    BOOL figurineNotation;
    BOOL showAnalysis;
-   BOOL showBookMoves;
    BOOL permanentBrain;
 
    GameMode gameMode;
@@ -83,13 +80,10 @@ enum GameLevel {
 @property (nonatomic, readonly) UIImage *lightSquareImage;
 @property (nonatomic, retain) NSString *colorScheme;
 @property (nonatomic, retain) NSString *playStyle;
-@property (nonatomic, retain) NSString *bookVariety;
-@property (nonatomic, readonly) BOOL bookVarietyWasChanged;
 @property (nonatomic, retain) NSString *pieceSet;
 @property (nonatomic, readwrite) BOOL moveSound;
 @property (nonatomic, readwrite) BOOL figurineNotation;
 @property (nonatomic, readwrite) BOOL showAnalysis;
-@property (nonatomic, readwrite) BOOL showBookMoves;
 @property (nonatomic, readwrite) BOOL permanentBrain;
 @property (nonatomic, assign) GameMode gameMode;
 @property (nonatomic, assign) GameLevel gameLevel;

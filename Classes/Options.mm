@@ -24,8 +24,8 @@
 @synthesize darkSquareColor, lightSquareColor, highlightColor;
 @synthesize darkSquareImage, lightSquareImage;
 @dynamic colorScheme, pieceSet, figurineNotation;
-@dynamic playStyle, bookVariety, bookVarietyWasChanged, moveSound;
-@dynamic showAnalysis, showBookMoves, permanentBrain;
+@dynamic playStyle, moveSound;
+@dynamic showAnalysis, permanentBrain;
 @dynamic gameMode, gameLevel, gameModeWasChanged, gameLevelWasChanged;
 @dynamic saveGameFile, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
@@ -42,13 +42,6 @@
       }
       else
          showAnalysis = [defaults boolForKey: @"showAnalysis2"];
-
-      if (![defaults objectForKey: @"showBookMoves2"]) {
-         showBookMoves = YES;
-         [defaults setBool: YES forKey: @"showBookMoves2"];
-      }
-      else
-         showBookMoves = [defaults boolForKey: @"showBookMoves2"];
 
       if (![defaults objectForKey: @"permanentBrain2"]) {
          permanentBrain = NO;
@@ -69,12 +62,6 @@
       if (!playStyle) {
          playStyle = [@"Active" retain];
          [defaults setObject: @"Active" forKey: @"playStyle2"];
-      }
-
-      bookVariety = [defaults objectForKey: @"bookVariety2"];
-      if (!bookVariety) {
-         bookVariety = [@"Medium" retain];
-         [defaults setObject: @"Medium" forKey: @"bookVariety2"];
       }
 
       if (![defaults objectForKey: @"moveSound"]) {
@@ -330,28 +317,6 @@
 }
 
 
-- (NSString *)bookVariety {
-   return bookVariety;
-}
-
-
-- (void)setBookVariety:(NSString *)newBookVariety {
-   [bookVariety release];
-   bookVariety = [newBookVariety retain];
-   bookVarietyWasChanged = YES;
-   [[NSUserDefaults standardUserDefaults] setObject: newBookVariety
-                                             forKey: @"bookVariety2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)bookVarietyWasChanged {
-   BOOL result = bookVarietyWasChanged;
-   bookVarietyWasChanged = NO;
-   return result;
-}
-
-
 - (BOOL)showAnalysis {
    return showAnalysis;
 }
@@ -361,19 +326,6 @@
    showAnalysis = shouldShowAnalysis;
    [[NSUserDefaults standardUserDefaults] setBool: showAnalysis
                                            forKey: @"showAnalysis2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)showBookMoves {
-   return showBookMoves;
-}
-
-
-- (void)setShowBookMoves:(BOOL)shouldShowBookMoves {
-   showBookMoves = shouldShowBookMoves;
-   [[NSUserDefaults standardUserDefaults] setBool: showBookMoves
-                                           forKey: @"showBookMoves2"];
    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -399,7 +351,6 @@
    [lightSquareImage release];
    [colorScheme release];
    [playStyle release];
-   [bookVariety release];
    [pieceSet release];
    [saveGameFile release];
    [fullUserName release];

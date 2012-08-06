@@ -37,13 +37,11 @@ using namespace Chess;
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
            analysisView:(UILabel *)av
-          bookMovesView:(UILabel *)bmv
         searchStatsView:(UILabel *)ssv {
    if (self == [super init]) {
       boardView = bv;
       moveListView = mlv;
       analysisView = av;
-      bookMovesView = bmv;
       searchStatsView = ssv;
 
       game = [[Game alloc] initWithGameController: self];
@@ -103,8 +101,6 @@ using namespace Chess;
                                   [[Options sharedOptions] strength]]];
 
    [engineController commitCommands];
-
-   [self showBookMoves];
 }
 
 
@@ -166,8 +162,6 @@ using namespace Chess;
    if ([remoteEngineController isConnected])
       [remoteEngineController sendToServer: @"n\n"];
 
-   [self showBookMoves];
-
    // Rotate board if the engine plays white:
    if (!rotated && [self computersTurnToMove])
       [self rotateBoard];
@@ -226,7 +220,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                     move_to_string(m).c_str()]];
 
       [self updateMoveList];
-      [self showBookMoves];
       [self playClickSound];
       [self gameEndTest];
       [self engineGo];
@@ -427,7 +420,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          sendToServer: [NSString stringWithFormat: @"m %s\n",
                                  move_to_string(m).c_str()]];
    [self updateMoveList];
-   [self showBookMoves];
    pendingFrom = pendingTo = SQ_NONE;
 
    // Play a click sound when the move has been made.
@@ -508,7 +500,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                  move_to_string(m).c_str()]];
 
    [self updateMoveList];
-   [self showBookMoves];
    [self playClickSound];
    [self gameEndTest];
    [self engineGo];
@@ -664,7 +655,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    }
    [self updateMoveList];
-   [self showBookMoves];
 }
 
 
@@ -713,7 +703,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
 
       [self updateMoveList];
-      [self showBookMoves];
    }
 }
 
@@ -807,7 +796,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
    }
    [self updateMoveList];
-   [self showBookMoves];
 }
 
 
@@ -856,7 +844,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
 
       [self updateMoveList];
-      [self showBookMoves];
    }
 }
 
@@ -1037,7 +1024,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                                  move_to_string(m).c_str()]];
 
    [self updateMoveList];
-   [self showBookMoves];
 }
 
 
@@ -1080,48 +1066,35 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
       if ((gameMode==GAME_MODE_COMPUTER_BLACK && [game sideToMove]==BLACK) ||
           (gameMode==GAME_MODE_COMPUTER_WHITE && [game sideToMove]==WHITE)) {
-         // Computer's turn to move.  First look for a book move.  If no book move
-         // is found, start a search.
-         Move m;
-         if ([[Options sharedOptions] strength] > 2200 ||
-             [game currentMoveIndex] < 10 ||
-             [game currentMoveIndex] < [[Options sharedOptions] strength] / 70)
-            m = [game getBookMove];
-         else
-            m = MOVE_NONE;
-         if (m != MOVE_NONE)
-            [self doEngineMove: m];
-         else {
-            // Update play style, if necessary
-            if ([[Options sharedOptions] playStyleWasChanged]) {
-               NSLog(@"play style was changed to: %@",
-                     [[Options sharedOptions] playStyle]);
-               [engineController sendCommand:
-                                    [NSString stringWithFormat:
-                                                 @"setoption name Play Style value %@",
-                                              [[Options sharedOptions] playStyle]]];
-               [engineController commitCommands];
-            }
-            // Update strength, if necessary
-            if ([[Options sharedOptions] strengthWasChanged]) {
-               [engineController sendCommand: @"setoption name Clear Hash"];
-               if ([[Options sharedOptions] strength] == 2500) // Max strength
-                  [engineController
-                     sendCommand: @"setoption name UCI_LimitStrength value false"];
-               else
-                  [engineController
-                     sendCommand: @"setoption name UCI_LimitStrength value true"];
-               [engineController sendCommand:
-                                    [NSString stringWithFormat:
-                                                 @"setoption name UCI_Elo value %d",
-                                              [[Options sharedOptions] strength]]];
-               [engineController commitCommands];
-            }
-            // Start thinking.
-            engineIsPlaying = YES;
-            if (![remoteEngineController isConnected]) {
-               [engineController sendCommand: [game uciGameString]];
-            }
+        // Update play style, if necessary
+        if ([[Options sharedOptions] playStyleWasChanged]) {
+           NSLog(@"play style was changed to: %@",
+                 [[Options sharedOptions] playStyle]);
+           [engineController sendCommand:
+                                [NSString stringWithFormat:
+                                             @"setoption name Play Style value %@",
+                                          [[Options sharedOptions] playStyle]]];
+           [engineController commitCommands];
+        }
+        // Update strength, if necessary
+        if ([[Options sharedOptions] strengthWasChanged]) {
+           [engineController sendCommand: @"setoption name Clear Hash"];
+           if ([[Options sharedOptions] strength] == 2500) // Max strength
+              [engineController
+                 sendCommand: @"setoption name UCI_LimitStrength value false"];
+           else
+              [engineController
+                 sendCommand: @"setoption name UCI_LimitStrength value true"];
+           [engineController sendCommand:
+                                [NSString stringWithFormat:
+                                             @"setoption name UCI_Elo value %d",
+                                          [[Options sharedOptions] strength]]];
+           [engineController commitCommands];
+        }
+        // Start thinking.
+        engineIsPlaying = YES;
+        if (![remoteEngineController isConnected]) {
+           [engineController sendCommand: [game uciGameString]];
          }
       }
    }
@@ -1285,7 +1258,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    [self showPiecesAnimate: YES];
    [self updateMoveList];
-   [self showBookMoves];
 
    engineIsPlaying = NO;
    [engineController abortSearch];
@@ -1313,7 +1285,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    [self showPiecesAnimate: YES];
    [moveListView setText: [game moveListString]];
-   [self showBookMoves];
 
    engineIsPlaying = NO;
    [engineController abortSearch];
@@ -1321,19 +1292,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [engineController commitCommands];
    if (gameMode == GAME_MODE_ANALYSE)
       [self engineGo];
-}
-
-
-- (void)showBookMoves {
-   if ([[Options sharedOptions] showBookMoves]) {
-      NSString *s = [game bookMovesAsString];
-      if (s)
-         [bookMovesView setText: [NSString stringWithFormat: @"  Book: %@",
-                                           [game bookMovesAsString]]];
-     [bookMovesView setText: @"  Book:"];
-   }
-   else if ([[bookMovesView text] hasPrefix: @"  Book:"])
-      [bookMovesView setText: @""];
 }
 
 

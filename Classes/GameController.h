@@ -33,7 +33,7 @@
    EngineController *engineController;
    RemoteEngineController *remoteEngineController;
    BoardView *boardView;
-   UILabel *analysisView, *bookMovesView, *searchStatsView;
+   UILabel *analysisView, *searchStatsView;
    MoveListView *moveListView;
    Game *game;
    NSMutableArray *pieceViews;
@@ -58,7 +58,6 @@
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
            analysisView:(UILabel *)av
-          bookMovesView:(UILabel *)bmv
         searchStatsView:(UILabel *)ssv;
 - (void)startEngine;
 - (void)startNewGame;
@@ -98,7 +97,6 @@
 - (void)pieceSetChanged:(NSNotification *)aNotification;
 - (void)gameFromPGNString:(NSString *)pgnString;
 - (void)gameFromFEN:(NSString *)fen;
-- (void)showBookMoves;
 - (void)changePlayStyle;
 - (void)startThinking;
 - (BOOL)engineIsThinking;

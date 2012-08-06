@@ -29,7 +29,7 @@
 
 @implementation BoardViewController
 
-@synthesize analysisView, bookMovesView, boardView, moveListView, gameController, searchStatsView;
+@synthesize analysisView, boardView, moveListView, gameController, searchStatsView;
 
 /// init
 
@@ -43,8 +43,7 @@
 
 
 /// loadView creates and lays out all the subviews of the main window: The
-/// board, the toolbar, the move list, and the small UILabels used to display
-/// the engine analysis.
+/// board, the toolbar, and the move list.
 
 - (void)loadView {
 
@@ -77,13 +76,6 @@
   [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
   [moveListView setEditable: NO];
   [contentView addSubview: moveListView];
-
-  // Book moves
-  bookMovesView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 948.0f, 752.0f, 20.0f)];
-  [bookMovesView setFont: [UIFont systemFontOfSize: 14.0]];
-  [bookMovesView setBackgroundColor: [UIColor whiteColor]];
-  [contentView addSubview: bookMovesView];
-  [bookMovesView release];
 
   // Analysis
   analysisView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
@@ -204,14 +196,12 @@
        [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
       [boardView setFrame: CGRectMake(5.0f, 49.0f, 640.0f, 640.0f)];
       [moveListView setFrame: CGRectMake(656.0f, 116.0f, 360.0f, 573.0f)];
-      [bookMovesView setFrame: CGRectMake(5.0f, 695.0f, 640.0f, 20.0f)];
       [analysisView setFrame: CGRectMake(5.0f, 721.0f, 1011.0f, 20.0f)];
       [searchStatsView setFrame: CGRectMake(656.0f, 695.0f, 360.0f, 20.0f)];
    }
    else {
       [boardView setFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
       [moveListView setFrame: CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
-      [bookMovesView setFrame: CGRectMake(8.0f, 948.0f, 752.0f, 20.0f)];
       [analysisView setFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
       [searchStatsView setFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
    }
@@ -445,8 +435,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)optionsMenuDonePressed {
    NSLog(@"options menu done");
-   if ([[Options sharedOptions] bookVarietyWasChanged])
-      [gameController showBookMoves];
    [optionsMenu dismissPopoverAnimated: YES];
    [optionsMenu release];
    optionsMenu = nil;
@@ -623,21 +611,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 - (void)hideAnalysis {
    [analysisView setText: @""];
    [searchStatsView setText: @""];
-   if ([[Options sharedOptions] showBookMoves])
-      [gameController showBookMoves];
 }
-
-
-- (void)hideBookMoves {
-   if ([[analysisView text] hasPrefix: @"  Book"])
-      [analysisView setText: @""];
-}
-
-
-- (void)showBookMoves {
-   [gameController showBookMoves];
-}
-
 
 - (void)connectToServer {
    [gameController connectToServer];

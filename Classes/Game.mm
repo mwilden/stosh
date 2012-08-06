@@ -66,8 +66,6 @@
 
       round = [[NSString alloc] initWithString: @"?"];
       result = [[NSString alloc] initWithString: @"*"];
-
-      book = [[OpeningBook alloc] init];
    }
    return self;
 }
@@ -574,21 +572,6 @@ static NSString* breakLinesInString(NSString *string) {
 }
 
 
-- (Move)getBookMove {
-   return [book pickMoveForPosition: currentPosition];
-}
-
-
-- (void)getAllBookMoves:(Move *)moveArray {
-   [book allMovesForPosition: currentPosition toArray: moveArray];
-}
-
-
-- (NSString *)bookMovesAsString {
-   return [book bookMovesAsString: currentPosition];
-}
-
-
 - (Move)moveFromString:(NSString *)string {
    return move_from_string(*currentPosition, [string UTF8String]);
 }
@@ -664,7 +647,6 @@ static NSString* breakLinesInString(NSString *string) {
 
    [startFEN release];
    [moves release];
-   [book release];
    [event release];
    [site release];
    [date release];

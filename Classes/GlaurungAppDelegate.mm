@@ -91,7 +91,6 @@ using namespace Chess;
 	[[GameController alloc] initWithBoardView: [viewController boardView]
 								 moveListView: [viewController moveListView]
 								 analysisView: [viewController analysisView]
-								bookMovesView: [viewController bookMovesView]
 							  searchStatsView: [viewController searchStatsView]];
 	
 	/* Chess init */
@@ -101,11 +100,6 @@ using namespace Chess;
 	Position::init_zobrist();
 	Position::init_piece_square_tables();
 	MovePicker::init_phase_table();
-	
-	// Make random number generation less deterministic, for book moves
-	int i = abs(get_system_time() % 10000);
-	for (int j = 0; j < i; j++)
-		genrand_int32();
 	
 	[gameController loadPieceImages];
 	[self performSelectorOnMainThread: @selector(backgroundInitFinished:)
@@ -147,9 +141,6 @@ using namespace Chess;
 	
 	if ([defaults objectForKey: @"rotateBoard"])
 		[gameController rotateBoard: [defaults boolForKey: @"rotateBoard"]];
-	
-	//[gameController startEngine];
-	[gameController showBookMoves];
 }
 
 

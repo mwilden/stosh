@@ -19,7 +19,6 @@
 #import <Foundation/Foundation.h>
 
 #import "ChessMove.h"
-#import "OpeningBook.h"
 
 #include "../Chess/position.h"
 
@@ -34,7 +33,6 @@ using namespace Chess;
    Position *currentPosition;
    NSMutableArray *moves;
    int currentMoveIndex;
-   OpeningBook *book;
 
    NSString *event;
    NSString *site;
@@ -80,9 +78,6 @@ using namespace Chess;
 - (NSString *)pgnString;
 - (NSString *)remoteEngineGameString;
 - (NSString *)uciGameString;
-- (Move)getBookMove;
-- (void)getAllBookMoves:(Move *)moveArray;
-- (NSString *)bookMovesAsString;
 - (Move)moveFromString:(NSString *)string;
 - (BOOL)positionIsMate;
 - (BOOL)positionIsDraw;

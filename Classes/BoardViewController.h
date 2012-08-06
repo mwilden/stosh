@@ -28,7 +28,6 @@
    RootView *rootView;
    UIView *contentView;
    UILabel *analysisView;
-   UILabel *bookMovesView;
    BoardView *boardView;
    UILabel *searchStatsView;
    MoveListView *moveListView;
@@ -42,7 +41,6 @@
 }
 
 @property (nonatomic, readonly) UILabel *analysisView;
-@property (nonatomic, readonly) UILabel *bookMovesView;
 @property (nonatomic, readonly) BoardView *boardView;
 @property (nonatomic, readonly) MoveListView *moveListView;
 @property (nonatomic, readonly) UILabel *searchStatsView;
@@ -66,8 +64,6 @@
 - (void)loadMenuDonePressedWithGame:(NSString *)gameString;
 - (void)stopActivityIndicator;
 - (void)hideAnalysis;
-- (void)hideBookMoves;
-- (void)showBookMoves;
 - (void)connectToServer;
 - (void)disconnectFromServer;
 - (BOOL)isConnectedToServer;

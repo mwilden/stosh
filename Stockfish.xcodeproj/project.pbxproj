@@ -180,7 +180,6 @@
 		1796FF6611D3921A0074E5B7 /* LevelViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1F11D3921A0074E5B7 /* LevelViewController.mm */; };
 		1796FF6711D3921A0074E5B7 /* LoadFileListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */; };
 		1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2311D3921A0074E5B7 /* MoveListView.mm */; };
-		1796FF6911D3921A0074E5B7 /* OpeningBook.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2511D3921A0074E5B7 /* OpeningBook.mm */; };
 		1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2711D3921A0074E5B7 /* Options.mm */; };
 		1796FF6B11D3921A0074E5B7 /* OptionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2911D3921A0074E5B7 /* OptionsViewController.mm */; };
 		1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2B11D3921A0074E5B7 /* PGN.mm */; };
@@ -375,7 +374,7 @@
 		17D24075127DEB4B0018E053 /* ModernWPawn@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 17D24069127DEB4B0018E053 /* ModernWPawn@2x.tiff */; };
 		17D24076127DEB4B0018E053 /* ModernWQueen@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 17D2406A127DEB4B0018E053 /* ModernWQueen@2x.tiff */; };
 		17D24077127DEB4B0018E053 /* ModernWRook@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 17D2406B127DEB4B0018E053 /* ModernWRook@2x.tiff */; };
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
@@ -571,8 +570,6 @@
 		1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoadFileListController.mm; sourceTree = "<group>"; };
 		1796FF2211D3921A0074E5B7 /* MoveListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveListView.h; sourceTree = "<group>"; };
 		1796FF2311D3921A0074E5B7 /* MoveListView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoveListView.mm; sourceTree = "<group>"; };
-		1796FF2411D3921A0074E5B7 /* OpeningBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeningBook.h; sourceTree = "<group>"; };
-		1796FF2511D3921A0074E5B7 /* OpeningBook.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpeningBook.mm; sourceTree = "<group>"; };
 		1796FF2611D3921A0074E5B7 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
 		1796FF2711D3921A0074E5B7 /* Options.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Options.mm; sourceTree = "<group>"; };
 		1796FF2811D3921A0074E5B7 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
@@ -918,8 +915,6 @@
 				1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */,
 				1796FF2211D3921A0074E5B7 /* MoveListView.h */,
 				1796FF2311D3921A0074E5B7 /* MoveListView.mm */,
-				1796FF2411D3921A0074E5B7 /* OpeningBook.h */,
-				1796FF2511D3921A0074E5B7 /* OpeningBook.mm */,
 				1796FF2611D3921A0074E5B7 /* Options.h */,
 				1796FF2711D3921A0074E5B7 /* Options.mm */,
 				1796FF2811D3921A0074E5B7 /* OptionsViewController.h */,
@@ -1838,7 +1833,6 @@
 				1796FF6611D3921A0074E5B7 /* LevelViewController.mm in Sources */,
 				1796FF6711D3921A0074E5B7 /* LoadFileListController.mm in Sources */,
 				1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */,
-				1796FF6911D3921A0074E5B7 /* OpeningBook.mm in Sources */,
 				1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */,
 				1796FF6B11D3921A0074E5B7 /* OptionsViewController.mm in Sources */,
 				1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */,

@@ -24,8 +24,6 @@
 #import "RemoteEngineTableController.h"
 #import "SimpleOptionTableController.h"
 #import "StrengthOptionController.h"
-//#import "TextChoiceCell.h"
-
 
 @implementation OptionsViewController
 
@@ -81,16 +79,6 @@
    NSInteger row = [indexPath row];
    NSInteger section = [indexPath section];
 
-#if 0
-   TextChoiceCell *cell =
-      (TextChoiceCell *)[tableView dequeueReusableCellWithIdentifier:
-                                      nil/*@"any-cell"*/];
-   if (cell == nil)
-      cell = [[[TextChoiceCell alloc] initWithFrame: CGRectZero
-                                    reuseIdentifier: nil/*@"any-cell"*/
-                                     nameLabelWidth: 160.0f]
-                autorelease];
-#endif
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: nil];
    if (cell == nil)
       cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
@@ -104,15 +92,6 @@
          sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
          [sw setOn: [[Options sharedOptions] showAnalysis] animated: NO];
          [sw addTarget: self action: @selector(toggleShowAnalysis:)
-             forControlEvents:UIControlEventValueChanged];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
-      else if (row == 1) {
-         [[cell textLabel] setText: @"Show book moves"];
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] showBookMoves] animated: NO];
-         [sw addTarget: self action: @selector(toggleShowBookMoves:)
              forControlEvents:UIControlEventValueChanged];
          [cell setAccessoryView: sw];
          [sw release];
@@ -138,23 +117,12 @@
             //[cell setValueText: [[Options sharedOptions] playStyle]];
          }
          else if (row == 2) {
-            [[cell textLabel] setText: @"Book variety"];
-            [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-            [[cell detailTextLabel] setText: [[Options sharedOptions] bookVariety]];
-            //[cell setValueText: [[Options sharedOptions] bookVariety]];
-         }
-         else if (row == 3) {
             [[cell textLabel] setText: @"Strength"];
             [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
             [[cell detailTextLabel]
                setText: [NSString stringWithFormat: @"%d",
                                   [[Options sharedOptions] strength]]];
-            /*
-              [cell setValueText: [NSString stringWithFormat: @"%d",
-              [[Options sharedOptions] strength]]];
-            */
-         }
-         else if (row == 4) {
+         } else {
             [[cell textLabel] setText: @"Remote engine"];
             [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
             if ([boardViewController isConnectedToServer])
@@ -248,15 +216,6 @@
          [sotc release];
       }
       else if (row == 2) {
-         // Book variety
-         sotc = [[SimpleOptionTableController alloc]
-                   initWithOption: @"Book variety"
-                   parentViewController: self];
-         [[self navigationController] pushViewController: sotc
-                                                animated: YES];
-         [sotc release];
-      }
-      else if (row == 3) {
          // Strength
          StrengthOptionController *soc;
          soc = [[StrengthOptionController alloc]
@@ -324,14 +283,6 @@
    [[Options sharedOptions] setShowAnalysis: [sender isOn]];
    if (![sender isOn])
       [boardViewController hideAnalysis];
-}
-
-- (void)toggleShowBookMoves:(id)sender {
-   [[Options sharedOptions] setShowBookMoves: [sender isOn]];
-   if ([sender isOn])
-      [boardViewController showBookMoves];
-   else
-      [boardViewController hideBookMoves];
 }
 
 - (void)togglePermanentBrain:(id)sender {
