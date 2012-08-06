@@ -285,14 +285,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       case 3: // Step forward all
          [gameController replayAllMoves];
          break;
-      case 4: // Move now
-         if ([gameController computersTurnToMove]) {
-            if ([gameController engineIsThinking])
-               [gameController engineMoveNow];
-            else
-               [gameController engineGo];
-         }
-         break;
       case 5:
          break;
       default:

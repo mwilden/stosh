@@ -23,13 +23,11 @@
 #import "Game.h"
 #import "Options.h"
 
-@class EngineController;
 @class LastMoveView;
 @class MoveListView;
 @class PieceImageView;
 
 @interface GameController : NSObject <UIActionSheetDelegate> {
-   EngineController *engineController;
    BoardView *boardView;
    MoveListView *moveListView;
    Game *game;
@@ -39,9 +37,6 @@
    BOOL rotated;
    SystemSoundID clickSound;
    NSTimer *timer;
-   Move ponderMove;
-   BOOL engineIsPlaying;
-   BOOL isPondering;
    LastMoveView *lastMoveView;
 }
 
@@ -50,7 +45,6 @@
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv;
-- (void)startEngine;
 - (void)startNewGame;
 - (void)updateMoveList;
 - (BOOL)moveIsPending;
@@ -72,19 +66,11 @@
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
 - (void)playClickSound;
-- (void)doEngineMove:(Move)m;
-- (void)engineGo;
-- (void)engineMadeMove:(NSArray *)array;
-- (BOOL)usersTurnToMove;
-- (BOOL)computersTurnToMove;
-- (void)engineMoveNow;
 - (void)gameEndTest;
 - (void)loadPieceImages;
 - (void)pieceSetChanged:(NSNotification *)aNotification;
 - (void)gameFromPGNString:(NSString *)pgnString;
 - (void)gameFromFEN:(NSString *)fen;
-- (void)changePlayStyle;
-- (BOOL)engineIsThinking;
 - (void)piecesSetUserInteractionEnabled:(BOOL)enable;
 - (void)redrawPieces;
 

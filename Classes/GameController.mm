@@ -16,7 +16,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#import "EngineController.h"
 #import "GameController.h"
 #import "LastMoveView.h"
 #import "MoveListView.h"
@@ -41,7 +40,6 @@ using namespace Chess;
       pendingFrom = SQ_NONE;
       pendingTo = SQ_NONE;
       rotated = NO;
-      engineIsPlaying = NO;
 
       [[NSNotificationCenter defaultCenter]
          addObserver: self
@@ -55,40 +53,8 @@ using namespace Chess;
                                               inDirectory: @"/"];
       CFURLRef baseURL = (CFURLRef)[[NSURL alloc] initFileURLWithPath: sndpath];
       AudioServicesCreateSystemSoundID(baseURL, &clickSound);
-
-      engineController = nil;
-      isPondering = NO;
    }
    return self;
-}
-
-
-- (void)startEngine {
-   engineController = [[EngineController alloc] initWithGameController: self];
-   [engineController sendCommand: @"uci"];
-   [engineController sendCommand: @"isready"];
-   [engineController sendCommand: @"ucinewgame"];
-   [engineController sendCommand:
-                        [NSString stringWithFormat:
-                                     @"setoption name Play Style value %@",
-                                  [[Options sharedOptions] playStyle]]];
-   if ([[Options sharedOptions] permanentBrain])
-      [engineController sendCommand: @"setoption name Ponder value true"];
-   else
-      [engineController sendCommand: @"setoption name Ponder value false"];
-
-   if ([[Options sharedOptions] strength] == 2500) // Max strength
-      [engineController
-         sendCommand: @"setoption name UCI_LimitStrength value false"];
-   else
-      [engineController
-         sendCommand: @"setoption name UCI_LimitStrength value true"];
-   [engineController sendCommand:
-                        [NSString stringWithFormat:
-                                     @"setoption name UCI_Elo value %d",
-                                  [[Options sharedOptions] strength]]];
-
-   [engineController commitCommands];
 }
 
 
@@ -126,27 +92,6 @@ using namespace Chess;
 
    [moveListView setText: @""];
    [self showPieces];
-   engineIsPlaying = NO;
-   [engineController abortSearch];
-   [engineController sendCommand: @"ucinewgame"];
-   [engineController sendCommand:
-                        [NSString stringWithFormat:
-                                     @"setoption name Play Style value %@",
-                                  [[Options sharedOptions] playStyle]]];
-
-   if ([[Options sharedOptions] strength] == 2500) // Max strength
-      [engineController
-         sendCommand: @"setoption name UCI_LimitStrength value false"];
-   else
-      [engineController
-         sendCommand: @"setoption name UCI_LimitStrength value true"];
-
-   [engineController commitCommands];
-
-   // Rotate board if the engine plays white:
-   if (!rotated && [self computersTurnToMove])
-      [self rotateBoard];
-   [self engineGo];
 }
 
 
@@ -198,7 +143,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [self updateMoveList];
       [self playClickSound];
       [self gameEndTest];
-      [self engineGo];
    }
 }
 
@@ -399,10 +343,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    // Game over?
    [self gameEndTest];
-
-   // HACK to handle promotions
-   if (prom)
-      [self engineGo];
 }
 
 
@@ -466,7 +406,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [self updateMoveList];
    [self playClickSound];
    [self gameEndTest];
-   [self engineGo];
 }
 
 
@@ -530,13 +469,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       Square from = move_from([cm move]), to = move_to([cm move]);
       UndoInfo ui = [cm undoInfo];
 
-      // If the engine is pondering, stop it before unmaking the move.
-      if (isPondering) {
-         NSLog(@"pondermiss because of take back");
-         [engineController pondermiss];
-         isPondering = NO;
-      }
-
       // HACK: Castling. Stockfish internally encodes castling moves as "king
       // captures rook", which means that the "to" square does not contain the
       // king's current square on the board. Adjust the "to" square, and check
@@ -587,13 +519,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       // Don't show the last move played any more:
       [boardView hideLastMove];
 
-      // Stop engine:
-      if ([self computersTurnToMove]) {
-         engineIsPlaying = NO;
-         [engineController abortSearch];
-         [engineController commitCommands];
-      }
-
       // Update the game:
       [game takeBack];
    }
@@ -618,15 +543,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       pieceViews = [[NSMutableArray alloc] init];
       [self showPieces];
 
-      // Stop engine:
-      if ([self computersTurnToMove]) {
-         engineIsPlaying = NO;
-         [engineController abortSearch];
-         [engineController commitCommands];
-      }
-
-      // If in analyse mode, send new position to engine, and tell it to start
-      // thinking:
       [self updateMoveList];
    }
 }
@@ -721,13 +637,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       pieceViews = [[NSMutableArray alloc] init];
       [self showPieces];
 
-      // Stop engine:
-      if ([self computersTurnToMove]) {
-         engineIsPlaying = NO;
-         [engineController abortSearch];
-         [engineController commitCommands];
-      }
-
       [self updateMoveList];
    }
 }
@@ -787,84 +696,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 - (void)playClickSound {
    if ([[Options sharedOptions] moveSound])
       AudioServicesPlaySystemSound(clickSound);
-}
-
-- (void)doEngineMove:(Move)m {
-   Square to = move_to(m);
-   if (move_is_long_castle(m)) to += 2;
-   else if (move_is_short_castle(m)) to -= 1;
-   [boardView showLastMoveWithFrom: [self rotateSquare: move_from(m)]
-                                to: [self rotateSquare: to]];
-
-   [self animateMove: m];
-   [game doMove: m];
-
-   [self updateMoveList];
-}
-
-
-/// engineGo is called directly after the user has made a move.  It checks
-/// the game mode, and sends a UCI "go" command to the engine if necessary.
-
-- (void)engineGo {
-   if (!engineController)
-      [self startEngine];
-
-   if (![game positionIsTerminal]) {
-      if (isPondering) {
-         if ([game currentMove] == ponderMove) {
-            [engineController ponderhit];
-            isPondering = NO;
-            return;
-         }
-         else {
-            NSLog(@"REAL pondermiss");
-            [engineController pondermiss];
-            while ([engineController engineIsThinking]);
-         }
-         isPondering = NO;
-      }
-   }
-}
-
-
-/// engineMadeMove: is called by the engine controller whenever the engine
-/// makes a move.  The input is an NSArray which is assumed to consist of two
-/// NSStrings, representing a move and a ponder move.  The reason we stuff the
-/// move strings into an array is that the method is called from another thread,
-/// using the performSelectorOnMainThread:withObject:waitUntilDone: method,
-/// and this method can only pass a single argument to the selector.
-
-- (void)engineMadeMove:(NSArray *)array {
-   assert([array count] <= 2);
-   Move m = [game moveFromString: [array objectAtIndex: 0]];
-   assert(m != MOVE_NONE);
-   if (engineIsPlaying) {
-      [self doEngineMove: m];
-      [self playClickSound];
-      if ([array count] == 2) {
-         ponderMove = [game moveFromString: [array objectAtIndex: 1]];
-      }
-      [self gameEndTest];
-   }
-}
-
-
-- (BOOL)usersTurnToMove {
-    return true;
-}
-
-
-- (BOOL)computersTurnToMove {
-   return ![self usersTurnToMove];
-}
-
-
-- (void)engineMoveNow {
-   if ([self computersTurnToMove]) {
-     [engineController abortSearch];
-     [engineController commitCommands];
-   }
 }
 
 
@@ -948,11 +779,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    [self showPieces];
    [self updateMoveList];
-
-   engineIsPlaying = NO;
-   [engineController abortSearch];
-   [engineController sendCommand: @"ucinewgame"];
-   [engineController commitCommands];
 }
 
 
@@ -969,20 +795,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    [self showPieces];
    [moveListView setText: [game moveListString]];
-
-   engineIsPlaying = NO;
-   [engineController abortSearch];
-   [engineController sendCommand: @"ucinewgame"];
-   [engineController commitCommands];
-}
-
-
-- (void)changePlayStyle {
-}
-
-
-- (BOOL)engineIsThinking {
-   return [engineController engineIsThinking];
 }
 
 
@@ -1005,17 +817,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)dealloc {
    NSLog(@"GameController dealloc");
-   [engineController quit];
    [game release];
-   [pieceViews release]; // Should we remove them from superview first??
+   [pieceViews release];
    for (Piece p = WP; p <= BK; p++)
       [pieceImages[p] release];
-   [engineController release];
 
    [[NSNotificationCenter defaultCenter] removeObserver: self];
    AudioServicesDisposeSystemSoundID(clickSound);
-
-   //while ([engineController engineThreadIsRunning]);
 
    [super dealloc];
 }

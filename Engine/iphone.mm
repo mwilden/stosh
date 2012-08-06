@@ -2,7 +2,6 @@
 //// Includes
 ////
 
-#import "EngineController.h"
 #import "PGN.h"
 
 #include <iomanip>
@@ -30,10 +29,6 @@ void engine_init() {
 }
 
 void pv_to_ui(const string &pv) {
-  [GlobalEngineController performSelectorOnMainThread: @selector(sendPV:)
-                          withObject:
-                            [NSString stringWithUTF8String: pv.c_str()]
-                          waitUntilDone: NO];
 }
 
 void currmove_to_ui(const string currmove, int currmovenum, int movenum) {
@@ -51,17 +46,9 @@ void searchstats_to_ui(int depth, int64_t nodes, int time) {
   if(time > 0)
     s << std::setiosflags(std::ios::fixed) << std::setprecision(1)
       << "  " <<  (nodes*1.0) / time << "kN/s";
-  [GlobalEngineController performSelectorOnMainThread:
-                            @selector(sendSearchStats:)
-                          withObject:
-                            [NSString stringWithUTF8String: s.str().c_str()]
-                          waitUntilDone: NO];
 }
 
 void bestmove_to_ui(const string &best, const string &ponder) {
-  [GlobalEngineController
-    sendBestMove: [NSString stringWithUTF8String: best.c_str()]
-    ponderMove: [NSString stringWithUTF8String: ponder.c_str()]];
 }
 
 void command_to_engine(const string &command) {
@@ -69,11 +56,11 @@ void command_to_engine(const string &command) {
 }
 
 bool command_is_waiting() {
-  return [GlobalEngineController commandIsWaiting];
+    return false;
 }
 
 string get_command() {
-  return string([[GlobalEngineController getCommand] UTF8String]);
+  return "";
 }
 
 string kpk_bitbase_filename() {

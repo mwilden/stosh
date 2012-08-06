@@ -131,8 +131,7 @@
       [boardView touchesBegan: touches withEvent: event];
    else {
       [boardView hideLastMove];
-      if ([gameController usersTurnToMove] &&
-          [gameController destinationSquaresFrom: square saveInArray: sqs]) {
+      if ([gameController destinationSquaresFrom: square saveInArray: sqs]) {
          // Messaging the board view directly from here is perhaps not entirely
          // kosher.  Perhaps we should communicate with the board view using
          // the game controller?
@@ -202,7 +201,6 @@
                           promotion: NO_PIECE_TYPE];
          if (![gameController moveIsPending]) { // HACK to handle promotions
             square = releasedSquare;
-            [gameController engineGo];
          }
       }
       else {
