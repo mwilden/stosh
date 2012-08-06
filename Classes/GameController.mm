@@ -122,7 +122,6 @@ using namespace Chess;
    [game release];
 
    [boardView hideLastMove];
-   [boardView stopHighlighting];
 
    for (PieceImageView *piv in pieceViews)
       [piv removeFromSuperview];
@@ -632,7 +631,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Don't show the last move played any more:
       [boardView hideLastMove];
-      [boardView stopHighlighting];
 
       // Stop engine:
       if ([self computersTurnToMove]) {
@@ -674,7 +672,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    if (![game atBeginning]) {
 
       [boardView hideLastMove];
-      [boardView stopHighlighting];
 
       // Release piece images
       for (PieceImageView *piv in pieceViews)
@@ -788,7 +785,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Don't show the last move played any more:
       [boardView hideLastMove];
-      [boardView stopHighlighting];
 
       // Update remote engine:
       if ([remoteEngineController isConnected]) {
@@ -819,7 +815,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    if (![game atEnd]) {
 
       [boardView hideLastMove];
-      [boardView stopHighlighting];
 
       // Release piece images
       for (PieceImageView *piv in pieceViews)
@@ -919,7 +914,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    for (PieceImageView *piv in pieceViews)
       [piv moveToSquare: Square(SQ_H8 - [piv square])];
    [boardView hideLastMove];
-   [boardView stopHighlighting];
 }
 
 
