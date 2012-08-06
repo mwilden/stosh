@@ -246,23 +246,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    else if (actionSheet == moveMenu || [title isEqualToString: @"Move"]) {
       switch(buttonIndex) {
       case 0: // Take back
-         if ([[Options sharedOptions] displayMoveGestureTakebackHint])
-            [[[[UIAlertView alloc] initWithTitle: @"Hint:"
-                                         message: (@"You can also take back moves by swiping your finger from right to left in the move list window.")
-                                        delegate: self
-                               cancelButtonTitle: nil
-                               otherButtonTitles: @"OK", nil] autorelease]
-               show];
          [gameController takeBackMove];
          break;
       case 1: // Step forward
-         if ([[Options sharedOptions] displayMoveGestureStepForwardHint])
-            [[[[UIAlertView alloc] initWithTitle: @"Hint:"
-                                         message: (@"You can also step forward in the game by swiping your finger from left to right in the move list window.")
-                                        delegate: self
-                               cancelButtonTitle: nil
-                               otherButtonTitles: @"OK", nil] autorelease]
-               show];
          [gameController replayMove];
          break;
       case 2: // Take back all

@@ -83,23 +83,7 @@
    string = [string stringByReplacingOccurrencesOfString: @"-"
                                               withString: s];
 
-   if ([[Options sharedOptions] figurineNotation]) {
-      NSString *pc[6] = { @"K", @"Q", @"R", @"B", @"N" };
-      int i;
-      for (i = 0, c = 0x2654; i < 5; i++, c++) {
-         s = [NSString stringWithCharacters: &c length: 1];
-         string = [string stringByReplacingOccurrencesOfString: pc[i]
-                                                    withString: s];
-      }
-   }
    [super setText: string];
-}
-
-
-/// Clean up.
-
-- (void)dealloc {
-   [super dealloc];
 }
 
 

@@ -46,13 +46,6 @@ using namespace Chess;
             selector: @selector(pieceSetChanged:)
                 name: @"StockfishPieceSetChanged"
               object: nil];
-
-      // Load sounds (only a click sound for now):
-      id sndpath = [[NSBundle mainBundle] pathForResource: @"Click"
-                                                   ofType: @"wav"
-                                              inDirectory: @"/"];
-      CFURLRef baseURL = (CFURLRef)[[NSURL alloc] initFileURLWithPath: sndpath];
-      AudioServicesCreateSystemSoundID(baseURL, &clickSound);
    }
    return self;
 }
@@ -79,12 +72,8 @@ using namespace Chess;
 
    game = [[Game alloc] initWithGameController: self];
 
-   [game setWhitePlayer:
-            ((false)?
-             [[[Options sharedOptions] fullUserName] copy] : ENGINE_NAME)];
-   [game setBlackPlayer:
-            ((false)?
-             ENGINE_NAME : [[[Options sharedOptions] fullUserName] copy])];
+    [game setWhitePlayer: @"White"];
+    [game setBlackPlayer: @"Black"];
 
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
@@ -141,7 +130,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [game doMove: m];
 
       [self updateMoveList];
-      [self playClickSound];
       [self gameEndTest];
    }
 }
@@ -338,10 +326,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [self updateMoveList];
    pendingFrom = pendingTo = SQ_NONE;
 
-   // Play a click sound when the move has been made.
-   [self playClickSound];
-
-   // Game over?
    [self gameEndTest];
 }
 
@@ -404,7 +388,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [game doMove: m];
 
    [self updateMoveList];
-   [self playClickSound];
    [self gameEndTest];
 }
 
@@ -693,12 +676,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-- (void)playClickSound {
-   if ([[Options sharedOptions] moveSound])
-      AudioServicesPlaySystemSound(clickSound);
-}
-
-
 - (void)gameEndTest {
    if ([game positionIsMate]) {
       [[[[UIAlertView alloc] initWithTitle: (([game sideToMove] == WHITE)?
@@ -823,7 +800,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [pieceImages[p] release];
 
    [[NSNotificationCenter defaultCenter] removeObserver: self];
-   AudioServicesDisposeSystemSoundID(clickSound);
 
    [super dealloc];
 }

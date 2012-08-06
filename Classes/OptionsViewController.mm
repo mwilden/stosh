@@ -20,7 +20,6 @@
 #import "BoardViewController.h"
 #import "Options.h"
 #import "OptionsViewController.h"
-#import "SimpleOptionTableController.h"
 
 @implementation OptionsViewController
 
@@ -82,77 +81,7 @@
                                      reuseIdentifier: nil]
                 autorelease];
 
-   if (section == 1) {
-      if (row == 0) {
-         UISwitch *sw;
-         [[cell textLabel] setText: @"Permanent brain"];
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] permanentBrain] animated: NO];
-         [sw addTarget: self action: @selector(togglePermanentBrain:)
-             forControlEvents:UIControlEventValueChanged];
-         [sw setEnabled: YES];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
-      else {
-         if (row == 1) {
-            [[cell textLabel] setText: @"Play style"];
-            [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-            [[cell detailTextLabel] setText: [[Options sharedOptions] playStyle]];
-            //[cell setValueText: [[Options sharedOptions] playStyle]];
-         }
-         else if (row == 2) {
-            [[cell textLabel] setText: @"Strength"];
-            [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-            [[cell detailTextLabel]
-               setText: [NSString stringWithFormat: @"%d",
-                                  [[Options sharedOptions] strength]]];
-         }
-      }
-   }
-   else if (section == 2) {
-      if (row == 0) {
-         [[cell textLabel] setText: @"Piece set"];
-         [[cell detailTextLabel] setText: [[Options sharedOptions] pieceSet]];
-         //[cell setValueText: [[Options sharedOptions] pieceSet]];
-         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-      }
-      else if (row == 1) {
-         [[cell textLabel] setText: @"Color scheme"];
-         [[cell detailTextLabel] setText: [[Options sharedOptions] colorScheme]];
-         //[cell setValueText: [[Options sharedOptions] colorScheme]];
-         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-      }
-      else if (row == 2) {
-         [[cell textLabel] setText: @"Sound"];
-         UISwitch *sw;
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] moveSound]];
-         [sw addTarget: self action: @selector(toggleSound:)
-             forControlEvents: UIControlEventValueChanged];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
-      else if (row == 3) {
-         [[cell textLabel] setText: @"Figurine notation"];
-         UISwitch *sw;
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] figurineNotation] animated: NO];
-         [sw addTarget: self action: @selector(toggleFigurines:)
-             forControlEvents: UIControlEventValueChanged];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
-   }
-   else if (section == 3) {
-      if (row == 0) {
-         [[cell textLabel] setText: @"Your name"];
-         [[cell detailTextLabel] setText: [[Options sharedOptions] fullUserName]];
-         //[cell setValueText: [[Options sharedOptions] fullUserName]];
-         [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-      }
-   }
-   else if (section == 4) {
+   if (section == 4) {
       if (row == 0) {
          [[cell textLabel] setText: @"About/Help"];
          [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
@@ -164,91 +93,5 @@
    }
    return cell;
 }
-
-
-- (void)deselect {
-   [[self tableView] deselectRowAtIndexPath:
-                        [[self tableView] indexPathForSelectedRow]
-                                   animated: YES];
-}
-
-
-- (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath:
-   (NSIndexPath *)newIndexPath {
-   int row = [newIndexPath row];
-   int section = [newIndexPath section];
-   NSLog(@"section %d, row %d", section, row);
-
-   [self performSelector: @selector(deselect:) withObject: tableView
-              afterDelay: 0.1f];
-
-   SimpleOptionTableController *sotc;
-   if (section == 1) {
-      if (row == 1) {
-         // Play style
-         sotc = [[SimpleOptionTableController alloc]
-                   initWithOption: @"Play style"
-                   parentViewController: self];
-         [[self navigationController] pushViewController: sotc
-                                                animated: YES];
-         [sotc release];
-      }
-   }
-   else if (section == 2) {
-      if (row == 0) {
-         // Piece set
-         sotc = [[SimpleOptionTableController alloc]
-                   initWithOption: @"Piece set"
-                   parentViewController: self];
-         [[self navigationController] pushViewController: sotc
-                                                animated: YES];
-         [sotc release];
-      }
-      else if (row == 1) {
-         // Color scheme
-         sotc = [[SimpleOptionTableController alloc]
-                   initWithOption: @"Color scheme"
-                   parentViewController: self];
-         [[self navigationController] pushViewController: sotc
-                                                animated: YES];
-         [sotc release];
-      }
-   }
-   else if (section == 4) {
-      if (row == 0) {
-         AboutController *ac = [[AboutController alloc] init];
-         [[self navigationController] pushViewController: ac animated: YES];
-         [ac release];
-      }
-   }
-}
-
-
-- (void)deselect:(UITableView *)tableView {
-   [tableView deselectRowAtIndexPath: [tableView indexPathForSelectedRow]
-                            animated: YES];
-}
-
-
-- (void)togglePermanentBrain:(id)sender {
-   [[Options sharedOptions] setPermanentBrain: [sender isOn]];
-}
-
-- (void)toggleFigurines:(id)sender {
-   [[Options sharedOptions] setFigurineNotation: [sender isOn]];
-}
-
-- (void)toggleSound:(id)sender {
-   [[Options sharedOptions] setMoveSound: [sender isOn]];
-}
-
-- (void)updateTableCells {
-   [[self tableView] reloadData];
-}
-
-- (void)dealloc {
-   [super dealloc];
-}
-
 
 @end

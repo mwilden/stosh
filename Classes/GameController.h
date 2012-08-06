@@ -35,7 +35,6 @@
    UIImage *pieceImages[16];
    Square pendingFrom, pendingTo; // HACK for handling promotions.
    BOOL rotated;
-   SystemSoundID clickSound;
    NSTimer *timer;
    LastMoveView *lastMoveView;
 }
@@ -65,7 +64,6 @@
 - (PieceImageView *)pieceImageViewForSquare:(Square)sq;
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
-- (void)playClickSound;
 - (void)gameEndTest;
 - (void)loadPieceImages;
 - (void)pieceSetChanged:(NSNotification *)aNotification;

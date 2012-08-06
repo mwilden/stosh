@@ -22,23 +22,7 @@
    UIColor *darkSquareColor, *lightSquareColor, *highlightColor;
    UIImage *darkSquareImage, *lightSquareImage;
    NSString *colorScheme;
-   NSString *playStyle;
    NSString *pieceSet;
-   BOOL moveSound;
-   BOOL figurineNotation;
-   BOOL permanentBrain;
-
-   BOOL playStyleWasChanged;
-   BOOL strengthWasChanged;
-
-   NSString *saveGameFile;
-
-   NSString *fullUserName;
-
-   BOOL displayMoveGestureStepForwardHint;
-   BOOL displayMoveGestureTakebackHint;
-
-   int strength;
 }
 
 @property (nonatomic, readonly) UIColor *darkSquareColor;
@@ -47,18 +31,7 @@
 @property (nonatomic, readonly) UIImage *darkSquareImage;
 @property (nonatomic, readonly) UIImage *lightSquareImage;
 @property (nonatomic, retain) NSString *colorScheme;
-@property (nonatomic, retain) NSString *playStyle;
 @property (nonatomic, retain) NSString *pieceSet;
-@property (nonatomic, readwrite) BOOL moveSound;
-@property (nonatomic, readwrite) BOOL figurineNotation;
-@property (nonatomic, readwrite) BOOL permanentBrain;
-@property (nonatomic, readonly) BOOL playStyleWasChanged;
-@property (nonatomic, retain) NSString *saveGameFile;
-@property (nonatomic, retain) NSString *fullUserName;
-@property (nonatomic, readonly) BOOL displayMoveGestureStepForwardHint;
-@property (nonatomic, readonly) BOOL displayMoveGestureTakebackHint;
-@property (nonatomic, assign) int strength;
-@property (nonatomic, readonly) BOOL strengthWasChanged;
 
 + (Options *)sharedOptions;
 

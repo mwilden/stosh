@@ -44,16 +44,9 @@
       moves = [[NSMutableArray alloc] init];
       currentMoveIndex = 0;
 
-      if (currentPosition->side_to_move() == WHITE) {
-         whitePlayer = [[[Options sharedOptions] fullUserName] copy];
-         blackPlayer = [[NSString alloc] initWithString: ENGINE_NAME];
-      }
-      else {
-         whitePlayer = [[NSString alloc] initWithString: ENGINE_NAME];
-         blackPlayer = [[[Options sharedOptions] fullUserName] copy];
-      }
+      whitePlayer = @"White";
+      blackPlayer = @"Black";
       event = [[NSString alloc] initWithString: @"?"];
-      // TODO: Decide site by using GPS?
       site = [[NSString alloc] initWithString: @"?"];
 
       // TODO: Correct date format.

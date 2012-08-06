@@ -23,23 +23,11 @@
 
 @synthesize darkSquareColor, lightSquareColor, highlightColor;
 @synthesize darkSquareImage, lightSquareImage;
-@dynamic colorScheme, pieceSet, figurineNotation;
-@dynamic playStyle, moveSound;
-@dynamic permanentBrain;
-@dynamic saveGameFile, fullUserName;
-@dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
-@dynamic playStyleWasChanged, strength, strengthWasChanged;
+@dynamic colorScheme, pieceSet;
 
 - (id)init {
    if (self = [super init]) {
       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-      if (![defaults objectForKey: @"permanentBrain2"]) {
-         permanentBrain = NO;
-         [defaults setBool: NO forKey: @"permanentBrain2"];
-      }
-      else
-         permanentBrain = [defaults boolForKey: @"permanentBrain2"];
 
       pieceSet = [defaults objectForKey: @"pieceSet3"];
       if (!pieceSet) {
@@ -49,26 +37,6 @@
          [defaults setObject: @"Alpha" forKey: @"pieceSet3"];
       }
 
-      playStyle = [defaults objectForKey: @"playStyle2"];
-      if (!playStyle) {
-         playStyle = [@"Active" retain];
-         [defaults setObject: @"Active" forKey: @"playStyle2"];
-      }
-
-      if (![defaults objectForKey: @"moveSound"]) {
-         moveSound = YES;
-         [defaults setBool: YES forKey: @"moveSound"];
-      }
-      else
-         moveSound = [defaults boolForKey: @"moveSound"];
-
-      if (![defaults objectForKey: @"figurineNotation2"]) {
-         figurineNotation = NO;
-         [defaults setBool: NO forKey: @"figurineNotation2"];
-      }
-      else
-         figurineNotation = [defaults boolForKey: @"figurineNotation2"];
-
       colorScheme = [defaults objectForKey: @"colorScheme3"];
       if (!colorScheme) {
          colorScheme = [@"Green" retain];
@@ -76,49 +44,6 @@
       }
       darkSquareColor = lightSquareColor = highlightColor = nil;
       [self updateColors];
-
-      playStyleWasChanged = NO;
-      strengthWasChanged = NO;
-
-      saveGameFile = [defaults objectForKey: @"saveGameFile2"];
-      if (!saveGameFile) {
-         saveGameFile = [@"My games.pgn" retain];
-         [defaults setObject: @"My Games.pgn" forKey: @"saveGameFile2"];
-      }
-
-      fullUserName = [defaults objectForKey: @"fullUserName2"];
-      if (!fullUserName) {
-         fullUserName = [@"Me" retain];
-         [defaults setObject: @"Me" forKey: @"fullUserName2"];
-      }
-
-      strength = [defaults integerForKey: @"Elo3"];
-      if (!strength) {
-         strength = 2500;
-         [defaults setInteger: 2500 forKey: @"Elo3"];
-      }
-
-      NSString *tmp = [defaults objectForKey: @"displayMoveGestureTakebackHint2"];
-      if (!tmp) {
-         [defaults setObject: @"YES"
-                      forKey: @"displayMoveGestureTakebackHint2"];
-         displayMoveGestureTakebackHint = YES;
-      }
-      else if ([tmp isEqualToString: @"YES"])
-         displayMoveGestureTakebackHint = YES;
-      else
-         displayMoveGestureTakebackHint = NO;
-
-      tmp = [defaults objectForKey: @"displayMoveGestureStepForwardHint2"];
-      if (!tmp) {
-         [defaults setObject: @"YES"
-                      forKey: @"displayMoveGestureStepForwardHint2"];
-         displayMoveGestureStepForwardHint = YES;
-      }
-      else if ([tmp isEqualToString: @"YES"])
-         displayMoveGestureStepForwardHint = YES;
-      else
-         displayMoveGestureStepForwardHint = NO;
 
       [defaults synchronize];
    }
@@ -227,32 +152,6 @@
 }
 
 
-- (BOOL)figurineNotation {
-   return figurineNotation;
-}
-
-
-- (void)setFigurineNotation:(BOOL)newValue {
-   figurineNotation = newValue;
-   [[NSUserDefaults standardUserDefaults] setBool: figurineNotation
-                                           forKey: @"figurineNotation2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)moveSound {
-   return moveSound;
-}
-
-
-- (void)setMoveSound:(BOOL)newValue {
-   moveSound = newValue;
-   [[NSUserDefaults standardUserDefaults] setBool: moveSound
-                                           forKey: @"moveSound"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
 - (NSString *)pieceSet {
    return pieceSet;
 }
@@ -270,52 +169,11 @@
 }
 
 
-- (NSString *)playStyle {
-   return playStyle;
-}
-
-
-- (void)setPlayStyle:(NSString *)newPlayStyle {
-   [playStyle release];
-   playStyle = [newPlayStyle retain];
-   playStyleWasChanged = YES;
-   [[NSUserDefaults standardUserDefaults] setObject: newPlayStyle
-                                             forKey: @"playStyle2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)playStyleWasChanged {
-   BOOL result = playStyleWasChanged;
-   playStyleWasChanged = NO;
-   return result;
-}
-
-
-- (BOOL)permanentBrain {
-   return permanentBrain;
-}
-
-
-- (void)setPermanentBrain:(BOOL)shouldUsePermanentBrain {
-   permanentBrain = shouldUsePermanentBrain;
-   [[NSUserDefaults standardUserDefaults] setBool: permanentBrain
-                                           forKey: @"permanentBrain2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
 - (void)dealloc {
-   //[darkSquareColor release];
-   //[lightSquareColor release];
-   //[highlightColor release];
    [darkSquareImage release];
    [lightSquareImage release];
    [colorScheme release];
-   [playStyle release];
    [pieceSet release];
-   [saveGameFile release];
-   [fullUserName release];
    [super dealloc];
 }
 
@@ -327,75 +185,5 @@
    }
    return o;
 }
-
-
-- (NSString *)saveGameFile {
-   return saveGameFile;
-}
-
-
-- (void)setSaveGameFile:(NSString *)newFileName {
-   [saveGameFile release];
-   saveGameFile = [newFileName retain];
-   [[NSUserDefaults standardUserDefaults] setObject: saveGameFile
-                                             forKey: @"saveGameFile2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (NSString *)fullUserName {
-   return fullUserName;
-}
-
-
-- (void)setFullUserName:(NSString *)name {
-   [fullUserName release];
-   fullUserName = [name retain];
-   [[NSUserDefaults standardUserDefaults] setObject: fullUserName
-                                             forKey: @"fullUserName2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (int)strength {
-   return strength;
-}
-
-
-- (void)setStrength:(int)newStrength {
-   strength = newStrength;
-   strengthWasChanged = YES;
-   [[NSUserDefaults standardUserDefaults] setInteger: newStrength
-                                              forKey: @"Elo3"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-
-- (BOOL)strengthWasChanged {
-   BOOL result = strengthWasChanged;
-   strengthWasChanged = NO;
-   return result;
-}
-
-
-- (BOOL)displayMoveGestureTakebackHint {
-   BOOL tmp = displayMoveGestureTakebackHint;
-   displayMoveGestureTakebackHint = NO;
-   [[NSUserDefaults standardUserDefaults] setObject: @"NO"
-                                             forKey: @"displayMoveGestureTakebackHint2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-   return tmp;
-}
-
-
-- (BOOL)displayMoveGestureStepForwardHint {
-   BOOL tmp = displayMoveGestureStepForwardHint;
-   displayMoveGestureStepForwardHint = NO;
-   [[NSUserDefaults standardUserDefaults] setObject: @"NO"
-                                             forKey: @"displayMoveGestureStepForwardHint2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-   return tmp;
-}
-
 
 @end

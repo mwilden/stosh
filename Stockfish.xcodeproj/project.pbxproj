@@ -104,7 +104,6 @@
 		1796004411D392620074E5B7 /* XBoardWRook@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FFE311D392620074E5B7 /* XBoardWRook@2x.tiff */; };
 		1796004811D392AD0074E5B7 /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1796004711D392AD0074E5B7 /* Click.wav */; };
 		1796004C11D392F20074E5B7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 1796004A11D392F20074E5B7 /* about.html */; };
-		1796004F11D393270074E5B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1796004E11D393270074E5B7 /* AudioToolbox.framework */; };
 		1796007F11D393A60074E5B7 /* bitbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796005C11D393A60074E5B7 /* bitbase.mm */; };
 		1796008011D393A60074E5B7 /* bitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796005D11D393A60074E5B7 /* bitboard.cpp */; };
 		1796008111D393A60074E5B7 /* book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796005F11D393A60074E5B7 /* book.cpp */; };
@@ -182,7 +181,6 @@
 		1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4711D3921A0074E5B7 /* SetupBoardView.mm */; };
 		1796FF7B11D3921A0074E5B7 /* SetupViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4911D3921A0074E5B7 /* SetupViewController.mm */; };
 		1796FF7C11D3921A0074E5B7 /* SideToMoveController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */; };
-		1796FF7D11D3921A0074E5B7 /* SimpleOptionTableController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4D11D3921A0074E5B7 /* SimpleOptionTableController.mm */; };
 		1796FFE411D392620074E5B7 /* AlphaBBishop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8311D392620074E5B7 /* AlphaBBishop.tiff */; };
 		1796FFE511D392620074E5B7 /* AlphaBBishop@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8411D392620074E5B7 /* AlphaBBishop@2x.tiff */; };
 		1796FFE611D392620074E5B7 /* AlphaBKing.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8511D392620074E5B7 /* AlphaBKing.tiff */; };
@@ -556,8 +554,6 @@
 		1796FF4911D3921A0074E5B7 /* SetupViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SetupViewController.mm; sourceTree = "<group>"; };
 		1796FF4A11D3921A0074E5B7 /* SideToMoveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideToMoveController.h; sourceTree = "<group>"; };
 		1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SideToMoveController.mm; sourceTree = "<group>"; };
-		1796FF4C11D3921A0074E5B7 /* SimpleOptionTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleOptionTableController.h; sourceTree = "<group>"; };
-		1796FF4D11D3921A0074E5B7 /* SimpleOptionTableController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleOptionTableController.mm; sourceTree = "<group>"; };
 		1796FF8311D392620074E5B7 /* AlphaBBishop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop.tiff; path = Images/AlphaBBishop.tiff; sourceTree = "<group>"; };
 		1796FF8411D392620074E5B7 /* AlphaBBishop@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "AlphaBBishop@2x.tiff"; path = "Images/AlphaBBishop@2x.tiff"; sourceTree = "<group>"; };
 		1796FF8511D392620074E5B7 /* AlphaBKing.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing.tiff; path = Images/AlphaBKing.tiff; sourceTree = "<group>"; };
@@ -807,7 +803,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
-				1796004F11D393270074E5B7 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,8 +860,6 @@
 				1796FF4911D3921A0074E5B7 /* SetupViewController.mm */,
 				1796FF4A11D3921A0074E5B7 /* SideToMoveController.h */,
 				1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */,
-				1796FF4C11D3921A0074E5B7 /* SimpleOptionTableController.h */,
-				1796FF4D11D3921A0074E5B7 /* SimpleOptionTableController.mm */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1742,7 +1735,6 @@
 				1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */,
 				1796FF7B11D3921A0074E5B7 /* SetupViewController.mm in Sources */,
 				1796FF7C11D3921A0074E5B7 /* SideToMoveController.mm in Sources */,
-				1796FF7D11D3921A0074E5B7 /* SimpleOptionTableController.mm in Sources */,
 				1796007F11D393A60074E5B7 /* bitbase.mm in Sources */,
 				1796008011D393A60074E5B7 /* bitboard.cpp in Sources */,
 				1796008111D393A60074E5B7 /* book.cpp in Sources */,

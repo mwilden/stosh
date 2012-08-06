@@ -27,10 +27,5 @@
 @property (nonatomic, readonly) BoardViewController *boardViewController;
 
 - (id)initWithBoardViewController:(BoardViewController *)bvc;
-- (void)deselect:(UITableView *)tableView;
-- (void)togglePermanentBrain:(id)sender;
-- (void)toggleFigurines:(id)sender;
-- (void)toggleSound:(id)sender;
-- (void)updateTableCells;
 
 @end
