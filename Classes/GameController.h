@@ -41,7 +41,6 @@
    SystemSoundID clickSound;
    NSTimer *timer;
    GameLevel gameLevel;
-   GameMode gameMode;
    Move ponderMove;
    BOOL engineIsPlaying;
    BOOL isPondering;
@@ -50,7 +49,6 @@
 
 @property (nonatomic, readonly) UILabel *searchStatsView;
 @property (nonatomic, readonly) Game *game;
-@property (nonatomic, assign) GameMode gameMode;
 @property (nonatomic, readonly) BOOL rotated;
 
 - (id)initWithBoardView:(BoardView *)bv
@@ -80,7 +78,6 @@
 - (void)playClickSound;
 - (void)displaySearchStats:(NSString *)searchStats;
 - (void)setGameLevel:(GameLevel)newGameLevel;
-- (void)setGameMode:(GameMode)newGameMode;
 - (void)doEngineMove:(Move)m;
 - (void)engineGo;
 - (void)engineMadeMove:(NSArray *)array;

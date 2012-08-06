@@ -31,7 +31,6 @@ using namespace Chess;
 @implementation GameController
 
 @synthesize searchStatsView, game, rotated;
-@dynamic gameMode;
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
@@ -47,7 +46,6 @@ using namespace Chess;
       pendingTo = SQ_NONE;
       rotated = NO;
       gameLevel = [[Options sharedOptions] gameLevel];
-      gameMode = [[Options sharedOptions] gameMode];
       engineIsPlaying = NO;
 
       [[NSNotificationCenter defaultCenter]
@@ -120,13 +118,12 @@ using namespace Chess;
 
    game = [[Game alloc] initWithGameController: self];
    gameLevel = [[Options sharedOptions] gameLevel];
-   gameMode = [[Options sharedOptions] gameMode];
 
    [game setWhitePlayer:
-            ((gameMode == GAME_MODE_COMPUTER_BLACK)?
+            ((false)?
              [[[Options sharedOptions] fullUserName] copy] : ENGINE_NAME)];
    [game setBlackPlayer:
-            ((gameMode == GAME_MODE_COMPUTER_BLACK)?
+            ((false)?
              ENGINE_NAME : [[[Options sharedOptions] fullUserName] copy])];
 
    pieceViews = [[NSMutableArray alloc] init];
@@ -609,16 +606,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Update the game:
       [game takeBack];
-
-      // If in analyse mode, send new position to engine, and tell it to start
-      // thinking:
-      if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-        [engineController abortSearch];
-        [engineController sendCommand: [game uciGameString]];
-        [engineController sendCommand: @"go infinite"];
-        [engineController commitCommands];
-      }
-
    }
    [self updateMoveList];
 }
@@ -650,13 +637,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // If in analyse mode, send new position to engine, and tell it to start
       // thinking:
-      if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-        [engineController abortSearch];
-        [engineController sendCommand: [game uciGameString]];
-        [engineController sendCommand: @"go infinite"];
-        [engineController commitCommands];
-      }
-
       [self updateMoveList];
    }
 }
@@ -729,15 +709,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
       // Don't show the last move played any more:
       [boardView hideLastMove];
-
-      // If in analyse mode, send new position to engine, and tell it to start
-      // thinking:
-      if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-        [engineController abortSearch];
-        [engineController sendCommand: [game uciGameString]];
-        [engineController sendCommand: @"go infinite"];
-        [engineController commitCommands];
-      }
    }
    [self updateMoveList];
 }
@@ -765,15 +736,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          engineIsPlaying = NO;
          [engineController abortSearch];
          [engineController commitCommands];
-      }
-
-      // If in analyse mode, send new position to engine, and tell it to start
-      // thinking:
-      if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-        [engineController abortSearch];
-        [engineController sendCommand: [game uciGameString]];
-        [engineController sendCommand: @"go infinite"];
-        [engineController commitCommands];
       }
 
       [self updateMoveList];
@@ -858,49 +820,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    gameLevel = newGameLevel;
 }
 
-- (GameMode)gameMode {
-   return gameMode;
-}
-
-- (void)setGameMode:(GameMode)newGameMode {
-   NSLog(@"new game mode: %d", newGameMode);
-   if (gameMode == GAME_MODE_ANALYSE && newGameMode != GAME_MODE_ANALYSE) {
-      [engineController pondermiss]; // HACK
-      [engineController sendCommand:
-                           @"setoption name UCI_AnalyseMode value false"];
-      [engineController commitCommands];
-   }
-   else if (isPondering) {
-      NSLog(@"pondermiss because game mode changed while pondering");
-      [engineController pondermiss];
-      isPondering = NO;
-   }
-   [game setWhitePlayer:
-            ((newGameMode == GAME_MODE_COMPUTER_BLACK)?
-             [[[Options sharedOptions] fullUserName] copy] : ENGINE_NAME)];
-   [game setBlackPlayer:
-            ((newGameMode == GAME_MODE_COMPUTER_BLACK)?
-             ENGINE_NAME : [[[Options sharedOptions] fullUserName] copy])];
-   gameMode = newGameMode;
-
-   // If in analyse mode, automatically switch on "Show analysis"
-   if (gameMode == GAME_MODE_ANALYSE) {
-      [[boardView superview] bringSubviewToFront: searchStatsView];
-      [searchStatsView setNeedsDisplay];
-   }
-   else
-      [[boardView superview] sendSubviewToBack: searchStatsView];
-
-   // Rotate board if necessary:
-   if ((gameMode == GAME_MODE_COMPUTER_WHITE && !rotated) ||
-       (gameMode == GAME_MODE_COMPUTER_BLACK && rotated))
-      [self rotateBoard];
-
-   // Start thinking if necessary:
-   [self engineGo];
-}
-
-
 - (void)doEngineMove:(Move)m {
    Square to = move_to(m);
    if (move_is_long_castle(m)) to += 2;
@@ -923,16 +842,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [self startEngine];
 
    if (![game positionIsTerminal]) {
-      if (gameMode == GAME_MODE_ANALYSE) {
-         engineIsPlaying = NO;
-         [engineController abortSearch];
-         [engineController sendCommand: [game uciGameString]];
-         [engineController sendCommand:
-                              @"setoption name UCI_AnalyseMode value true"];
-         [engineController sendCommand: @"go infinite"];
-         [engineController commitCommands];
-         return;
-      }
       if (isPondering) {
          if ([game currentMove] == ponderMove) {
             [engineController ponderhit];
@@ -945,37 +854,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             while ([engineController engineIsThinking]);
          }
          isPondering = NO;
-      }
-      if ((gameMode==GAME_MODE_COMPUTER_BLACK && [game sideToMove]==BLACK) ||
-          (gameMode==GAME_MODE_COMPUTER_WHITE && [game sideToMove]==WHITE)) {
-        // Update play style, if necessary
-        if ([[Options sharedOptions] playStyleWasChanged]) {
-           NSLog(@"play style was changed to: %@",
-                 [[Options sharedOptions] playStyle]);
-           [engineController sendCommand:
-                                [NSString stringWithFormat:
-                                             @"setoption name Play Style value %@",
-                                          [[Options sharedOptions] playStyle]]];
-           [engineController commitCommands];
-        }
-        // Update strength, if necessary
-        if ([[Options sharedOptions] strengthWasChanged]) {
-           [engineController sendCommand: @"setoption name Clear Hash"];
-           if ([[Options sharedOptions] strength] == 2500) // Max strength
-              [engineController
-                 sendCommand: @"setoption name UCI_LimitStrength value false"];
-           else
-              [engineController
-                 sendCommand: @"setoption name UCI_LimitStrength value true"];
-           [engineController sendCommand:
-                                [NSString stringWithFormat:
-                                             @"setoption name UCI_Elo value %d",
-                                          [[Options sharedOptions] strength]]];
-           [engineController commitCommands];
-        }
-        // Start thinking.
-        engineIsPlaying = YES;
-        [engineController sendCommand: [game uciGameString]];
       }
    }
 }
@@ -1004,11 +882,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 - (BOOL)usersTurnToMove {
-   return
-      gameMode == GAME_MODE_TWO_PLAYER ||
-      gameMode == GAME_MODE_ANALYSE ||
-      (gameMode == GAME_MODE_COMPUTER_BLACK && [game sideToMove] == WHITE) ||
-      (gameMode == GAME_MODE_COMPUTER_WHITE && [game sideToMove] == BLACK);
+    return true;
 }
 
 
@@ -1100,7 +974,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    }
 
    gameLevel = [[Options sharedOptions] gameLevel];
-   gameMode = [[Options sharedOptions] gameMode];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
@@ -1112,8 +985,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [engineController abortSearch];
    [engineController sendCommand: @"ucinewgame"];
    [engineController commitCommands];
-   if (gameMode == GAME_MODE_ANALYSE)
-      [self engineGo];
 }
 
 
@@ -1125,7 +996,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    game = [[Game alloc] initWithGameController: self FEN: fen];
    gameLevel = [[Options sharedOptions] gameLevel];
-   gameMode = [[Options sharedOptions] gameMode];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
@@ -1137,24 +1007,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [engineController abortSearch];
    [engineController sendCommand: @"ucinewgame"];
    [engineController commitCommands];
-   if (gameMode == GAME_MODE_ANALYSE)
-      [self engineGo];
 }
 
 
 - (void)changePlayStyle {
-}
-
-
-- (void)startThinking {
-   if ([game sideToMove] == WHITE) {
-      [[Options sharedOptions] setGameMode: GAME_MODE_COMPUTER_WHITE];
-      [self setGameMode: GAME_MODE_COMPUTER_WHITE];
-   }
-   else {
-      [[Options sharedOptions] setGameMode: GAME_MODE_COMPUTER_BLACK];
-      [self setGameMode: GAME_MODE_COMPUTER_BLACK];
-   }
 }
 
 

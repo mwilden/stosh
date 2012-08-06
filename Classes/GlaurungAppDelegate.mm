@@ -71,8 +71,6 @@ using namespace Chess;
 				 forKey: @"lastGame"];
 	[defaults setInteger: ((int)[[Options sharedOptions] gameLevel] + 1)
 				  forKey: @"gameLevel"];
-	[defaults setInteger: ((int)[[Options sharedOptions] gameMode] + 1)
-				  forKey: @"gameMode"];
 	[defaults setBool: [gameController rotated]
 			   forKey: @"rotateBoard"];
 	[defaults synchronize];
@@ -130,12 +128,6 @@ using namespace Chess;
 	if (gameLevel) {
 		[[Options sharedOptions] setGameLevel: (GameLevel)(gameLevel - 1)];
 		[gameController setGameLevel: [[Options sharedOptions] gameLevel]];
-	}
-	
-	int gameMode = [defaults integerForKey: @"gameMode"];
-	if (gameMode) {
-		[[Options sharedOptions] setGameMode: (GameMode)(gameMode - 1)];
-		[gameController setGameMode: [[Options sharedOptions] gameMode]];
 	}
 	
 	if ([defaults objectForKey: @"rotateBoard"])

@@ -8,7 +8,7 @@
   (at your option) any later version.
 
   Stockfish is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  but WITHOUT ANY WARRANTY; without even  the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
@@ -87,7 +87,7 @@
                 autorelease];
    if (section == 0) {
       [cell setAccessoryType:
-               (([[Options sharedOptions] gameMode] == (GameMode)row)?
+               ((false)?
                 UITableViewCellAccessoryCheckmark :
                 UITableViewCellAccessoryNone)];
       if (row == 0)
@@ -147,22 +147,7 @@
 
    [self performSelector:@selector(deselect:) withObject: tableView
               afterDelay: 0.1f];
-   if (section == 0) { // Game mode
-      GameMode newGameMode = (GameMode)row;
-      GameMode oldGameMode = [[Options sharedOptions] gameMode];
-
-      if (newGameMode != oldGameMode) {
-         [[Options sharedOptions] setGameMode: newGameMode];
-         [boardViewController gameModeWasChanged];
-         [[tableView cellForRowAtIndexPath:
-                        [NSIndexPath indexPathForRow:(NSUInteger)oldGameMode
-                                           inSection: 0]]
-            setAccessoryType: UITableViewCellAccessoryNone];
-         [[tableView cellForRowAtIndexPath: newIndexPath]
-            setAccessoryType: UITableViewCellAccessoryCheckmark];
-      }
-   }
-   else if (section == 1) { // Level
+   if (section == 1) { // Level
       GameLevel newGameLevel = (GameLevel)row;
       GameLevel oldGameLevel = [[Options sharedOptions] gameLevel];
 

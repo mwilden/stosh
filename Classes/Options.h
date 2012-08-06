@@ -18,13 +18,6 @@
 
 #import <UIKit/UIKit.h>
 
-enum GameMode {
-   GAME_MODE_COMPUTER_BLACK,
-   GAME_MODE_COMPUTER_WHITE,
-   GAME_MODE_ANALYSE,
-   GAME_MODE_TWO_PLAYER
-};
-
 enum GameLevel {
    LEVEL_GAME_IN_2,
    LEVEL_GAME_IN_2_PLUS_1,
@@ -51,8 +44,6 @@ enum GameLevel {
    BOOL figurineNotation;
    BOOL permanentBrain;
 
-   GameMode gameMode;
-   BOOL gameModeWasChanged;
    GameLevel gameLevel;
    BOOL gameLevelWasChanged;
 
@@ -80,9 +71,7 @@ enum GameLevel {
 @property (nonatomic, readwrite) BOOL moveSound;
 @property (nonatomic, readwrite) BOOL figurineNotation;
 @property (nonatomic, readwrite) BOOL permanentBrain;
-@property (nonatomic, assign) GameMode gameMode;
 @property (nonatomic, assign) GameLevel gameLevel;
-@property (nonatomic, readonly) BOOL gameModeWasChanged;
 @property (nonatomic, readonly) BOOL gameLevelWasChanged;
 @property (nonatomic, readonly) BOOL playStyleWasChanged;
 @property (nonatomic, retain) NSString *saveGameFile;

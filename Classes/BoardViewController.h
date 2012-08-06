@@ -49,7 +49,6 @@
 - (void)optionsMenuDonePressed;
 - (void)showLevelsMenu;
 - (void)levelWasChanged;
-- (void)gameModeWasChanged;
 - (void)levelsMenuDonePressed;
 - (void)editPosition;
 - (void)editPositionCancelPressed;

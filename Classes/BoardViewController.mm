@@ -319,34 +319,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
    }
    else if (actionSheet == newGameMenu || [title isEqualToString: @"New game"]) {
-      switch (buttonIndex) {
-      case 0:
-         NSLog(@"new game with white");
-         [[Options sharedOptions] setGameMode: GAME_MODE_COMPUTER_BLACK];
-         [gameController setGameMode: GAME_MODE_COMPUTER_BLACK];
-         [gameController startNewGame];
-         break;
-      case 1:
-         NSLog(@"new game with black");
-         [[Options sharedOptions] setGameMode: GAME_MODE_COMPUTER_WHITE];
-         [gameController setGameMode: GAME_MODE_COMPUTER_WHITE];
-         [gameController startNewGame];
-         break;
-      case 2:
-         NSLog(@"new game (both)");
-         [[Options sharedOptions] setGameMode: GAME_MODE_TWO_PLAYER];
-         [gameController setGameMode: GAME_MODE_TWO_PLAYER];
-         [gameController startNewGame];
-         break;
-      case 3:
-         NSLog(@"new game (analysis)");
-         [[Options sharedOptions] setGameMode: GAME_MODE_ANALYSE];
-         [gameController setGameMode: GAME_MODE_ANALYSE];
-         [gameController startNewGame];
-         break;
-      default:
-         NSLog(@"not implemented yet");
-      }
+     [gameController startNewGame];
    }
 }
 
@@ -454,19 +427,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-- (void)gameModeWasChanged {
-   [gameController setGameMode: [[Options sharedOptions] gameMode]];
-}
-
 - (void)levelsMenuDonePressed {
    NSLog(@"options menu done");
-   /*
-     if ([[Options sharedOptions] gameLevelWasChanged])
-     [gameController setGameLevel: [[Options sharedOptions] gameLevel]];
-     if ([[Options sharedOptions] gameModeWasChanged])
-     [gameController setGameMode: [[Options sharedOptions] gameMode]];
-   */
-
   [levelsMenu dismissPopoverAnimated: YES];
   [levelsMenu release];
   levelsMenu = nil;
@@ -485,7 +447,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
   popoverMenu = [[UIPopoverController alloc]
                    initWithContentViewController: navigationController];
-  //[popoverMenu setPopoverContentSize: CGSizeMake(320.0f, 460.0f)];
   [popoverMenu presentPopoverFromBarButtonItem: gameButton
                       permittedArrowDirections: UIPopoverArrowDirectionAny
                                       animated: NO];
