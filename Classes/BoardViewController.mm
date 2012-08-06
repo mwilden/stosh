@@ -599,19 +599,4 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-- (void)connectToServer {
-   [gameController connectToServer];
-}
-
-
-- (void)disconnectFromServer {
-   [gameController disconnectFromServer];
-}
-
-
-- (BOOL)isConnectedToServer {
-   return [gameController isConnectedToServer];
-}
-
-
 @end

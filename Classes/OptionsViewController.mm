@@ -21,7 +21,6 @@
 #import "EditUserNameController.h"
 #import "Options.h"
 #import "OptionsViewController.h"
-#import "RemoteEngineTableController.h"
 #import "SimpleOptionTableController.h"
 #import "StrengthOptionController.h"
 
@@ -110,14 +109,6 @@
             [[cell detailTextLabel]
                setText: [NSString stringWithFormat: @"%d",
                                   [[Options sharedOptions] strength]]];
-         }
-         else if (row == 3) {
-            [[cell textLabel] setText: @"Remote engine"];
-            [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
-            if ([boardViewController isConnectedToServer])
-               [[cell detailTextLabel] setText: [[Options sharedOptions] serverName]];
-            else
-               [[cell detailTextLabel] setText: @"Not connected"];
          }
       }
    }
@@ -212,15 +203,6 @@
          [[self navigationController] pushViewController: soc
                                                 animated: YES];
          [soc release];
-      }
-      else if (row == 3) {
-         // Remote engine
-         RemoteEngineTableController *retc;
-         retc = [[RemoteEngineTableController alloc]
-                   initWithParentViewController: self];
-         [[self navigationController] pushViewController: retc
-                                                animated: YES];
-         [retc release];
       }
    }
    else if (section == 2) {

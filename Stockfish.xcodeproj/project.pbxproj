@@ -104,7 +104,6 @@
 		1796004411D392620074E5B7 /* XBoardWRook@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FFE311D392620074E5B7 /* XBoardWRook@2x.tiff */; };
 		1796004811D392AD0074E5B7 /* Click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1796004711D392AD0074E5B7 /* Click.wav */; };
 		1796004C11D392F20074E5B7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 1796004A11D392F20074E5B7 /* about.html */; };
-		1796004D11D392F20074E5B7 /* remote-engine-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 1796004B11D392F20074E5B7 /* remote-engine-help.html */; };
 		1796004F11D393270074E5B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1796004E11D393270074E5B7 /* AudioToolbox.framework */; };
 		1796007F11D393A60074E5B7 /* bitbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796005C11D393A60074E5B7 /* bitbase.mm */; };
 		1796008011D393A60074E5B7 /* bitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796005D11D393A60074E5B7 /* bitboard.cpp */; };
@@ -187,10 +186,6 @@
 		1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */; };
 		1796FF6F11D3921A0074E5B7 /* PlayStyleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3111D3921A0074E5B7 /* PlayStyleViewController.mm */; };
 		1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3311D3921A0074E5B7 /* Queue.mm */; };
-		1796FF7111D3921A0074E5B7 /* RemoteEngineController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3511D3921A0074E5B7 /* RemoteEngineController.mm */; };
-		1796FF7211D3921A0074E5B7 /* RemoteEngineHelpController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3711D3921A0074E5B7 /* RemoteEngineHelpController.mm */; };
-		1796FF7311D3921A0074E5B7 /* RemoteEngineTableController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3911D3921A0074E5B7 /* RemoteEngineTableController.mm */; };
-		1796FF7411D3921A0074E5B7 /* RemoteEngineTextFieldController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3B11D3921A0074E5B7 /* RemoteEngineTextFieldController.mm */; };
 		1796FF7511D3921A0074E5B7 /* ResultTagViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3D11D3921A0074E5B7 /* ResultTagViewController.mm */; };
 		1796FF7611D3921A0074E5B7 /* RootView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3F11D3921A0074E5B7 /* RootView.mm */; };
 		1796FF7711D3921A0074E5B7 /* SaveFileListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4111D3921A0074E5B7 /* SaveFileListController.mm */; };
@@ -418,7 +413,6 @@
 		17602223128491C6000DFCA6 /* LightGreenMarble@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "LightGreenMarble@2x.tiff"; path = "Images/LightGreenMarble@2x.tiff"; sourceTree = "<group>"; };
 		1796004711D392AD0074E5B7 /* Click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Click.wav; path = Sounds/Click.wav; sourceTree = "<group>"; };
 		1796004A11D392F20074E5B7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = about.html; path = HTML/about.html; sourceTree = "<group>"; };
-		1796004B11D392F20074E5B7 /* remote-engine-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "remote-engine-help.html"; path = "HTML/remote-engine-help.html"; sourceTree = "<group>"; };
 		1796004E11D393270074E5B7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1796005B11D393A60074E5B7 /* bitbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitbase.h; path = Chess/bitbase.h; sourceTree = "<group>"; };
 		1796005C11D393A60074E5B7 /* bitbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bitbase.mm; path = Chess/bitbase.mm; sourceTree = "<group>"; };
@@ -584,14 +578,6 @@
 		1796FF3111D3921A0074E5B7 /* PlayStyleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlayStyleViewController.mm; sourceTree = "<group>"; };
 		1796FF3211D3921A0074E5B7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		1796FF3311D3921A0074E5B7 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Queue.mm; sourceTree = "<group>"; };
-		1796FF3411D3921A0074E5B7 /* RemoteEngineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEngineController.h; sourceTree = "<group>"; };
-		1796FF3511D3921A0074E5B7 /* RemoteEngineController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RemoteEngineController.mm; sourceTree = "<group>"; };
-		1796FF3611D3921A0074E5B7 /* RemoteEngineHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEngineHelpController.h; sourceTree = "<group>"; };
-		1796FF3711D3921A0074E5B7 /* RemoteEngineHelpController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RemoteEngineHelpController.mm; sourceTree = "<group>"; };
-		1796FF3811D3921A0074E5B7 /* RemoteEngineTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEngineTableController.h; sourceTree = "<group>"; };
-		1796FF3911D3921A0074E5B7 /* RemoteEngineTableController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RemoteEngineTableController.mm; sourceTree = "<group>"; };
-		1796FF3A11D3921A0074E5B7 /* RemoteEngineTextFieldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteEngineTextFieldController.h; sourceTree = "<group>"; };
-		1796FF3B11D3921A0074E5B7 /* RemoteEngineTextFieldController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RemoteEngineTextFieldController.mm; sourceTree = "<group>"; };
 		1796FF3C11D3921A0074E5B7 /* ResultTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTagViewController.h; sourceTree = "<group>"; };
 		1796FF3D11D3921A0074E5B7 /* ResultTagViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResultTagViewController.mm; sourceTree = "<group>"; };
 		1796FF3E11D3921A0074E5B7 /* RootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootView.h; sourceTree = "<group>"; };
@@ -929,14 +915,6 @@
 				1796FF3111D3921A0074E5B7 /* PlayStyleViewController.mm */,
 				1796FF3211D3921A0074E5B7 /* Queue.h */,
 				1796FF3311D3921A0074E5B7 /* Queue.mm */,
-				1796FF3411D3921A0074E5B7 /* RemoteEngineController.h */,
-				1796FF3511D3921A0074E5B7 /* RemoteEngineController.mm */,
-				1796FF3611D3921A0074E5B7 /* RemoteEngineHelpController.h */,
-				1796FF3711D3921A0074E5B7 /* RemoteEngineHelpController.mm */,
-				1796FF3811D3921A0074E5B7 /* RemoteEngineTableController.h */,
-				1796FF3911D3921A0074E5B7 /* RemoteEngineTableController.mm */,
-				1796FF3A11D3921A0074E5B7 /* RemoteEngineTextFieldController.h */,
-				1796FF3B11D3921A0074E5B7 /* RemoteEngineTextFieldController.mm */,
 				1796FF3C11D3921A0074E5B7 /* ResultTagViewController.h */,
 				1796FF3D11D3921A0074E5B7 /* ResultTagViewController.mm */,
 				1796FF3E11D3921A0074E5B7 /* RootView.h */,
@@ -1080,7 +1058,6 @@
 			isa = PBXGroup;
 			children = (
 				1796004A11D392F20074E5B7 /* about.html */,
-				1796004B11D392F20074E5B7 /* remote-engine-help.html */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -1582,7 +1559,6 @@
 				1796004411D392620074E5B7 /* XBoardWRook@2x.tiff in Resources */,
 				1796004811D392AD0074E5B7 /* Click.wav in Resources */,
 				1796004C11D392F20074E5B7 /* about.html in Resources */,
-				1796004D11D392F20074E5B7 /* remote-engine-help.html in Resources */,
 				179600D411D395E90074E5B7 /* guibook.bin in Resources */,
 				179600E011D397240074E5B7 /* Icon-big.png in Resources */,
 				179600E111D397240074E5B7 /* Icon.png in Resources */,
@@ -1840,10 +1816,6 @@
 				1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */,
 				1796FF6F11D3921A0074E5B7 /* PlayStyleViewController.mm in Sources */,
 				1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */,
-				1796FF7111D3921A0074E5B7 /* RemoteEngineController.mm in Sources */,
-				1796FF7211D3921A0074E5B7 /* RemoteEngineHelpController.mm in Sources */,
-				1796FF7311D3921A0074E5B7 /* RemoteEngineTableController.mm in Sources */,
-				1796FF7411D3921A0074E5B7 /* RemoteEngineTextFieldController.mm in Sources */,
 				1796FF7511D3921A0074E5B7 /* ResultTagViewController.mm in Sources */,
 				1796FF7611D3921A0074E5B7 /* RootView.mm in Sources */,
 				1796FF7711D3921A0074E5B7 /* SaveFileListController.mm in Sources */,

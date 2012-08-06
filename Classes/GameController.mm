@@ -23,7 +23,6 @@
 #import "Options.h"
 #import "PieceImageView.h"
 #import "PGN.h"
-#import "RemoteEngineController.h"
 
 #include "../Chess/misc.h"
 
@@ -65,8 +64,6 @@ using namespace Chess;
       AudioServicesCreateSystemSoundID(baseURL, &clickSound);
 
       engineController = nil;
-      remoteEngineController = [[RemoteEngineController alloc]
-                                  initWithGameController: self];
       isPondering = NO;
    }
    return self;
@@ -156,9 +153,6 @@ using namespace Chess;
 
    [engineController commitCommands];
 
-   if ([remoteEngineController isConnected])
-      [remoteEngineController sendToServer: @"n\n"];
-
    // Rotate board if the engine plays white:
    if (!rotated && [self computersTurnToMove])
       [self rotateBoard];
@@ -210,11 +204,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       Move m = make_promotion_move(pendingFrom, pendingTo, prom[buttonIndex]);
       [self animateMove: m];
       [game doMove: m];
-
-      if ([remoteEngineController isConnected])
-         [remoteEngineController
-            sendToServer: [NSString stringWithFormat: @"m %s\n",
-                                    move_to_string(m).c_str()]];
 
       [self updateMoveList];
       [self playClickSound];
@@ -411,11 +400,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    }
 
    // Update the game and move list:
-   Move m = [game doMoveFrom: fSq to: tSq promotion: prom];
-   if ([remoteEngineController isConnected])
-      [remoteEngineController
-         sendToServer: [NSString stringWithFormat: @"m %s\n",
-                                 move_to_string(m).c_str()]];
+   [game doMoveFrom: fSq to: tSq promotion: prom];
    [self updateMoveList];
    pendingFrom = pendingTo = SQ_NONE;
 
@@ -490,11 +475,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    [self animateMove: m];
    [game doMove: m];
-
-   if ([remoteEngineController isConnected])
-      [remoteEngineController
-         sendToServer: [NSString stringWithFormat: @"m %s\n",
-                                 move_to_string(m).c_str()]];
 
    [self updateMoveList];
    [self playClickSound];
@@ -627,27 +607,16 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [engineController commitCommands];
       }
 
-      // Update remote engine:
-      if ([remoteEngineController isConnected]) {
-         //[remoteEngineController sendToServer: @"s\n"];  // Stop search
-         [remoteEngineController sendToServer: @"t\n"];  // Take back
-      }
-
       // Update the game:
       [game takeBack];
 
       // If in analyse mode, send new position to engine, and tell it to start
       // thinking:
       if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-         if (![remoteEngineController isConnected]) {
-            [engineController abortSearch];
-            [engineController sendCommand: [game uciGameString]];
-            [engineController sendCommand: @"go infinite"];
-            [engineController commitCommands];
-         }
-         else {
-            [remoteEngineController sendToServer: @"gi\n"];
-         }
+        [engineController abortSearch];
+        [engineController sendCommand: [game uciGameString]];
+        [engineController sendCommand: @"go infinite"];
+        [engineController commitCommands];
       }
 
    }
@@ -679,24 +648,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [engineController commitCommands];
       }
 
-      // Update remote engine:
-      if ([remoteEngineController isConnected]) {
-         //[remoteEngineController sendToServer: @"s\n"];  // Stop search
-         [remoteEngineController sendToServer: @"b\n"];  // Go to beginning of game
-      }
-
       // If in analyse mode, send new position to engine, and tell it to start
       // thinking:
       if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-         if (![remoteEngineController isConnected]) {
-            [engineController abortSearch];
-            [engineController sendCommand: [game uciGameString]];
-            [engineController sendCommand: @"go infinite"];
-            [engineController commitCommands];
-         }
-         else {
-            [remoteEngineController sendToServer: @"gi\n"];
-         }
+        [engineController abortSearch];
+        [engineController sendCommand: [game uciGameString]];
+        [engineController sendCommand: @"go infinite"];
+        [engineController commitCommands];
       }
 
       [self updateMoveList];
@@ -772,24 +730,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       // Don't show the last move played any more:
       [boardView hideLastMove];
 
-      // Update remote engine:
-      if ([remoteEngineController isConnected]) {
-         //[remoteEngineController sendToServer: @"s\n"];  // Stop search
-         [remoteEngineController sendToServer: @"f\n"];  // Step forward
-      }
-
       // If in analyse mode, send new position to engine, and tell it to start
       // thinking:
       if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-         if (![remoteEngineController isConnected]) {
-            [engineController abortSearch];
-            [engineController sendCommand: [game uciGameString]];
-            [engineController sendCommand: @"go infinite"];
-            [engineController commitCommands];
-         }
-         else {
-            [remoteEngineController sendToServer: @"gi\n"]; // Start new search
-         }
+        [engineController abortSearch];
+        [engineController sendCommand: [game uciGameString]];
+        [engineController sendCommand: @"go infinite"];
+        [engineController commitCommands];
       }
    }
    [self updateMoveList];
@@ -820,24 +767,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [engineController commitCommands];
       }
 
-      // Update remote engine:
-      if ([remoteEngineController isConnected]) {
-         //[remoteEngineController sendToServer: @"s\n"]; // Stop search
-         [remoteEngineController sendToServer: @"e\n"]; // Go to end of game
-      }
-
       // If in analyse mode, send new position to engine, and tell it to start
       // thinking:
       if (gameMode == GAME_MODE_ANALYSE && ![game positionIsTerminal]) {
-         if (![remoteEngineController isConnected]) {
-            [engineController abortSearch];
-            [engineController sendCommand: [game uciGameString]];
-            [engineController sendCommand: @"go infinite"];
-            [engineController commitCommands];
-         }
-         else {
-            [remoteEngineController sendToServer: @"gi\n"];
-         }
+        [engineController abortSearch];
+        [engineController sendCommand: [game uciGameString]];
+        [engineController sendCommand: @"go infinite"];
+        [engineController commitCommands];
       }
 
       [self updateMoveList];
@@ -933,8 +869,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [engineController sendCommand:
                            @"setoption name UCI_AnalyseMode value false"];
       [engineController commitCommands];
-      if ([remoteEngineController isConnected])
-         [remoteEngineController sendToServer: @"s\n"];
    }
    else if (isPondering) {
       NSLog(@"pondermiss because game mode changed while pondering");
@@ -950,7 +884,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    gameMode = newGameMode;
 
    // If in analyse mode, automatically switch on "Show analysis"
-   if (gameMode == GAME_MODE_ANALYSE && ![remoteEngineController isConnected]) {
+   if (gameMode == GAME_MODE_ANALYSE) {
       [[boardView superview] bringSubviewToFront: searchStatsView];
       [searchStatsView setNeedsDisplay];
    }
@@ -977,11 +911,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [self animateMove: m];
    [game doMove: m];
 
-   if ([remoteEngineController isConnected])
-      [remoteEngineController
-         sendToServer: [NSString stringWithFormat: @"m %s\n",
-                                 move_to_string(m).c_str()]];
-
    [self updateMoveList];
 }
 
@@ -997,17 +926,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       if (gameMode == GAME_MODE_ANALYSE) {
          engineIsPlaying = NO;
          [engineController abortSearch];
-         if (![remoteEngineController isConnected]) {
-            [engineController sendCommand: [game uciGameString]];
-            [engineController sendCommand:
-                                 @"setoption name UCI_AnalyseMode value true"];
-            [engineController sendCommand: @"go infinite"];
-            [engineController commitCommands];
-         }
-         else {
-            [remoteEngineController sendToServer: @"s\n"];
-            [remoteEngineController sendToServer: @"gi\n"];
-         }
+         [engineController sendCommand: [game uciGameString]];
+         [engineController sendCommand:
+                              @"setoption name UCI_AnalyseMode value true"];
+         [engineController sendCommand: @"go infinite"];
+         [engineController commitCommands];
          return;
       }
       if (isPondering) {
@@ -1052,32 +975,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         }
         // Start thinking.
         engineIsPlaying = YES;
-        if (![remoteEngineController isConnected]) {
-           [engineController sendCommand: [game uciGameString]];
-         }
+        [engineController sendCommand: [game uciGameString]];
       }
-   }
-}
-
-
-- (void)engineGoPonder:(Move)pMove {
-   // TODO: Pondering with remote engine.
-   if ([remoteEngineController isConnected])
-      return;
-
-   if (![game positionIsTerminal] && ![game positionAfterMoveIsTerminal: pMove]) {
-      assert(engineIsPlaying);
-      assert((gameMode==GAME_MODE_COMPUTER_BLACK && [game sideToMove]==WHITE) ||
-             (gameMode==GAME_MODE_COMPUTER_WHITE && [game sideToMove]==BLACK));
-      assert(pMove != MOVE_NONE);
-
-      // Start thinking.
-      engineIsPlaying = YES;
-      [engineController
-         sendCommand:
-            [NSString stringWithFormat: @"%@ %s",
-                      [game uciGameString], move_to_string(pMove).c_str()]];
-      isPondering = YES;
    }
 }
 
@@ -1098,8 +997,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [self playClickSound];
       if ([array count] == 2) {
          ponderMove = [game moveFromString: [array objectAtIndex: 1]];
-         if ([[Options sharedOptions] permanentBrain])
-            [self engineGoPonder: ponderMove];
       }
       [self gameEndTest];
    }
@@ -1122,12 +1019,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)engineMoveNow {
    if ([self computersTurnToMove]) {
-      if (![remoteEngineController isConnected]) {
-         [engineController abortSearch];
-         [engineController commitCommands];
-      }
-      else
-         [remoteEngineController sendToServer: @"s\n"];
+     [engineController abortSearch];
+     [engineController commitCommands];
    }
 }
 
@@ -1206,9 +1099,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       game = [[Game alloc] initWithGameController: self];
    }
 
-   if ([remoteEngineController isConnected])
-      [remoteEngineController sendToServer: [game remoteEngineGameString]];
-
    gameLevel = [[Options sharedOptions] gameLevel];
    gameMode = [[Options sharedOptions] gameMode];
    pieceViews = [[NSMutableArray alloc] init];
@@ -1234,8 +1124,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [pieceViews release];
 
    game = [[Game alloc] initWithGameController: self FEN: fen];
-   if ([remoteEngineController isConnected])
-      [remoteEngineController sendToServer: [game remoteEngineGameString]];
    gameLevel = [[Options sharedOptions] gameLevel];
    gameMode = [[Options sharedOptions] gameMode];
    pieceViews = [[NSMutableArray alloc] init];
@@ -1281,28 +1169,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-- (void)connectToServer {
-   NSLog(@"Connecting to server %@ on port %d",
-         [[Options sharedOptions] serverName], [[Options sharedOptions] serverPort]);
-   [remoteEngineController
-      connectToServer: [[Options sharedOptions] serverName]
-                 port: [[Options sharedOptions] serverPort]];
-   // [remoteEngineController sendToServer: [game remoteEngineGameString]];
-   [[boardView superview] sendSubviewToBack: searchStatsView];
-}
-
-- (void)disconnectFromServer {
-   NSLog(@"Disconnecting from server %@ on port %d",
-         [[Options sharedOptions] serverName], [[Options sharedOptions] serverPort]);
-   [remoteEngineController disconnect];
-}
-
-
-- (BOOL)isConnectedToServer {
-   return [remoteEngineController isConnected];
-}
-
-
 - (void)redrawPieces {
    NSLog(@"preparing to redraw pieces");
    for (PieceImageView *piv in pieceViews)
@@ -1316,7 +1182,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)dealloc {
    NSLog(@"GameController dealloc");
-   [remoteEngineController release];
    [engineController quit];
    [game release];
    [pieceViews release]; // Should we remove them from superview first??

@@ -61,8 +61,5 @@
 - (void)loadMenuCancelPressed;
 - (void)loadMenuDonePressedWithGame:(NSString *)gameString;
 - (void)stopActivityIndicator;
-- (void)connectToServer;
-- (void)disconnectFromServer;
-- (BOOL)isConnectedToServer;
 
 @end

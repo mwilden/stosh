@@ -76,7 +76,6 @@ using namespace Chess;
 - (NSString *)moveListString;
 - (NSString *)partialMoveListString;
 - (NSString *)pgnString;
-- (NSString *)remoteEngineGameString;
 - (NSString *)uciGameString;
 - (Move)moveFromString:(NSString *)string;
 - (BOOL)positionIsMate;

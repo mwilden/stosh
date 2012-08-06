@@ -30,7 +30,6 @@
 @dynamic saveGameFile, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
 @dynamic playStyleWasChanged, strength, strengthWasChanged;
-@dynamic serverName, serverPort;
 
 - (id)init {
    if (self = [super init]) {
@@ -125,18 +124,6 @@
          displayMoveGestureStepForwardHint = YES;
       else
          displayMoveGestureStepForwardHint = NO;
-
-      serverName = [defaults objectForKey: @"serverName2"];
-      if (!serverName) {
-         serverName = [@"" retain];
-         [defaults setObject: @"" forKey: @"serverName2"];
-      }
-
-      serverPort = [defaults integerForKey: @"serverPort2"];
-      if (!serverPort) {
-         serverPort = 1685;
-         [defaults setInteger: 1685 forKey: @"serverPort2"];
-      }
 
       [defaults synchronize];
    }
@@ -448,30 +435,6 @@
                                              forKey: @"displayMoveGestureStepForwardHint2"];
    [[NSUserDefaults standardUserDefaults] synchronize];
    return tmp;
-}
-
-
-- (NSString *)serverName {
-   return serverName;
-}
-
-- (void)setServerName:(NSString *)newServerName {
-   [serverName release];
-   serverName = [newServerName retain];
-   [[NSUserDefaults standardUserDefaults] setObject: serverName
-                                             forKey: @"serverName2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (int)serverPort {
-   return serverPort;
-}
-
-- (void)setServerPort:(int)newPort {
-   serverPort = newPort;
-   [[NSUserDefaults standardUserDefaults] setInteger: serverPort
-                                              forKey: @"serverPort2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

@@ -27,11 +27,9 @@
 @class LastMoveView;
 @class MoveListView;
 @class PieceImageView;
-@class RemoteEngineController;
 
 @interface GameController : NSObject <UIActionSheetDelegate> {
    EngineController *engineController;
-   RemoteEngineController *remoteEngineController;
    BoardView *boardView;
    UILabel *searchStatsView;
    MoveListView *moveListView;
@@ -85,7 +83,6 @@
 - (void)setGameMode:(GameMode)newGameMode;
 - (void)doEngineMove:(Move)m;
 - (void)engineGo;
-- (void)engineGoPonder:(Move)pMove;
 - (void)engineMadeMove:(NSArray *)array;
 - (BOOL)usersTurnToMove;
 - (BOOL)computersTurnToMove;
@@ -99,9 +96,6 @@
 - (void)startThinking;
 - (BOOL)engineIsThinking;
 - (void)piecesSetUserInteractionEnabled:(BOOL)enable;
-- (void)connectToServer;
-- (void)disconnectFromServer;
-- (BOOL)isConnectedToServer;
 - (void)redrawPieces;
 
 @end

@@ -547,31 +547,6 @@ static NSString* breakLinesInString(NSString *string) {
 }
 
 
-/// remoteEngineGameString returns a string representing the game in a format
-/// suitable for sending to a remote chess server, e.g.
-/// "n\nm e2e4 e7e5 ..."
-
-- (NSString *)remoteEngineGameString {
-   NSMutableString *buf = [NSMutableString stringWithCapacity: 4000];
-
-   if ([startFEN isEqualToString: @"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"])
-      [buf setString: @"n\n"];
-   else
-      [buf setString: [NSString stringWithFormat: @"p %@\n", startFEN]];
-   if (![self atBeginning]) {
-      int i;
-      Move m;
-      [buf appendString: @"m"];
-      for (i = 0; i < currentMoveIndex; i++) {
-         m = [[moves objectAtIndex: i] move];
-         [buf appendFormat: @" %s", move_to_string(m).c_str()];
-      }
-      [buf appendString: @"\n"];
-   }
-   return [NSString stringWithString: buf];
-}
-
-
 - (Move)moveFromString:(NSString *)string {
    return move_from_string(*currentPosition, [string UTF8String]);
 }

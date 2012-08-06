@@ -66,9 +66,6 @@ enum GameLevel {
    BOOL displayMoveGestureStepForwardHint;
    BOOL displayMoveGestureTakebackHint;
 
-   NSString *serverName;
-   int serverPort;
-
    int strength;
 }
 
@@ -94,8 +91,6 @@ enum GameLevel {
 @property (nonatomic, readonly) BOOL displayMoveGestureTakebackHint;
 @property (nonatomic, assign) int strength;
 @property (nonatomic, readonly) BOOL strengthWasChanged;
-@property (nonatomic, retain) NSString *serverName;
-@property (nonatomic, assign) int serverPort;
 
 + (Options *)sharedOptions;
 
