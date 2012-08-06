@@ -33,7 +33,7 @@
    EngineController *engineController;
    RemoteEngineController *remoteEngineController;
    BoardView *boardView;
-   UILabel *analysisView, *searchStatsView;
+   UILabel *searchStatsView;
    MoveListView *moveListView;
    Game *game;
    NSMutableArray *pieceViews;
@@ -57,7 +57,6 @@
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
-           analysisView:(UILabel *)av
         searchStatsView:(UILabel *)ssv;
 - (void)startEngine;
 - (void)startNewGame;
@@ -81,7 +80,6 @@
 - (void)rotateBoard;
 - (void)rotateBoard:(BOOL)rotate;
 - (void)playClickSound;
-- (void)displayPV:(NSString *)pv;
 - (void)displaySearchStats:(NSString *)searchStats;
 - (void)setGameLevel:(GameLevel)newGameLevel;
 - (void)setGameMode:(GameMode)newGameMode;

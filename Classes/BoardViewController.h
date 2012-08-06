@@ -27,7 +27,6 @@
 @interface BoardViewController : UIViewController <UIActionSheetDelegate> {
    RootView *rootView;
    UIView *contentView;
-   UILabel *analysisView;
    BoardView *boardView;
    UILabel *searchStatsView;
    MoveListView *moveListView;
@@ -40,7 +39,6 @@
    UIPopoverController *popoverMenu;
 }
 
-@property (nonatomic, readonly) UILabel *analysisView;
 @property (nonatomic, readonly) BoardView *boardView;
 @property (nonatomic, readonly) MoveListView *moveListView;
 @property (nonatomic, readonly) UILabel *searchStatsView;
@@ -63,7 +61,6 @@
 - (void)loadMenuCancelPressed;
 - (void)loadMenuDonePressedWithGame:(NSString *)gameString;
 - (void)stopActivityIndicator;
-- (void)hideAnalysis;
 - (void)connectToServer;
 - (void)disconnectFromServer;
 - (BOOL)isConnectedToServer;

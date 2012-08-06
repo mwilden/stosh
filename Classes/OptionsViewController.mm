@@ -64,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
    switch(section) {
-   case 0: return 2;
+   case 0: return 1;
    case 1: return 5;
    case 2: return 4;
    case 3: return 1;
@@ -85,19 +85,7 @@
                                      reuseIdentifier: nil]
                 autorelease];
 
-   if (section == 0) {
-      UISwitch *sw;
-      if (row == 0) {
-         [[cell textLabel] setText: @"Show analysis"];
-         sw = [[UISwitch alloc] initWithFrame: CGRectMake(4.0f, 16.0f, 10.0f, 28.0f)];
-         [sw setOn: [[Options sharedOptions] showAnalysis] animated: NO];
-         [sw addTarget: self action: @selector(toggleShowAnalysis:)
-             forControlEvents:UIControlEventValueChanged];
-         [cell setAccessoryView: sw];
-         [sw release];
-      }
-   }
-   else if (section == 1) {
+   if (section == 1) {
       if (row == 0) {
          UISwitch *sw;
          [[cell textLabel] setText: @"Permanent brain"];
@@ -122,7 +110,8 @@
             [[cell detailTextLabel]
                setText: [NSString stringWithFormat: @"%d",
                                   [[Options sharedOptions] strength]]];
-         } else {
+         }
+         else if (row == 3) {
             [[cell textLabel] setText: @"Remote engine"];
             [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
             if ([boardViewController isConnectedToServer])
@@ -224,7 +213,7 @@
                                                 animated: YES];
          [soc release];
       }
-      else if (row == 4) {
+      else if (row == 3) {
          // Remote engine
          RemoteEngineTableController *retc;
          retc = [[RemoteEngineTableController alloc]
@@ -278,12 +267,6 @@
                             animated: YES];
 }
 
-
-- (void)toggleShowAnalysis:(id)sender {
-   [[Options sharedOptions] setShowAnalysis: [sender isOn]];
-   if (![sender isOn])
-      [boardViewController hideAnalysis];
-}
 
 - (void)togglePermanentBrain:(id)sender {
    [[Options sharedOptions] setPermanentBrain: [sender isOn]];

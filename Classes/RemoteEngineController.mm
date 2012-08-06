@@ -147,10 +147,7 @@ static bool SuccessAlertIsDisplayed = NO;
       NSLog(@"%@", str);
       NSArray *lines = [str componentsSeparatedByString: @"\n"];
       for (id line in lines) {
-         if (isdigit([line UTF8String][0]))
-            // Output is a PV -- display it!
-            [gameController displayPV: line];
-         else if ([line UTF8String][0] == 'b') {
+         if ([line UTF8String][0] == 'b') {
             // Remote engine made a move!
             [gameController
                engineMadeMove:

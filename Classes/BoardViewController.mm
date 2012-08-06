@@ -29,7 +29,7 @@
 
 @implementation BoardViewController
 
-@synthesize analysisView, boardView, moveListView, gameController, searchStatsView;
+@synthesize boardView, moveListView, gameController, searchStatsView;
 
 /// init
 
@@ -76,12 +76,6 @@
   [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
   [moveListView setEditable: NO];
   [contentView addSubview: moveListView];
-
-  // Analysis
-  analysisView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
-  [analysisView setFont: [UIFont systemFontOfSize: 14.0]];
-  [analysisView setBackgroundColor: [UIColor whiteColor]];
-  [contentView addSubview: analysisView];
 
   // Search stats
   searchStatsView = [[UILabel alloc] initWithFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
@@ -196,13 +190,11 @@
        [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
       [boardView setFrame: CGRectMake(5.0f, 49.0f, 640.0f, 640.0f)];
       [moveListView setFrame: CGRectMake(656.0f, 116.0f, 360.0f, 573.0f)];
-      [analysisView setFrame: CGRectMake(5.0f, 721.0f, 1011.0f, 20.0f)];
       [searchStatsView setFrame: CGRectMake(656.0f, 695.0f, 360.0f, 20.0f)];
    }
    else {
       [boardView setFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
       [moveListView setFrame: CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
-      [analysisView setFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
       [searchStatsView setFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
    }
    [gameController updateMoveList];
@@ -231,7 +223,6 @@
 
 - (void)dealloc {
    [contentView release];
-   [analysisView release];
    [boardView release];
    [moveListView release];
    [gameMenu release];
@@ -607,11 +598,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    }
 }
 
-
-- (void)hideAnalysis {
-   [analysisView setText: @""];
-   [searchStatsView setText: @""];
-}
 
 - (void)connectToServer {
    [gameController connectToServer];

@@ -90,7 +90,6 @@ using namespace Chess;
 	gameController =
 	[[GameController alloc] initWithBoardView: [viewController boardView]
 								 moveListView: [viewController moveListView]
-								 analysisView: [viewController analysisView]
 							  searchStatsView: [viewController searchStatsView]];
 	
 	/* Chess init */

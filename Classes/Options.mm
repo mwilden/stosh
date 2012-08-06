@@ -25,7 +25,7 @@
 @synthesize darkSquareImage, lightSquareImage;
 @dynamic colorScheme, pieceSet, figurineNotation;
 @dynamic playStyle, moveSound;
-@dynamic showAnalysis, permanentBrain;
+@dynamic permanentBrain;
 @dynamic gameMode, gameLevel, gameModeWasChanged, gameLevelWasChanged;
 @dynamic saveGameFile, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
@@ -35,13 +35,6 @@
 - (id)init {
    if (self = [super init]) {
       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-      if (![defaults objectForKey: @"showAnalysis2"]) {
-         showAnalysis = YES;
-         [defaults setBool: YES forKey: @"showAnalysis2"];
-      }
-      else
-         showAnalysis = [defaults boolForKey: @"showAnalysis2"];
 
       if (![defaults objectForKey: @"permanentBrain2"]) {
          permanentBrain = NO;
@@ -314,19 +307,6 @@
    BOOL result = playStyleWasChanged;
    playStyleWasChanged = NO;
    return result;
-}
-
-
-- (BOOL)showAnalysis {
-   return showAnalysis;
-}
-
-
-- (void)setShowAnalysis:(BOOL)shouldShowAnalysis {
-   showAnalysis = shouldShowAnalysis;
-   [[NSUserDefaults standardUserDefaults] setBool: showAnalysis
-                                           forKey: @"showAnalysis2"];
-   [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

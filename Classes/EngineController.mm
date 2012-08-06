@@ -110,11 +110,6 @@ EngineController *GlobalEngineController; // HACK
 }
 
 
-- (void)sendPV:(NSString *)pv {
-   [gameController displayPV: pv];
-}
-
-
 - (void)sendSearchStats:(NSString *)searchStats {
    [gameController displaySearchStats: searchStats];
 }

@@ -36,12 +36,10 @@ using namespace Chess;
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
-           analysisView:(UILabel *)av
         searchStatsView:(UILabel *)ssv {
    if (self == [super init]) {
       boardView = bv;
       moveListView = mlv;
-      analysisView = av;
       searchStatsView = ssv;
 
       game = [[Game alloc] initWithGameController: self];
@@ -139,7 +137,6 @@ using namespace Chess;
    pendingTo = SQ_NONE;
 
    [moveListView setText: @""];
-   [analysisView setText: @""];
    [searchStatsView setText: @""];
    [self showPiecesAnimate: NO];
    engineIsPlaying = NO;
@@ -915,45 +912,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       AudioServicesPlaySystemSound(clickSound);
 }
 
-- (void)displayPV:(NSString *)pv {
-   if ([[Options sharedOptions] showAnalysis]) {
-      if ([[Options sharedOptions] figurineNotation]) {
-         unichar c;
-         NSString *s;
-         NSString *pc[6] = { @"K", @"Q", @"R", @"B", @"N" };
-         int i;
-         for (i = 0, c = 0x2654; i < 5; i++, c++) {
-            s = [NSString stringWithCharacters: &c length: 1];
-            pv = [pv stringByReplacingOccurrencesOfString: pc[i] withString: s];
-         }
-      }
-      [analysisView setText: [NSString stringWithFormat: @"  %@", pv]];
-   }
-   else
-      [analysisView setText: @""];
-}
-
-
 - (void)displaySearchStats:(NSString *)searchStats {
-   if ([[Options sharedOptions] showAnalysis]) {
-      if ([[Options sharedOptions] figurineNotation]) {
-         unichar c;
-         NSString *s;
-         NSString *pc[6] = { @"K", @"Q", @"R", @"B", @"N" };
-         int i;
-         for (i = 0, c = 0x2654; i < 5; i++, c++) {
-            s = [NSString stringWithCharacters: &c length: 1];
-            searchStats =
-               [searchStats stringByReplacingOccurrencesOfString: pc[i]
-                                                      withString: s
-                                                         options: 0
-                                                           range: NSMakeRange(0, 20)];
-         }
-      }
-      [searchStatsView setText: searchStats];
-   }
-   else
-      [searchStatsView setText: @""];
+  [searchStatsView setText: @""];
 }
 
 
@@ -991,7 +951,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    // If in analyse mode, automatically switch on "Show analysis"
    if (gameMode == GAME_MODE_ANALYSE && ![remoteEngineController isConnected]) {
-      [[Options sharedOptions] setShowAnalysis: YES];
       [[boardView superview] bringSubviewToFront: searchStatsView];
       [searchStatsView setNeedsDisplay];
    }

@@ -49,7 +49,6 @@ enum GameLevel {
    NSString *pieceSet;
    BOOL moveSound;
    BOOL figurineNotation;
-   BOOL showAnalysis;
    BOOL permanentBrain;
 
    GameMode gameMode;
@@ -83,7 +82,6 @@ enum GameLevel {
 @property (nonatomic, retain) NSString *pieceSet;
 @property (nonatomic, readwrite) BOOL moveSound;
 @property (nonatomic, readwrite) BOOL figurineNotation;
-@property (nonatomic, readwrite) BOOL showAnalysis;
 @property (nonatomic, readwrite) BOOL permanentBrain;
 @property (nonatomic, assign) GameMode gameMode;
 @property (nonatomic, assign) GameLevel gameLevel;
