@@ -62,24 +62,24 @@
          // For some reason, I prefer the Leipzig pieces on the iPhone,
          // but Alpha on the iPad.
          if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            pieceSet = [[NSString stringWithString: @"Alpha"] retain];
+            pieceSet = [@"Alpha" retain];
             [defaults setObject: @"Alpha" forKey: @"pieceSet3"];
          }
          else {
-            pieceSet = [[NSString stringWithString: @"Leipzig"] retain];
+            pieceSet = [@"Leipzig" retain];
             [defaults setObject: @"Leipzig" forKey: @"pieceSet3"];
          }
       }
 
       playStyle = [defaults objectForKey: @"playStyle2"];
       if (!playStyle) {
-         playStyle = [[NSString stringWithString: @"Active"] retain];
+         playStyle = [@"Active" retain];
          [defaults setObject: @"Active" forKey: @"playStyle2"];
       }
 
       bookVariety = [defaults objectForKey: @"bookVariety2"];
       if (!bookVariety) {
-         bookVariety = [[NSString stringWithString: @"Medium"] retain];
+         bookVariety = [@"Medium" retain];
          [defaults setObject: @"Medium" forKey: @"bookVariety2"];
       }
 
@@ -99,7 +99,7 @@
 
       colorScheme = [defaults objectForKey: @"colorScheme3"];
       if (!colorScheme) {
-         colorScheme = [[NSString stringWithString: @"Green"] retain];
+         colorScheme = [@"Green" retain];
          [defaults setObject: @"Green" forKey: @"colorScheme3"];
       }
       darkSquareColor = lightSquareColor = highlightColor = nil;
@@ -114,18 +114,18 @@
 
       saveGameFile = [defaults objectForKey: @"saveGameFile2"];
       if (!saveGameFile) {
-         saveGameFile = [[NSString stringWithString: @"My games.pgn"] retain];
+         saveGameFile = [@"My games.pgn" retain];
          [defaults setObject: @"My Games.pgn" forKey: @"saveGameFile2"];
       }
 
       emailAddress = [defaults objectForKey: @"emailAddress2"];
       if (!emailAddress) {
-         emailAddress = [[NSString stringWithString: @""] retain];
+         emailAddress = [@"" retain];
          [defaults setObject: @"" forKey: @"emailAddress2"];
       }
       fullUserName = [defaults objectForKey: @"fullUserName2"];
       if (!fullUserName) {
-         fullUserName = [[NSString stringWithString: @"Me"] retain];
+         fullUserName = [@"Me" retain];
          [defaults setObject: @"Me" forKey: @"fullUserName2"];
       }
 
@@ -159,7 +159,7 @@
 
       serverName = [defaults objectForKey: @"serverName2"];
       if (!serverName) {
-         serverName = [[NSString stringWithString: @""] retain];
+         serverName = [@"" retain];
          [defaults setObject: @"" forKey: @"serverName2"];
       }
 

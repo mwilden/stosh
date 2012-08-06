@@ -571,7 +571,7 @@ static NSString* breakLinesInString(NSString *string) {
    NSMutableString *buf = [NSMutableString stringWithCapacity: 4000];
 
    if ([startFEN isEqualToString: @"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"])
-      [buf setString: [NSString stringWithString: @"n\n"]];
+      [buf setString: @"n\n"];
    else
       [buf setString: [NSString stringWithFormat: @"p %@\n", startFEN]];
    if (![self atBeginning]) {
@@ -645,13 +645,13 @@ static NSString* breakLinesInString(NSString *string) {
    switch(currentPosition->is_immediate_draw()) {
 
    case DRAW_MATERIAL:
-      return [NSString stringWithString: @"No mating material"];
+      return @"No mating material";
    case DRAW_50_MOVES:
-      return [NSString stringWithString: @"50 non-reversible moves"];
+      return @"50 non-reversible moves";
    case DRAW_REPETITION:
-      return [NSString stringWithString: @"Third repetition"];
+      return @"Third repetition";
    case DRAW_STALEMATE:
-      return [NSString stringWithString: @"Stalemate"];
+      return @"Stalemate";
    default:
       assert(NO);
       return nil;

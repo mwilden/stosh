@@ -376,7 +376,7 @@
       str[i] = '\0';
       return [NSString stringWithUTF8String: str];
    }
-   else return [NSString stringWithString: @"-"];
+   else return @"-";
 }
 
 

@@ -34,24 +34,24 @@ parentViewController:(OptionsViewController *)ovc {
          contents = [[NSArray arrayWithObjects: @"Passive", @"Solid", @"Active",
                               @"Aggressive", @"Suicidal", @"Random", nil]
                        retain];
-         slotName = [[NSString stringWithString: @"playStyle"] retain];
+         slotName = [@"playStyle" retain];
       }
       else if ([optionName isEqualToString: @"Book variety"]) {
          contents = [[NSArray arrayWithObjects: @"Low", @"Medium", @"High", nil]
                        retain];
-         slotName = [[NSString stringWithString: @"bookVariety"] retain];
+         slotName = [@"bookVariety" retain];
       }
       else if ([optionName isEqualToString: @"Piece set"]) {
          contents = [[NSArray arrayWithObjects:
                                  @"Alpha", @"Berlin", @"Cheq", @"Leipzig", @"Modern", @"USCF", @"XBoard", @"Invisible", nil]
                        retain];
-         slotName = [[NSString stringWithString: @"pieceSet"] retain];
+         slotName = [@"pieceSet" retain];
       }
       else if ([optionName isEqualToString: @"Color scheme"]) {
          contents = [[NSArray arrayWithObjects: @"Brown", @"Blue", @"Green",
                               @"Red", @"Gray", @"Wood", @"Marble", nil]
                        retain];
-         slotName = [[NSString stringWithString: @"colorScheme"] retain];
+         slotName = [@"colorScheme" retain];
       }
       /*
       else if ([optionName isEqualToString: @"Sounds"]) {
