@@ -82,7 +82,7 @@
    UITableViewCell *cell =
       [[self tableView] dequeueReusableCellWithIdentifier: @"any-cell"];
    if (cell == nil)
-      cell = [[[UITableViewCell alloc] initWithFrame: CGRectZero
+       cell = [[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                      reuseIdentifier: @"any-cell"]
                 autorelease];
    if (section == 0) {
