@@ -587,31 +587,6 @@
 }
 
 
-static const BOOL FixedTime[13] = {
-   NO, NO, NO, NO, NO, NO, NO, NO, YES, YES, YES, YES, YES
-};
-static const int LevelTime[13] = {
-   2, 2, 5, 5, 15, 15, 30, 30, 0, 0, 0, 0, 0
-};
-static const int LevelIncr[13] = {
-   0, 1, 0, 2, 0, 5, 0, 5, 1, 2, 5, 10, 30
-};
-
-- (BOOL)isFixedTimeLevel {
-   assert(gameLevel < 13);
-   return FixedTime[gameLevel];
-}
-
-- (int)baseTime {
-   assert(gameLevel < 13);
-   return LevelTime[gameLevel] * 60000;
-}
-
-- (int)timeIncrement {
-   assert(gameLevel < 13);
-   return LevelIncr[gameLevel] * 1000;
-}
-
 - (NSString *)serverName {
    return serverName;
 }

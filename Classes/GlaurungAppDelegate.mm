@@ -73,10 +73,6 @@ using namespace Chess;
 				  forKey: @"gameLevel"];
 	[defaults setInteger: ((int)[[Options sharedOptions] gameMode] + 1)
 				  forKey: @"gameMode"];
-	[defaults setInteger: [[[gameController game] clock] whiteRemainingTime] + 1
-				  forKey: @"whiteRemainingTime"];
-	[defaults setInteger: [[[gameController game] clock] blackRemainingTime] + 1
-				  forKey: @"blackRemainingTime"];
 	[defaults setBool: [gameController rotated]
 			   forKey: @"rotateBoard"];
 	[defaults synchronize];
@@ -96,8 +92,6 @@ using namespace Chess;
 								 moveListView: [viewController moveListView]
 								 analysisView: [viewController analysisView]
 								bookMovesView: [viewController bookMovesView]
-							   whiteClockView: [viewController whiteClockView]
-							   blackClockView: [viewController blackClockView]
 							  searchStatsView: [viewController searchStatsView]];
 	
 	/* Chess init */
@@ -144,14 +138,6 @@ using namespace Chess;
 		[[Options sharedOptions] setGameLevel: (GameLevel)(gameLevel - 1)];
 		[gameController setGameLevel: [[Options sharedOptions] gameLevel]];
 	}
-	
-	int whiteRemainingTime = [defaults integerForKey: @"whiteRemainingTime"];
-	int blackRemainingTime = [defaults integerForKey: @"blackRemainingTime"];
-	ChessClock *clock = [[gameController game] clock];
-	if (whiteRemainingTime)
-		[clock addTimeForWhite: (whiteRemainingTime - [clock whiteRemainingTime])];
-	if (blackRemainingTime)
-		[clock addTimeForBlack: (blackRemainingTime - [clock blackRemainingTime])];
 	
 	int gameMode = [defaults integerForKey: @"gameMode"];
 	if (gameMode) {

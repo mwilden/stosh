@@ -112,8 +112,5 @@ enum GameLevel {
 + (Options *)sharedOptions;
 
 - (void)updateColors;
-- (BOOL)isFixedTimeLevel;
-- (int)baseTime;
-- (int)timeIncrement;
 
 @end

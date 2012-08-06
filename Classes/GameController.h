@@ -33,7 +33,7 @@
    EngineController *engineController;
    RemoteEngineController *remoteEngineController;
    BoardView *boardView;
-   UILabel *analysisView, *bookMovesView, *whiteClockView, *blackClockView, *searchStatsView;
+   UILabel *analysisView, *bookMovesView, *searchStatsView;
    MoveListView *moveListView;
    Game *game;
    NSMutableArray *pieceViews;
@@ -50,8 +50,6 @@
    LastMoveView *lastMoveView;
 }
 
-@property (nonatomic, readonly) UILabel *whiteClockView;
-@property (nonatomic, readonly) UILabel *blackClockView;
 @property (nonatomic, readonly) UILabel *searchStatsView;
 @property (nonatomic, readonly) Game *game;
 @property (nonatomic, assign) GameMode gameMode;
@@ -61,8 +59,6 @@
            moveListView:(MoveListView *)mlv
            analysisView:(UILabel *)av
           bookMovesView:(UILabel *)bmv
-         whiteClockView:(UILabel *)wcv
-         blackClockView:(UILabel *)bcv
         searchStatsView:(UILabel *)ssv;
 - (void)startEngine;
 - (void)startNewGame;

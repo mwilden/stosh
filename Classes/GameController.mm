@@ -31,23 +31,19 @@ using namespace Chess;
 
 @implementation GameController
 
-@synthesize whiteClockView, blackClockView, searchStatsView, game, rotated;
+@synthesize searchStatsView, game, rotated;
 @dynamic gameMode;
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv
            analysisView:(UILabel *)av
           bookMovesView:(UILabel *)bmv
-         whiteClockView:(UILabel *)wcv
-         blackClockView:(UILabel *)bcv
         searchStatsView:(UILabel *)ssv {
    if (self == [super init]) {
       boardView = bv;
       moveListView = mlv;
       analysisView = av;
       bookMovesView = bmv;
-      whiteClockView = wcv;
-      blackClockView = bcv;
       searchStatsView = ssv;
 
       game = [[Game alloc] initWithGameController: self];
@@ -135,11 +131,6 @@ using namespace Chess;
    game = [[Game alloc] initWithGameController: self];
    gameLevel = [[Options sharedOptions] gameLevel];
    gameMode = [[Options sharedOptions] gameMode];
-   if ([[Options sharedOptions] isFixedTimeLevel])
-      [game setTimeControlWithFixedTime: [[Options sharedOptions] timeIncrement]];
-   else
-      [game setTimeControlWithTime: [[Options sharedOptions] baseTime]
-                         increment: [[Options sharedOptions] timeIncrement]];
 
    [game setWhitePlayer:
             ((gameMode == GAME_MODE_COMPUTER_BLACK)?
@@ -673,8 +664,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          }
       }
 
-      // Stop the clock:
-      [game stopClock];
    }
    [self updateMoveList];
    [self showBookMoves];
@@ -725,9 +714,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             [remoteEngineController sendToServer: @"gi\n"];
          }
       }
-
-      // Stop the clock:
-      [game stopClock];
 
       [self updateMoveList];
       [self showBookMoves];
@@ -873,9 +859,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             [remoteEngineController sendToServer: @"gi\n"];
          }
       }
-
-      // Stop the clock:
-      [game stopClock];
 
       [self updateMoveList];
       [self showBookMoves];
@@ -1051,17 +1034,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 - (void)setGameLevel:(GameLevel)newGameLevel {
    NSLog(@"new game level: %d", newGameLevel);
    gameLevel = newGameLevel;
-   if ([[Options sharedOptions] isFixedTimeLevel]) {
-      NSLog(@"fixed time: %d", [[Options sharedOptions] timeIncrement]);
-      [game setTimeControlWithFixedTime: [[Options sharedOptions] timeIncrement]];
-   }
-   else {
-      NSLog(@"base time: %d increment: %d",
-            [[Options sharedOptions] baseTime],
-            [[Options sharedOptions] timeIncrement]);
-      [game setTimeControlWithTime: [[Options sharedOptions] baseTime]
-                         increment: [[Options sharedOptions] timeIncrement]];
-   }
 }
 
 - (GameMode)gameMode {
@@ -1210,27 +1182,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             engineIsPlaying = YES;
             if (![remoteEngineController isConnected]) {
                [engineController sendCommand: [game uciGameString]];
-               if ([[Options sharedOptions] isFixedTimeLevel])
-                  [engineController
-                     sendCommand: [NSString stringWithFormat: @"go movetime %d",
-                                            [[Options sharedOptions] timeIncrement]]];
-               else
-                  [engineController
-                     sendCommand: [NSString stringWithFormat: @"go wtime %d btime %d winc %d binc %d",
-                                            [[game clock] whiteRemainingTime],
-                                            [[game clock] blackRemainingTime],
-                                            [[game clock] whiteIncrement],
-                                            [[game clock] blackIncrement]]];
-               [engineController commitCommands];
-            }
-            else {
-               // TODO: Fixed time levels
-               [remoteEngineController
-                  sendToServer: [NSString stringWithFormat: @"go %d %d %d %d\n",
-                                          [[game clock] whiteRemainingTime],
-                                          [[game clock] whiteIncrement],
-                                          [[game clock] blackRemainingTime],
-                                          [[game clock] blackIncrement]]];
             }
          }
       }
@@ -1256,13 +1207,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             [NSString stringWithFormat: @"%@ %s",
                       [game uciGameString], move_to_string(pMove).c_str()]];
       isPondering = YES;
-      [engineController
-         sendCommand: [NSString stringWithFormat: @"go ponder wtime %d btime %d winc %d binc %d",
-                                [[game clock] whiteRemainingTime],
-                                [[game clock] blackRemainingTime],
-                                [[game clock] whiteIncrement],
-                                [[game clock] blackIncrement]]];
-      [engineController commitCommands];
    }
 }
 
@@ -1404,8 +1348,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    gameLevel = [[Options sharedOptions] gameLevel];
    gameMode = [[Options sharedOptions] gameMode];
-   [game setTimeControlWithTime: [[Options sharedOptions] baseTime]
-                      increment: [[Options sharedOptions] timeIncrement]];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
@@ -1434,8 +1376,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [remoteEngineController sendToServer: [game remoteEngineGameString]];
    gameLevel = [[Options sharedOptions] gameLevel];
    gameMode = [[Options sharedOptions] gameMode];
-   [game setTimeControlWithTime: [[Options sharedOptions] baseTime]
-                      increment: [[Options sharedOptions] timeIncrement]];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;

@@ -163,7 +163,6 @@
 		1796FF5311D3921A0074E5B7 /* BoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEF911D3921A0074E5B7 /* BoardView.mm */; };
 		1796FF5411D3921A0074E5B7 /* BoardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */; };
 		1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */; };
-		1796FF5611D3921A0074E5B7 /* ChessClock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFF11D3921A0074E5B7 /* ChessClock.mm */; };
 		1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0111D3921A0074E5B7 /* ChessMove.mm */; };
 		1796FF5811D3921A0074E5B7 /* DateTagViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0311D3921A0074E5B7 /* DateTagViewController.mm */; };
 		1796FF5911D3921A0074E5B7 /* EditUserNameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0511D3921A0074E5B7 /* EditUserNameController.mm */; };
@@ -539,8 +538,6 @@
 		1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardViewController.mm; sourceTree = "<group>"; };
 		1796FEFC11D3921A0074E5B7 /* CastleRightsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastleRightsController.h; sourceTree = "<group>"; };
 		1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CastleRightsController.mm; sourceTree = "<group>"; };
-		1796FEFE11D3921A0074E5B7 /* ChessClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessClock.h; sourceTree = "<group>"; };
-		1796FEFF11D3921A0074E5B7 /* ChessClock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChessClock.mm; sourceTree = "<group>"; };
 		1796FF0011D3921A0074E5B7 /* ChessMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessMove.h; sourceTree = "<group>"; };
 		1796FF0111D3921A0074E5B7 /* ChessMove.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChessMove.mm; sourceTree = "<group>"; };
 		1796FF0211D3921A0074E5B7 /* DateTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTagViewController.h; sourceTree = "<group>"; };
@@ -890,8 +887,6 @@
 				1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */,
 				1796FEFC11D3921A0074E5B7 /* CastleRightsController.h */,
 				1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */,
-				1796FEFE11D3921A0074E5B7 /* ChessClock.h */,
-				1796FEFF11D3921A0074E5B7 /* ChessClock.mm */,
 				1796FF0011D3921A0074E5B7 /* ChessMove.h */,
 				1796FF0111D3921A0074E5B7 /* ChessMove.mm */,
 				1796FF0211D3921A0074E5B7 /* DateTagViewController.h */,
@@ -1831,7 +1826,6 @@
 				1796FF5311D3921A0074E5B7 /* BoardView.mm in Sources */,
 				1796FF5411D3921A0074E5B7 /* BoardViewController.mm in Sources */,
 				1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */,
-				1796FF5611D3921A0074E5B7 /* ChessClock.mm in Sources */,
 				1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */,
 				1796FF5811D3921A0074E5B7 /* DateTagViewController.mm in Sources */,
 				1796FF5911D3921A0074E5B7 /* EditUserNameController.mm in Sources */,

@@ -26,7 +26,7 @@
 
 @implementation Game
 
-@synthesize clock, event, site, date, round, whitePlayer, blackPlayer, result, currentMoveIndex;
+@synthesize event, site, date, round, whitePlayer, blackPlayer, result, currentMoveIndex;
 
 
 /// initWithGameController:FEN: initializes a game from a FEN representing the
@@ -68,9 +68,6 @@
       result = [[NSString alloc] initWithString: @"*"];
 
       book = [[OpeningBook alloc] init];
-      clock = [[ChessClock alloc] initWithTime: 300000 increment: 0
-                                whiteClockView: [gameController whiteClockView]
-                                blackClockView: [gameController blackClockView]];
       memset(hintHashTable, 0, HINT_HASH_TABLE_SIZE*sizeof(HintHashentry));
    }
    return self;
@@ -293,8 +290,6 @@
    [cm release];
    currentMoveIndex++;
 
-   [self pushClock];
-
    assert([self atEnd]);
 }
 
@@ -335,8 +330,6 @@
    [moves addObject: cm];
    [cm release];
    currentMoveIndex++;
-
-   [self pushClock];
 
    assert([self atEnd]);
 
@@ -615,64 +608,6 @@ static NSString* breakLinesInString(NSString *string) {
 }
 
 
-- (void)startClock {
-   if ([self sideToMove] == WHITE)
-      [clock startClockForWhite];
-   else
-      [clock startClockForBlack];
-}
-
-
-- (void)stopClock {
-   [clock stopClock];
-}
-
-
-- (int)whiteRemainingTime {
-   return [clock whiteRemainingTime];
-}
-
-
-- (int)blackRemainingTime {
-   return [clock blackRemainingTime];
-}
-
-
-- (void)pushClock {
-   if (![clock isRunning]) {
-      if ([self sideToMove] == WHITE)
-         [clock startClockForWhite];
-      else
-         [clock startClockForBlack];
-   }
-   else [clock pushClock];
-}
-
-
-- (NSString *)whiteClockString {
-   return [clock whiteRemainingTimeString];
-}
-
-
-- (NSString *)blackClockString {
-   return [clock blackRemainingTimeString];
-}
-
-
-- (void)setTimeControlWithTime:(int)time increment:(int)increment {
-   [clock resetWithTime: time increment: increment];
-}
-
-
-- (void)setTimeControlWithTime:(int)time movesPerSession:(int)mps {
-   [clock resetWithTime: time forMoves: mps];
-}
-
-- (void)setTimeControlWithFixedTime:(int)time {
-   [clock resetWithFixedTime: time];
-}
-
-
 - (void)setHintForCurrentPosition:(Move)hintMove {
    HintHashentry *hhe =
       hintHashTable + (currentPosition->get_key() & (HINT_HASH_TABLE_SIZE-1));
@@ -767,8 +702,6 @@ static NSString* breakLinesInString(NSString *string) {
    [startFEN release];
    [moves release];
    [book release];
-   [clock stopTimer];
-   [clock release];
    [event release];
    [site release];
    [date release];

@@ -29,7 +29,7 @@
 
 @implementation BoardViewController
 
-@synthesize analysisView, bookMovesView, boardView, whiteClockView, blackClockView, moveListView, gameController, searchStatsView;
+@synthesize analysisView, bookMovesView, boardView, moveListView, gameController, searchStatsView;
 
 /// init
 
@@ -44,7 +44,7 @@
 
 /// loadView creates and lays out all the subviews of the main window: The
 /// board, the toolbar, the move list, and the small UILabels used to display
-/// the engine analysis and the clocks.
+/// the engine analysis.
 
 - (void)loadView {
 
@@ -70,22 +70,6 @@
       //boardView = [[BoardView alloc] initWithFrame: CGRectMake(0.0f, 44.0f, 768.0f, 768.0f)];
       boardView = [[BoardView alloc] initWithFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
       [contentView addSubview: boardView];
-
-      // Clocks
-      whiteClockView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 814.0f, 185.0f, 59.0f)];
-      [whiteClockView setFont: [UIFont systemFontOfSize: 25.0]];
-      [whiteClockView setTextAlignment: UITextAlignmentCenter];
-      [whiteClockView setText: @"White: 5:00"];
-      [whiteClockView setBackgroundColor: [UIColor whiteColor]];
-
-      blackClockView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 881.0f, 185.0f, 59.0f)];
-      [blackClockView setFont: [UIFont systemFontOfSize: 25.0]];
-      [blackClockView setTextAlignment: UITextAlignmentCenter];
-      [blackClockView setText: @"Black: 5:00"];
-      [blackClockView setBackgroundColor: [UIColor whiteColor]];
-
-      [contentView addSubview: whiteClockView];
-      [contentView addSubview: blackClockView];
 
       // Move list
       moveListView =
@@ -208,24 +192,6 @@
       [searchStatsView setBackgroundColor: [UIColor lightGrayColor]];
       [contentView addSubview: searchStatsView];
       [searchStatsView release];
-
-      // Clocks
-      whiteClockView =
-         [[UILabel alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 160.0f, 18.0f)];
-      [whiteClockView setFont: [UIFont systemFontOfSize: 14.0]];
-      [whiteClockView setTextAlignment: UITextAlignmentCenter];
-      [whiteClockView setText: @"White: 5:00"];
-      [whiteClockView setBackgroundColor: [UIColor lightGrayColor]];
-
-      blackClockView =
-         [[UILabel alloc] initWithFrame: CGRectMake(160.0f, 0.0f, 160.0f, 18.0f)];
-      [blackClockView setFont: [UIFont systemFontOfSize: 14.0]];
-      [blackClockView setTextAlignment: UITextAlignmentCenter];
-      [blackClockView setText: @"Black: 5:00"];
-      [blackClockView setBackgroundColor: [UIColor lightGrayColor]];
-
-      [contentView addSubview: whiteClockView];
-      [contentView addSubview: blackClockView];
 
       // Analysis
       analysisView =
@@ -357,8 +323,6 @@
    if ([self interfaceOrientation] == UIInterfaceOrientationLandscapeLeft ||
        [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
       [boardView setFrame: CGRectMake(5.0f, 49.0f, 640.0f, 640.0f)];
-      [whiteClockView setFrame: CGRectMake(656.0f, 49.0f, 176.0f, 59.0f)];
-      [blackClockView setFrame: CGRectMake(656.0f+176.0f+8.0f, 49.0f, 176.0f, 59.0f)];
       [moveListView setFrame: CGRectMake(656.0f, 116.0f, 360.0f, 573.0f)];
       [bookMovesView setFrame: CGRectMake(5.0f, 695.0f, 640.0f, 20.0f)];
       [analysisView setFrame: CGRectMake(5.0f, 721.0f, 1011.0f, 20.0f)];
@@ -366,8 +330,6 @@
    }
    else {
       [boardView setFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
-      [whiteClockView setFrame: CGRectMake(8.0f, 814.0f, 185.0f, 59.0f)];
-      [blackClockView setFrame: CGRectMake(8.0f, 881.0f, 185.0f, 59.0f)];
       [moveListView setFrame: CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
       [bookMovesView setFrame: CGRectMake(8.0f, 948.0f, 752.0f, 20.0f)];
       [analysisView setFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
@@ -401,8 +363,6 @@
    [contentView release];
    [analysisView release];
    [boardView release];
-   [whiteClockView release];
-   [blackClockView release];
    [moveListView release];
    [gameMenu release];
    [newGameMenu release];

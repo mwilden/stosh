@@ -30,7 +30,6 @@
    UILabel *analysisView;
    UILabel *bookMovesView;
    BoardView *boardView;
-   UILabel *whiteClockView, *blackClockView;
    UILabel *searchStatsView;
    MoveListView *moveListView;
    GameController *gameController;
@@ -45,8 +44,6 @@
 @property (nonatomic, readonly) UILabel *analysisView;
 @property (nonatomic, readonly) UILabel *bookMovesView;
 @property (nonatomic, readonly) BoardView *boardView;
-@property (nonatomic, readonly) UILabel *whiteClockView;
-@property (nonatomic, readonly) UILabel *blackClockView;
 @property (nonatomic, readonly) MoveListView *moveListView;
 @property (nonatomic, readonly) UILabel *searchStatsView;
 @property (nonatomic, assign) GameController *gameController;
