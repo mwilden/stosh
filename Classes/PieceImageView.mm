@@ -188,7 +188,6 @@
          // Messaging the board view directly from here is perhaps not entirely
          // kosher.  Perhaps we should communicate with the board view using
          // the game controller?
-         [boardView highlightSquares: sqs];
          CGPoint pt = [[touches anyObject] locationInView: self];
          oldFrame = [self frame];
          location = pt;
@@ -235,11 +234,8 @@
       Square releasedSquare = [boardView squareAtPoint: releasePoint];
 
       if ([gameController pieceCanMoveFrom: square to: releasedSquare]) {
-         [boardView stopHighlighting];
-
          // Make the piece slide smoothly to the center of the square:
 
-         CGPoint startPt = [self frame].origin;
          CGPoint endPt =
             CGPointMake(int(square_file(releasedSquare)) * sqSize,
                         (7-int(square_rank(releasedSquare))) * sqSize);
@@ -287,8 +283,6 @@
             [boardView pieceTouchedAtSquare: square];
             return;
          }
-         else
-            [boardView stopHighlighting];
       }
    }
    wasDraggedAwayFromSquare = NO;

@@ -56,7 +56,6 @@ using namespace Chess;
 
 - (void)setFrame:(CGRect)frame {
    [super setFrame: frame];
-   [self stopHighlighting];
    [self hideLastMove];
    selectedSquare = SQ_NONE;
    fromSquare = SQ_NONE;
@@ -99,49 +98,6 @@ using namespace Chess;
    CGRect r = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
    r.origin = [self originOfSquare: sq];
    return r;
-}
-
-
-/// highlightSquares is passed an array of squares, and highlights these squares
-/// on the board.  It is used to display the squares a piece can move to.
-
-- (void)highlightSquares:(Square *)sqs {
-   int i;
-   for (i = 0; sqs[i] != SQ_NONE; i++)
-      highlightedSquares[i] = sqs[i];
-   highlightedSquares[i] = SQ_NONE;
-
-   CGRect rect = [self frame];
-   rect.origin = CGPointMake(0.0f, 0.0f);
-   highlightedSquaresView =
-      [[HighlightedSquaresView alloc] initWithFrame: rect squares: sqs];
-   [highlightedSquaresView setOpaque: NO];
-   [self addSubview: highlightedSquaresView];
-
-   selectedSquare = SQ_NONE;
-   selectedSquareView =
-      [[SelectedSquareView alloc]
-         initWithFrame: CGRectMake(0.0f, 0.0f, sqSize + 60.0f, sqSize + 60.0f)];
-   [selectedSquareView setOpaque: NO];
-   [self addSubview: selectedSquareView];
-}
-
-
-/// stopHighlighting stops highlighting squares.  It is called when the user
-/// releases a piece.
-
-- (void)stopHighlighting {
-   if (highlightedSquaresView) {
-      [highlightedSquaresView removeFromSuperview];
-      [highlightedSquaresView release];
-      highlightedSquaresView = nil;
-   }
-   if (selectedSquareView) {
-      [selectedSquareView removeFromSuperview];
-      [selectedSquareView release];
-      selectedSquareView = nil;
-   }
-   selectedSquare = fromSquare = SQ_NONE;
 }
 
 
@@ -205,7 +161,6 @@ using namespace Chess;
    else {
       CGPoint pt = [[touches anyObject] locationInView: self];
       if ([self squareAtPoint: pt] == fromSquare) {
-         [self stopHighlighting];
          [self hideLastMove];
       }
       else
@@ -225,13 +180,11 @@ using namespace Chess;
       CGPoint pt = [[touches anyObject] locationInView: self];
       Square fSq = fromSquare, tSq = [self squareAtPoint: pt];
       [self hideLastMove];
-      [self stopHighlighting];
       if ([gameController pieceCanMoveFrom: fSq to: tSq])
          [gameController animateMoveFrom: fSq to: tSq];
    }
    else {
       [self hideLastMove];
-      [self stopHighlighting];
    }
    fromSquare = SQ_NONE;
 }
