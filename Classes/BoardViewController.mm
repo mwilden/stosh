@@ -48,230 +48,124 @@
 
 - (void)loadView {
 
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      // Content view
-      CGRect appRect = [[UIScreen mainScreen] applicationFrame];
-      rootView = [[RootView alloc] initWithFrame: appRect];
-      [rootView setAutoresizesSubviews: YES];
-      [rootView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
-                                      UIViewAutoresizingFlexibleHeight)];
-      appRect.origin = CGPointMake(0.0f, 0.0f);
-      contentView = [[UIView alloc] initWithFrame: appRect];
-      [contentView setAutoresizesSubviews: YES];
-      [contentView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
-                                         UIViewAutoresizingFlexibleHeight)];
-      [contentView setBackgroundColor: [UIColor lightGrayColor]];
-      [rootView addSubview: contentView];
-      [self setView: rootView];
-      [rootView release];
-      [contentView release];
+  // Content view
+  CGRect appRect = [[UIScreen mainScreen] applicationFrame];
+  rootView = [[RootView alloc] initWithFrame: appRect];
+  [rootView setAutoresizesSubviews: YES];
+  [rootView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
+                                  UIViewAutoresizingFlexibleHeight)];
+  appRect.origin = CGPointMake(0.0f, 0.0f);
+  contentView = [[UIView alloc] initWithFrame: appRect];
+  [contentView setAutoresizesSubviews: YES];
+  [contentView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
+                                     UIViewAutoresizingFlexibleHeight)];
+  [contentView setBackgroundColor: [UIColor lightGrayColor]];
+  [rootView addSubview: contentView];
+  [self setView: rootView];
+  [rootView release];
+  [contentView release];
 
-      // Board
-      //boardView = [[BoardView alloc] initWithFrame: CGRectMake(0.0f, 44.0f, 768.0f, 768.0f)];
-      boardView = [[BoardView alloc] initWithFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
-      [contentView addSubview: boardView];
+  // Board
+  //boardView = [[BoardView alloc] initWithFrame: CGRectMake(0.0f, 44.0f, 768.0f, 768.0f)];
+  boardView = [[BoardView alloc] initWithFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
+  [contentView addSubview: boardView];
 
-      // Move list
-      moveListView =
-         [[MoveListView alloc] initWithFrame:
-                                  CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
-      [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
-      [moveListView setEditable: NO];
-      [contentView addSubview: moveListView];
+  // Move list
+  moveListView =
+     [[MoveListView alloc] initWithFrame:
+                              CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
+  [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
+  [moveListView setEditable: NO];
+  [contentView addSubview: moveListView];
 
-      // Book moves
-      bookMovesView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 948.0f, 752.0f, 20.0f)];
-      [bookMovesView setFont: [UIFont systemFontOfSize: 14.0]];
-      [bookMovesView setBackgroundColor: [UIColor whiteColor]];
-      [contentView addSubview: bookMovesView];
-      [bookMovesView release];
+  // Book moves
+  bookMovesView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 948.0f, 752.0f, 20.0f)];
+  [bookMovesView setFont: [UIFont systemFontOfSize: 14.0]];
+  [bookMovesView setBackgroundColor: [UIColor whiteColor]];
+  [contentView addSubview: bookMovesView];
+  [bookMovesView release];
 
-      // Analysis
-      analysisView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
-      [analysisView setFont: [UIFont systemFontOfSize: 14.0]];
-      [analysisView setBackgroundColor: [UIColor whiteColor]];
-      [contentView addSubview: analysisView];
+  // Analysis
+  analysisView = [[UILabel alloc] initWithFrame: CGRectMake(8.0f, 975.0f, 440.0f, 20.0f)];
+  [analysisView setFont: [UIFont systemFontOfSize: 14.0]];
+  [analysisView setBackgroundColor: [UIColor whiteColor]];
+  [contentView addSubview: analysisView];
 
-      // Search stats
-      searchStatsView = [[UILabel alloc] initWithFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
-      [searchStatsView setFont: [UIFont systemFontOfSize: 14.0]];
-      //[searchStatsView setTextAlignment: UITextAlignmentCenter];
-      [searchStatsView setBackgroundColor: [UIColor whiteColor]];
-      [contentView addSubview: searchStatsView];
-      [searchStatsView release];
+  // Search stats
+  searchStatsView = [[UILabel alloc] initWithFrame: CGRectMake(458.0f, 975.0f, 302.0f, 20.0f)];
+  [searchStatsView setFont: [UIFont systemFontOfSize: 14.0]];
+  //[searchStatsView setTextAlignment: UITextAlignmentCenter];
+  [searchStatsView setBackgroundColor: [UIColor whiteColor]];
+  [contentView addSubview: searchStatsView];
+  [searchStatsView release];
 
-      // Toolbar
-      UIToolbar *toolbar =
-         [[UIToolbar alloc]
-            initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
-      [contentView addSubview: toolbar];
-      [toolbar setAutoresizingMask: UIViewAutoresizingFlexibleWidth];
+  // Toolbar
+  UIToolbar *toolbar =
+     [[UIToolbar alloc]
+        initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+  [contentView addSubview: toolbar];
+  [toolbar setAutoresizingMask: UIViewAutoresizingFlexibleWidth];
 
-      NSMutableArray *buttons = [[NSMutableArray alloc] init];
-      UIBarButtonItem *button;
+  NSMutableArray *buttons = [[NSMutableArray alloc] init];
+  UIBarButtonItem *button;
 
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Game"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 58.0f];
-      [buttons addObject: button];
-      [button release];
-      gameButton = button;
+  button = [[UIBarButtonItem alloc] initWithTitle: @"Game"
+                                            style: UIBarButtonItemStyleBordered
+                                           target: self
+                                           action: @selector(toolbarButtonPressed:)];
+  [button setWidth: 58.0f];
+  [buttons addObject: button];
+  [button release];
+  gameButton = button;
 
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Options"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      //[button setWidth: 60.0f];
-      [buttons addObject: button];
-      [button release];
-      optionsButton = button;
+  button = [[UIBarButtonItem alloc] initWithTitle: @"Options"
+                                            style: UIBarButtonItemStyleBordered
+                                           target: self
+                                           action: @selector(toolbarButtonPressed:)];
+  //[button setWidth: 60.0f];
+  [buttons addObject: button];
+  [button release];
+  optionsButton = button;
 
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Flip"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [buttons addObject: button];
-      [button release];
+  button = [[UIBarButtonItem alloc] initWithTitle: @"Flip"
+                                            style: UIBarButtonItemStyleBordered
+                                           target: self
+                                           action: @selector(toolbarButtonPressed:)];
+  [buttons addObject: button];
+  [button release];
 
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Move"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 53.0f];
-      [buttons addObject: button];
-      [button release];
+  button = [[UIBarButtonItem alloc] initWithTitle: @"Move"
+                                            style: UIBarButtonItemStyleBordered
+                                           target: self
+                                           action: @selector(toolbarButtonPressed:)];
+  [button setWidth: 53.0f];
+  [buttons addObject: button];
+  [button release];
 
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Hint"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 49.0f];
-      [buttons addObject: button];
-      [button release];
+  button = [[UIBarButtonItem alloc] initWithTitle: @"Hint"
+                                            style: UIBarButtonItemStyleBordered
+                                           target: self
+                                           action: @selector(toolbarButtonPressed:)];
+  [button setWidth: 49.0f];
+  [buttons addObject: button];
+  [button release];
 
-      [toolbar setItems: buttons animated: YES];
-      [buttons release];
-      [toolbar sizeToFit];
-      [toolbar release];
+  [toolbar setItems: buttons animated: YES];
+  [buttons release];
+  [toolbar sizeToFit];
+  [toolbar release];
 
-      [contentView bringSubviewToFront: boardView];
+  [contentView bringSubviewToFront: boardView];
 
-      // Activity indicator
-      activityIndicator =
-         [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(0,0,30,30)];
-      [activityIndicator setCenter: CGPointMake(160.0f, 180.0f)];
-      [activityIndicator
-         setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhite];
-      [contentView addSubview: activityIndicator];
-      [activityIndicator startAnimating];
-      [activityIndicator release];
-   }
-   else { // iPhone or iPod touch
-      // Content view
-      CGRect appRect = [[UIScreen mainScreen] applicationFrame];
-      rootView = [[RootView alloc] initWithFrame: appRect];
-      appRect.origin = CGPointMake(0.0f, 0.0f);
-      contentView = [[UIView alloc] initWithFrame: appRect];
-      [rootView addSubview: contentView];
-      [self setView: rootView];
-      [rootView release];
-      [contentView release];
-
-      // Board
-      boardView =
-         [[BoardView alloc] initWithFrame: CGRectMake(0.0f, 18.0f, 320.0f, 320.0f)];
-      [contentView addSubview: boardView];
-
-      // Search stats
-      searchStatsView =
-         [[UILabel alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 18.0f)];
-      [searchStatsView setFont: [UIFont systemFontOfSize: 14.0]];
-      //[searchStatsView setTextAlignment: UITextAlignmentCenter];
-      [searchStatsView setBackgroundColor: [UIColor lightGrayColor]];
-      [contentView addSubview: searchStatsView];
-      [searchStatsView release];
-
-      // Analysis
-      analysisView =
-         [[UILabel alloc] initWithFrame: CGRectMake(0.0f, 338.0f, 320.0f, 18.0f)];
-      [analysisView setFont: [UIFont systemFontOfSize: 13.0]];
-      [analysisView setBackgroundColor: [UIColor lightGrayColor]];
-      [contentView addSubview: analysisView];
-
-      // Book moves. Shared with analysis view on the iPhone.
-      bookMovesView = analysisView;
-
-      // Move list
-      moveListView =
-         [[MoveListView alloc] initWithFrame:
-                                  CGRectMake(0.0f, 356.0f, 320.0f, 60.0f)];
-      [moveListView setFont: [UIFont systemFontOfSize: 14.0]];
-      [moveListView setEditable: NO];
-      [contentView addSubview: moveListView];
-
-      // Toolbar
-      UIToolbar *toolbar =
-         [[UIToolbar alloc]
-            initWithFrame: CGRectMake(0.0f, 480.0f-64.0f, 320.0f, 64.0f)];
-      [contentView addSubview: toolbar];
-
-      NSMutableArray *buttons = [[NSMutableArray alloc] init];
-      UIBarButtonItem *button;
-
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Game"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 58.0f];
-      [buttons addObject: button];
-      [button release];
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Options"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      //[button setWidth: 60.0f];
-      [buttons addObject: button];
-      [button release];
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Flip"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [buttons addObject: button];
-      [button release];
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Move"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 53.0f];
-      [buttons addObject: button];
-      [button release];
-      button = [[UIBarButtonItem alloc] initWithTitle: @"Hint"
-                                                style: UIBarButtonItemStyleBordered
-                                               target: self
-                                               action: @selector(toolbarButtonPressed:)];
-      [button setWidth: 49.0f];
-      [buttons addObject: button];
-      [button release];
-
-      [toolbar setItems: buttons animated: YES];
-      [buttons release];
-      [toolbar sizeToFit];
-      [toolbar release];
-
-      [contentView bringSubviewToFront: boardView];
-
-      // Activity indicator
-      activityIndicator =
-         [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(0,0,30,30)];
-      [activityIndicator setCenter: CGPointMake(160.0f, 180.0f)];
-      [activityIndicator
-         setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhite];
-      [contentView addSubview: activityIndicator];
-      [activityIndicator startAnimating];
-      [activityIndicator release];
-   }
+  // Activity indicator
+  activityIndicator =
+     [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(0,0,30,30)];
+  [activityIndicator setCenter: CGPointMake(160.0f, 180.0f)];
+  [activityIndicator
+     setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhite];
+  [contentView addSubview: activityIndicator];
+  [activityIndicator startAnimating];
+  [activityIndicator release];
 
    // Action sheets for menus.
    gameMenu = [[UIActionSheet alloc]
@@ -302,12 +196,7 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-      return YES;
-   else if (interfaceOrientation == UIInterfaceOrientationPortrait)
-      return YES;
-   else
-      return NO;
+  return YES;
 }
 
 
@@ -402,20 +291,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       UIActionSheet *menu;
       switch(buttonIndex) {
       case 0:
-         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            [newGameMenu showFromBarButtonItem: gameButton animated: YES];
-         else {
-            menu =
-               [[UIActionSheet alloc] initWithTitle: @"New game"
-                                           delegate: self
-                                  cancelButtonTitle: @"Cancel"
-                             destructiveButtonTitle: nil
-                                  otherButtonTitles:
-                                         @"Play white", @"Play black", @"Play both",
-                                      @"Analysis", nil];
-            [menu showInView: contentView];
-            [menu release];
-         }
+        [newGameMenu showFromBarButtonItem: gameButton animated: YES];
          break;
       case 1:
          [self showSaveGameMenu];
@@ -443,9 +319,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       case 0: // Take back
          if ([[Options sharedOptions] displayMoveGestureTakebackHint])
             [[[[UIAlertView alloc] initWithTitle: @"Hint:"
-                                         message: ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?
-                                                   @"You can also take back moves by swiping your finger from right to left in the move list window." :
-                                                   @"You can also take back moves by swiping your finger from right to left in the move list area below the board.")
+                                         message: (@"You can also take back moves by swiping your finger from right to left in the move list window.")
                                         delegate: self
                                cancelButtonTitle: nil
                                otherButtonTitles: @"OK", nil] autorelease]
@@ -455,9 +329,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       case 1: // Step forward
          if ([[Options sharedOptions] displayMoveGestureStepForwardHint])
             [[[[UIAlertView alloc] initWithTitle: @"Hint:"
-                                         message: ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?
-                                                   @"You can also step forward in the game by swiping your finger from left to right in the move list window." :
-                                                   @"You can also step forward in the game by swiping your finger from left to right in the move list area below the board.")
+                                         message: (@"You can also step forward in the game by swiping your finger from left to right in the move list window.")
                                         delegate: self
                                cancelButtonTitle: nil
                                otherButtonTitles: @"OK", nil] autorelease]
@@ -566,42 +438,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    }
 
    if ([title isEqualToString: @"Game"]) {
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         [gameMenu showFromBarButtonItem: sender animated: YES];
-      }
-      else {
-         UIActionSheet *menu =
-            [[UIActionSheet alloc]
-              initWithTitle: @"Game"
-                   delegate: self
-               cancelButtonTitle: @"Cancel"
-               destructiveButtonTitle: nil
-               otherButtonTitles:
-                  @"New game", @"Save game", @"Load game", @"E-mail game", @"Edit position", @"Level/Game mode", nil];
-         [menu showInView: contentView];
-         [menu release];
-      }
+      [gameMenu showFromBarButtonItem: sender animated: YES];
    }
    else if ([title isEqualToString: @"Options"])
       [self showOptionsMenu];
    else if ([title isEqualToString: @"Flip"])
       [gameController rotateBoard];
    else if ([title isEqualToString: @"Move"]) {
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         [moveMenu showFromBarButtonItem: sender animated: YES];
-      }
-      else {
-         UIActionSheet *menu =
-            [[UIActionSheet alloc]
-               initWithTitle: @"Move"
-                    delegate: self
-               cancelButtonTitle: @"Cancel"
-               destructiveButtonTitle: nil
-               otherButtonTitles:
-                  @"Take back", @"Step forward", @"Take back all", @"Step forward all", @"Move now", nil];
-         [menu showInView: contentView];
-         [menu release];
-      }
+     [moveMenu showFromBarButtonItem: sender animated: YES];
    }
    else if ([title isEqualToString: @"Hint"])
       [gameController showHint];
@@ -619,22 +463,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [[UINavigationController alloc]
          initWithRootViewController: ovc];
    [ovc release];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      optionsMenu = [[UIPopoverController alloc]
-                       initWithContentViewController: navigationController];
-      [optionsMenu presentPopoverFromBarButtonItem: optionsButton
-                          permittedArrowDirections: UIPopoverArrowDirectionAny
-                                          animated: YES];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+   optionsMenu = [[UIPopoverController alloc]
+                   initWithContentViewController: navigationController];
+   [optionsMenu presentPopoverFromBarButtonItem: optionsButton
+                      permittedArrowDirections: UIPopoverArrowDirectionAny
+                                      animated: YES];
 }
 
 
@@ -642,15 +475,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    NSLog(@"options menu done");
    if ([[Options sharedOptions] bookVarietyWasChanged])
       [gameController showBookMoves];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [optionsMenu dismissPopoverAnimated: YES];
-      [optionsMenu release];
-      optionsMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [optionsMenu dismissPopoverAnimated: YES];
+   [optionsMenu release];
+   optionsMenu = nil;
    [navigationController release];
 }
 
@@ -663,22 +490,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [[UINavigationController alloc]
          initWithRootViewController: lvc];
    [lvc release];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      levelsMenu = [[UIPopoverController alloc]
-                      initWithContentViewController: navigationController];
-      [levelsMenu presentPopoverFromBarButtonItem: gameButton
-                         permittedArrowDirections: UIPopoverArrowDirectionAny
-                                         animated: YES];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+  levelsMenu = [[UIPopoverController alloc]
+                  initWithContentViewController: navigationController];
+  [levelsMenu presentPopoverFromBarButtonItem: gameButton
+                     permittedArrowDirections: UIPopoverArrowDirectionAny
+                                     animated: YES];
 }
 
 
@@ -700,15 +516,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
      [gameController setGameMode: [[Options sharedOptions] gameMode]];
    */
 
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [levelsMenu dismissPopoverAnimated: YES];
-      [levelsMenu release];
-      levelsMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+  [levelsMenu dismissPopoverAnimated: YES];
+  [levelsMenu release];
+  levelsMenu = nil;
    [navigationController release];
 }
 
@@ -722,52 +532,29 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [[UINavigationController alloc] initWithRootViewController: svc];
    [svc release];
 
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      popoverMenu = [[UIPopoverController alloc]
-                       initWithContentViewController: navigationController];
-      //[popoverMenu setPopoverContentSize: CGSizeMake(320.0f, 460.0f)];
-      [popoverMenu presentPopoverFromBarButtonItem: gameButton
-                          permittedArrowDirections: UIPopoverArrowDirectionAny
-                                          animated: NO];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+  popoverMenu = [[UIPopoverController alloc]
+                   initWithContentViewController: navigationController];
+  //[popoverMenu setPopoverContentSize: CGSizeMake(320.0f, 460.0f)];
+  [popoverMenu presentPopoverFromBarButtonItem: gameButton
+                      permittedArrowDirections: UIPopoverArrowDirectionAny
+                                      animated: NO];
 }
 
 
 - (void)editPositionCancelPressed {
    NSLog(@"edit position cancel");
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [popoverMenu dismissPopoverAnimated: YES];
-      [popoverMenu release];
-      popoverMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+  [popoverMenu dismissPopoverAnimated: YES];
+  [popoverMenu release];
+  popoverMenu = nil;
    [navigationController release];
 }
 
 
 - (void)editPositionDonePressed:(NSString *)fen {
    NSLog(@"edit position done: %@", fen);
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [popoverMenu dismissPopoverAnimated: YES];
-      [popoverMenu release];
-      popoverMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [popoverMenu dismissPopoverAnimated: YES];
+   [popoverMenu release];
+   popoverMenu = nil;
    [navigationController release];
    [boardView hideLastMove];
    [gameController gameFromFEN: fen];
@@ -783,22 +570,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    navigationController =
       [[UINavigationController alloc] initWithRootViewController: gdtc];
    [gdtc release];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      saveMenu = [[UIPopoverController alloc]
-                   initWithContentViewController: navigationController];
-      [saveMenu presentPopoverFromBarButtonItem: gameButton
-                       permittedArrowDirections: UIPopoverArrowDirectionAny
-                                       animated: YES];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+  saveMenu = [[UIPopoverController alloc]
+               initWithContentViewController: navigationController];
+  [saveMenu presentPopoverFromBarButtonItem: gameButton
+                   permittedArrowDirections: UIPopoverArrowDirectionAny
+                                   animated: YES];
 }
 
 
@@ -813,15 +589,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       fprintf(pgnFile, "%s", [[[gameController game] pgnString] UTF8String]);
       fclose(pgnFile);
    }
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [saveMenu dismissPopoverAnimated: YES];
-      [saveMenu release];
-      saveMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [saveMenu dismissPopoverAnimated: YES];
+   [saveMenu release];
+   saveMenu = nil;
    [navigationController release];
    NSLog(@"save game done");
 }
@@ -829,15 +599,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)saveMenuCancelPressed {
    NSLog(@"save game canceled");
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [saveMenu dismissPopoverAnimated: YES];
-      [saveMenu release];
-      saveMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [saveMenu dismissPopoverAnimated: YES];
+   [saveMenu release];
+   saveMenu = nil;
    [navigationController release];
 }
 
@@ -848,51 +612,28 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    navigationController =
       [[UINavigationController alloc] initWithRootViewController: lflc];
    [lflc release];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      loadMenu = [[UIPopoverController alloc]
-                    initWithContentViewController: navigationController];
-      [loadMenu presentPopoverFromBarButtonItem: gameButton
-                       permittedArrowDirections: UIPopoverArrowDirectionAny
-                                       animated: YES];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+   loadMenu = [[UIPopoverController alloc]
+                initWithContentViewController: navigationController];
+   [loadMenu presentPopoverFromBarButtonItem: gameButton
+                   permittedArrowDirections: UIPopoverArrowDirectionAny
+                                   animated: YES];
 }
 
 
 - (void)loadMenuCancelPressed {
    NSLog(@"load game canceled");
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [loadMenu dismissPopoverAnimated: YES];
-      [loadMenu release];
-      loadMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [loadMenu dismissPopoverAnimated: YES];
+   [loadMenu release];
+   loadMenu = nil;
    [navigationController release];
 }
 
 
 - (void)loadMenuDonePressedWithGame:(NSString *)gameString {
    NSLog(@"load menu done, gameString = %@", gameString);
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [loadMenu dismissPopoverAnimated: YES];
-      [loadMenu release];
-      loadMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [loadMenu dismissPopoverAnimated: YES];
+   [loadMenu release];
+   loadMenu = nil;
    [navigationController release];
    [gameController gameFromPGNString: gameString];
    [boardView hideLastMove];
@@ -908,36 +649,19 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    navigationController =
       [[UINavigationController alloc] initWithRootViewController: gdtc];
    [gdtc release];
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      emailMenu = [[UIPopoverController alloc]
-                    initWithContentViewController: navigationController];
-      [emailMenu presentPopoverFromBarButtonItem: gameButton
-                        permittedArrowDirections: UIPopoverArrowDirectionAny
-                                        animated: YES];
-   }
-   else {
-      CGRect r = [[navigationController view] frame];
-      // Why do I suddenly have to use -20.0f for the Y coordinate below?
-      // 0.0f seems right, and used to work in SDK 2.x.
-      r.origin = CGPointMake(0.0f, -20.0f);
-      [[navigationController view] setFrame: r];
-      [rootView insertSubview: [navigationController view] atIndex: 0];
-      [rootView flipSubviewsLeft];
-   }
+   emailMenu = [[UIPopoverController alloc]
+                initWithContentViewController: navigationController];
+   [emailMenu presentPopoverFromBarButtonItem: gameButton
+                    permittedArrowDirections: UIPopoverArrowDirectionAny
+                                    animated: YES];
 }
 
 
 - (void)emailMenuDonePressed {
    NSLog(@"email game done");
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [emailMenu dismissPopoverAnimated: YES];
-      [emailMenu release];
-      emailMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [emailMenu dismissPopoverAnimated: YES];
+   [emailMenu release];
+   emailMenu = nil;
    [navigationController release];
    [[[[UIAlertView alloc] initWithTitle: @"Exit Stockfish and send e-mail?"
                                 message: @""
@@ -950,15 +674,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 - (void)emailMenuCancelPressed {
    NSLog(@"email game canceled");
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      [emailMenu dismissPopoverAnimated: YES];
-      [emailMenu release];
-      emailMenu = nil;
-   }
-   else {
-      [rootView flipSubviewsRight];
-      [[navigationController view] removeFromSuperview];
-   }
+   [emailMenu dismissPopoverAnimated: YES];
+   [emailMenu release];
+   emailMenu = nil;
    [navigationController release];
 }
 

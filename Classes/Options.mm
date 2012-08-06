@@ -61,14 +61,8 @@
       if (!pieceSet) {
          // For some reason, I prefer the Leipzig pieces on the iPhone,
          // but Alpha on the iPad.
-         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            pieceSet = [@"Alpha" retain];
-            [defaults setObject: @"Alpha" forKey: @"pieceSet3"];
-         }
-         else {
-            pieceSet = [@"Leipzig" retain];
-            [defaults setObject: @"Leipzig" forKey: @"pieceSet3"];
-         }
+         pieceSet = [@"Alpha" retain];
+         [defaults setObject: @"Alpha" forKey: @"pieceSet3"];
       }
 
       playStyle = [defaults objectForKey: @"playStyle2"];
@@ -206,16 +200,9 @@
       lightSquareColor = [[UIColor colorWithRed: 0.9 green: 0.8 blue: 0.7
                                           alpha: 1.0]
                             retain];
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         darkSquareImage = [[UIImage imageNamed: @"DarkGreenMarble96.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightGreenMarble96.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
-      else {
-         darkSquareImage = [[UIImage imageNamed: @"DarkGreenMarble.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightGreenMarble.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
+      darkSquareImage = [[UIImage imageNamed: @"DarkGreenMarble96.tiff"] retain];
+      lightSquareImage = [[UIImage imageNamed: @"LightGreenMarble96.tiff"] retain];
+      highlightColor = [[UIColor blueColor] retain];
    }
    else if ([colorScheme isEqualToString: @"Red"]) {
       darkSquareColor = [[UIColor colorWithRed: 0.6 green: 0.28 blue: 0.28
@@ -233,16 +220,9 @@
       lightSquareColor = [[UIColor colorWithRed: 0.9 green: 0.8 blue: 0.7
                                           alpha: 1.0]
                             retain];
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         darkSquareImage = [[UIImage imageNamed: @"DarkWood96.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightWood96.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
-      else {
-         darkSquareImage = [[UIImage imageNamed: @"DarkWood.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightWood.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
+      darkSquareImage = [[UIImage imageNamed: @"DarkWood96.tiff"] retain];
+      lightSquareImage = [[UIImage imageNamed: @"LightWood96.tiff"] retain];
+      highlightColor = [[UIColor blueColor] retain];
    }
    else if ([colorScheme isEqualToString: @"Marble"]) {
       darkSquareColor = [[UIColor colorWithRed: 0.57 green: 0.40 blue: 0.35
@@ -251,16 +231,9 @@
       lightSquareColor = [[UIColor colorWithRed: 0.9 green: 0.8 blue: 0.7
                                           alpha: 1.0]
                             retain];
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         darkSquareImage = [[UIImage imageNamed: @"DarkMarble96.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightMarble96.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
-      else {
-         darkSquareImage = [[UIImage imageNamed: @"DarkMarble.tiff"] retain];
-         lightSquareImage = [[UIImage imageNamed: @"LightMarble.tiff"] retain];
-         highlightColor = [[UIColor blueColor] retain];
-      }
+      darkSquareImage = [[UIImage imageNamed: @"DarkMarble96.tiff"] retain];
+      lightSquareImage = [[UIImage imageNamed: @"LightMarble96.tiff"] retain];
+      highlightColor = [[UIColor blueColor] retain];
    }
    else { // Default brown color scheme
       darkSquareColor = [[UIColor colorWithRed: 0.57 green: 0.40 blue: 0.35

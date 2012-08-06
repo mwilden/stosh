@@ -48,10 +48,7 @@
 
    UILabel *label;
 
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-      label = [[UILabel alloc] initWithFrame: CGRectMake(10.0f, 20.0f, 90.0f, 28.0f)];
-   else
-      label = [[UILabel alloc] initWithFrame: CGRectMake(10.0f, 20.0f, 80.0f, 28.0f)];
+   label = [[UILabel alloc] initWithFrame: CGRectMake(10.0f, 20.0f, 90.0f, 28.0f)];
    [label setText: @"File name:"];
    [label setBackgroundColor: [UIColor lightGrayColor]];
    [contentView addSubview: label];

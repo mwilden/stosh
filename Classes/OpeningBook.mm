@@ -73,7 +73,7 @@ static Move fix_castling_and_promotion(Position *p, Move m);
 
       // SUPER HACK: For some reason, size ends up being 0 on the iPad.
       // Hard-code the correct book size here instead.
-      if (size == 0 && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+      if (size == 0) {
          NSLog(@"Failed to read file size, assuming a size of 7635488.");
          size = 7635488;
       }
@@ -208,7 +208,7 @@ static Move fix_castling_and_promotion(Position *p, Move m);
       sum += moves[i].factor * moves[i].score;
    for (i = 0; i < n; i++) {
       Move m = fix_castling_and_promotion(position, moves[i].move);
-      if (n <= 4 || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+      if (n <= 4 || true)
          [buf appendFormat: @"%s (%.0f%%) ",
               move_to_san(*position, m).c_str(),
               (moves[i].factor * moves[i].score * 100.0) / sum];

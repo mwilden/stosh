@@ -36,10 +36,8 @@
       [[UIColor blackColor] set];
       UIRectFrame(CGRectMake(1.0f, 1.0f, size-1, size-1));
       UIRectFrame(CGRectMake(2.0f, 2.0f, size-3, size-3));
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-         UIRectFrame(CGRectMake(3.0f, 3.0f, size-5, size-5));
-         UIRectFrame(CGRectMake(4.0f, 4.0f, size-7, size-7));
-      }
+      UIRectFrame(CGRectMake(3.0f, 3.0f, size-5, size-5));
+      UIRectFrame(CGRectMake(4.0f, 4.0f, size-7, size-7));
    }
 }
 

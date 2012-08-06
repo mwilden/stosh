@@ -43,19 +43,15 @@
    frame = CGRectMake(f*sqSize, r*sqSize, sqSize, sqSize);
    UIRectFrame(frame);
    UIRectFrame(CGRectInset(frame, 1.0f, 1.0f));
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
-      UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
-   }
+   UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
+   UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
    f = int(square_file(square2));
    r = 7 - int(square_rank(square2));
    frame = CGRectMake(f*sqSize, r*sqSize, sqSize, sqSize);
    UIRectFrame(frame);
    UIRectFrame(CGRectInset(frame, 1.0f, 1.0f));
-   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
-      UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
-   }
+   UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
+   UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
 }
 
 

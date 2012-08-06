@@ -992,10 +992,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             pv = [pv stringByReplacingOccurrencesOfString: pc[i] withString: s];
          }
       }
-      if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-         [analysisView setText: [NSString stringWithFormat: @"  %@", pv]];
-      else
-         [analysisView setText: pv];
+      [analysisView setText: [NSString stringWithFormat: @"  %@", pv]];
    }
    else
       [analysisView setText: @""];
@@ -1292,16 +1289,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    NSString *pieceSet = [[Options sharedOptions] pieceSet];
    for (Piece p = WP; p <= BK; p++) {
       if (piece_is_ok(p)) {
-         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            pieceImages[p] =
-               [[UIImage imageNamed: [NSString stringWithFormat: @"%@%@96.tiff",
-                                               pieceSet, pieceImageNames[p]]]
-                  retain];
-         else
-            pieceImages[p] =
-               [[UIImage imageNamed: [NSString stringWithFormat: @"%@%@.tiff",
-                                               pieceSet, pieceImageNames[p]]]
-                  retain];
+        pieceImages[p] =
+           [[UIImage imageNamed: [NSString stringWithFormat: @"%@%@96.tiff",
+                                           pieceSet, pieceImageNames[p]]]
+              retain];
       }
       else
          pieceImages[p] = nil;
@@ -1393,10 +1384,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       if (s)
          [bookMovesView setText: [NSString stringWithFormat: @"  Book: %@",
                                            [game bookMovesAsString]]];
-      else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-         [bookMovesView setText: @"  Book:"];
-      else if ([[bookMovesView text] hasPrefix: @"  Book:"])
-         [bookMovesView setText: @""];
+     [bookMovesView setText: @"  Book:"];
    }
    else if ([[bookMovesView text] hasPrefix: @"  Book:"])
       [bookMovesView setText: @""];
