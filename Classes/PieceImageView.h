@@ -43,6 +43,5 @@ using namespace Chess;
      gameController:(GameController *)controller
           boardView:(BoardView *)bView;
 - (void)moveToSquare:(Square)newSquare;
-- (void)moveToSquareAndBack:(Square)newSquare;
 
 @end

@@ -119,58 +119,6 @@
 }
 
 
-- (void)hintAnimationFinished2:(NSString *)animationID
-                      finished:(BOOL)finished
-                       context:(void *)context {
-   [UIView beginAnimations: nil context: context];
-   [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-   [UIView setAnimationDuration: 0.06];
-   [self setFrame: [boardView rectForSquare: square]];
-   [UIView commitAnimations];
-}
-
-
-- (void)hintAnimationFinished:(NSString *)animationID
-                     finished:(BOOL)finished
-                      context:(void *)context {
-   CGRect r = [self frame];
-   CGPoint pt1 = r.origin;
-   CGPoint pt2 = [boardView originOfSquare: square];
-   CGPoint pt = CGPointMake(pt2.x + (pt2.x-pt1.x)*0.12f,
-                            pt2.y + (pt2.y-pt1.y)*0.12f);
-   r.origin = pt;
-
-   [UIView beginAnimations: nil context: context];
-   [UIView setAnimationDelegate: self];
-   [UIView setAnimationDidStopSelector:
-              @selector(hintAnimationFinished2:finished:context:)];
-   [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-   [UIView setAnimationDuration: 0.15];
-   [self setFrame: r];
-   [UIView commitAnimations];
-}
-
-
-/// moveToSquareAndBack: is used to display a move without actually making it.
-/// It rapidly moves the piece to the destination square and back again.
-/// Used to display hints.
-
-- (void)moveToSquareAndBack:(Square)newSquare {
-   assert(square_is_ok(newSquare));
-   CGContextRef context = UIGraphicsGetCurrentContext();
-
-   [[self superview] bringSubviewToFront: self];
-   [UIView beginAnimations: nil context: context];
-   [UIView setAnimationDelegate: self];
-   [UIView setAnimationDidStopSelector:
-              @selector(hintAnimationFinished:finished:context:)];
-   [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-   [UIView setAnimationDuration: 0.30];
-   [self setFrame: [boardView rectForSquare: newSquare]];
-   [UIView commitAnimations];
-}
-
-
 /// Handle a touchesBegan event: If the piece has any legal moves, allow the
 /// user to drag the view around. This method only records the view's original
 /// location; the actual dragging is handled by the touchesMoved:withEvent:

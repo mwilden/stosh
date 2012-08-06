@@ -923,51 +923,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 
-/// showHint displays a suggestion for a good move to the user. At the
-/// moment, it just displays a random legal move.
-
-- (void)showHint {
-   if (gameMode == GAME_MODE_ANALYSE)
-      [[[[UIAlertView alloc] initWithTitle: @"Hints are not available in analyse mode!"
-                                   message: nil
-                                  delegate: self
-                         cancelButtonTitle: nil
-                         otherButtonTitles: @"OK", nil] autorelease]
-         show];
-   else if (gameMode == GAME_MODE_TWO_PLAYER)
-      [[[[UIAlertView alloc] initWithTitle: @"Hints are not available in two player mode!"
-                                   message: nil
-                                  delegate: self
-                         cancelButtonTitle: nil
-                         otherButtonTitles: @"OK", nil] autorelease]
-         show];
-   else {
-      Move mlist[256], m;
-      int n;
-      n = [game generateLegalMoves: mlist];
-      m = [game getBookMove];
-
-      if (m == MOVE_NONE)
-         m = [game getHintForCurrentPosition];
-
-      if (m != MOVE_NONE) {
-         Square to = move_to(m);
-         if (move_is_long_castle(m)) to += 2;
-         else if (move_is_short_castle(m)) to -= 1;
-         [[self pieceImageViewForSquare: move_from(m)]
-            moveToSquareAndBack: [self rotateSquare: to]];
-      }
-      else
-         [[[[UIAlertView alloc] initWithTitle: @"No hint available!"
-                                      message: nil
-                                     delegate: self
-                            cancelButtonTitle: nil
-                            otherButtonTitles: @"OK", nil] autorelease]
-            show];
-   }
-}
-
-
 - (void)playClickSound {
    if ([[Options sharedOptions] moveSound])
       AudioServicesPlaySystemSound(clickSound);
@@ -1206,13 +1161,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    assert([array count] <= 2);
    Move m = [game moveFromString: [array objectAtIndex: 0]];
    assert(m != MOVE_NONE);
-   [game setHintForCurrentPosition: m];
    if (engineIsPlaying) {
       [self doEngineMove: m];
       [self playClickSound];
       if ([array count] == 2) {
          ponderMove = [game moveFromString: [array objectAtIndex: 1]];
-         [game setHintForCurrentPosition: ponderMove];
          if ([[Options sharedOptions] permanentBrain])
             [self engineGoPonder: ponderMove];
       }

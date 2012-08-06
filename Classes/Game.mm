@@ -68,7 +68,6 @@
       result = [[NSString alloc] initWithString: @"*"];
 
       book = [[OpeningBook alloc] init];
-      memset(hintHashTable, 0, HINT_HASH_TABLE_SIZE*sizeof(HintHashentry));
    }
    return self;
 }
@@ -592,29 +591,6 @@ static NSString* breakLinesInString(NSString *string) {
 
 - (Move)moveFromString:(NSString *)string {
    return move_from_string(*currentPosition, [string UTF8String]);
-}
-
-
-- (void)setHintForCurrentPosition:(Move)hintMove {
-   HintHashentry *hhe =
-      hintHashTable + (currentPosition->get_key() & (HINT_HASH_TABLE_SIZE-1));
-   hhe->key = currentPosition->get_key();
-   hhe->move = hintMove;
-}
-
-
-- (Move)getHintForCurrentPosition {
-   HintHashentry *hhe =
-      hintHashTable + (currentPosition->get_key() & (HINT_HASH_TABLE_SIZE-1));
-   if (hhe->key == currentPosition->get_key()) {
-      Move mlist[256];
-      int n, i;
-      n = [self generateLegalMoves: mlist];
-      for (i = 0; i < n; i++)
-         if (mlist[i] == hhe->move)
-            return hhe->move;
-   }
-   return MOVE_NONE;
 }
 
 

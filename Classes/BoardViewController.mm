@@ -142,14 +142,6 @@
   [buttons addObject: button];
   [button release];
 
-  button = [[UIBarButtonItem alloc] initWithTitle: @"Hint"
-                                            style: UIBarButtonItemStyleBordered
-                                           target: self
-                                           action: @selector(toolbarButtonPressed:)];
-  [button setWidth: 49.0f];
-  [buttons addObject: button];
-  [button release];
-
   [toolbar setItems: buttons animated: YES];
   [buttons release];
   [toolbar sizeToFit];
@@ -429,8 +421,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    else if ([title isEqualToString: @"Move"]) {
      [moveMenu showFromBarButtonItem: sender animated: YES];
    }
-   else if ([title isEqualToString: @"Hint"])
-      [gameController showHint];
    else if ([title isEqualToString: @"New"])
       [gameController startNewGame];
    else

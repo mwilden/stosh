@@ -25,13 +25,6 @@
 
 using namespace Chess;
 
-#define HINT_HASH_TABLE_SIZE 1024
-
-typedef struct {
-   uint64_t key;
-   Move move;
-} HintHashentry;
-
 @class GameController;
 
 @interface Game : NSObject {
@@ -50,8 +43,6 @@ typedef struct {
    NSString *whitePlayer;
    NSString *blackPlayer;
    NSString *result;
-
-   HintHashentry hintHashTable[HINT_HASH_TABLE_SIZE];
 }
 
 @property (nonatomic, retain) NSString *event;
@@ -93,8 +84,6 @@ typedef struct {
 - (void)getAllBookMoves:(Move *)moveArray;
 - (NSString *)bookMovesAsString;
 - (Move)moveFromString:(NSString *)string;
-- (void)setHintForCurrentPosition:(Move)hintMove;
-- (Move)getHintForCurrentPosition;
 - (BOOL)positionIsMate;
 - (BOOL)positionIsDraw;
 - (NSString *)drawReason;
