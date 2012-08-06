@@ -176,7 +176,6 @@
 		1796FF6311D3921A0074E5B7 /* GlaurungAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1911D3921A0074E5B7 /* GlaurungAppDelegate.mm */; };
 		1796FF6411D3921A0074E5B7 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */; };
 		1796FF6511D3921A0074E5B7 /* LastMoveView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */; };
-		1796FF6611D3921A0074E5B7 /* LevelViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1F11D3921A0074E5B7 /* LevelViewController.mm */; };
 		1796FF6711D3921A0074E5B7 /* LoadFileListController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */; };
 		1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2311D3921A0074E5B7 /* MoveListView.mm */; };
 		1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2711D3921A0074E5B7 /* Options.mm */; };
@@ -558,8 +557,6 @@
 		1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighlightedSquaresView.mm; sourceTree = "<group>"; };
 		1796FF1C11D3921A0074E5B7 /* LastMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastMoveView.h; sourceTree = "<group>"; };
 		1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LastMoveView.mm; sourceTree = "<group>"; };
-		1796FF1E11D3921A0074E5B7 /* LevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelViewController.h; sourceTree = "<group>"; };
-		1796FF1F11D3921A0074E5B7 /* LevelViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelViewController.mm; sourceTree = "<group>"; };
 		1796FF2011D3921A0074E5B7 /* LoadFileListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadFileListController.h; sourceTree = "<group>"; };
 		1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LoadFileListController.mm; sourceTree = "<group>"; };
 		1796FF2211D3921A0074E5B7 /* MoveListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveListView.h; sourceTree = "<group>"; };
@@ -895,8 +892,6 @@
 				1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */,
 				1796FF1C11D3921A0074E5B7 /* LastMoveView.h */,
 				1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */,
-				1796FF1E11D3921A0074E5B7 /* LevelViewController.h */,
-				1796FF1F11D3921A0074E5B7 /* LevelViewController.mm */,
 				1796FF2011D3921A0074E5B7 /* LoadFileListController.h */,
 				1796FF2111D3921A0074E5B7 /* LoadFileListController.mm */,
 				1796FF2211D3921A0074E5B7 /* MoveListView.h */,
@@ -1806,7 +1801,6 @@
 				1796FF6311D3921A0074E5B7 /* GlaurungAppDelegate.mm in Sources */,
 				1796FF6411D3921A0074E5B7 /* HighlightedSquaresView.mm in Sources */,
 				1796FF6511D3921A0074E5B7 /* LastMoveView.mm in Sources */,
-				1796FF6611D3921A0074E5B7 /* LevelViewController.mm in Sources */,
 				1796FF6711D3921A0074E5B7 /* LoadFileListController.mm in Sources */,
 				1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */,
 				1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */,

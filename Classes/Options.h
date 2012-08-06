@@ -18,22 +18,6 @@
 
 #import <UIKit/UIKit.h>
 
-enum GameLevel {
-   LEVEL_GAME_IN_2,
-   LEVEL_GAME_IN_2_PLUS_1,
-   LEVEL_GAME_IN_5,
-   LEVEL_GAME_IN_5_PLUS_2,
-   LEVEL_GAME_IN_15,
-   LEVEL_GAME_IN_15_PLUS_5,
-   LEVEL_GAME_IN_30,
-   LEVEL_GAME_IN_30_PLUS_5,
-   LEVEL_1S_PER_MOVE,
-   LEVEL_2S_PER_MOVE,
-   LEVEL_5S_PER_MOVE,
-   LEVEL_10S_PER_MOVE,
-   LEVEL_30S_PER_MOVE
-};
-
 @interface Options : NSObject {
    UIColor *darkSquareColor, *lightSquareColor, *highlightColor;
    UIImage *darkSquareImage, *lightSquareImage;
@@ -43,9 +27,6 @@ enum GameLevel {
    BOOL moveSound;
    BOOL figurineNotation;
    BOOL permanentBrain;
-
-   GameLevel gameLevel;
-   BOOL gameLevelWasChanged;
 
    BOOL playStyleWasChanged;
    BOOL strengthWasChanged;
@@ -71,8 +52,6 @@ enum GameLevel {
 @property (nonatomic, readwrite) BOOL moveSound;
 @property (nonatomic, readwrite) BOOL figurineNotation;
 @property (nonatomic, readwrite) BOOL permanentBrain;
-@property (nonatomic, assign) GameLevel gameLevel;
-@property (nonatomic, readonly) BOOL gameLevelWasChanged;
 @property (nonatomic, readonly) BOOL playStyleWasChanged;
 @property (nonatomic, retain) NSString *saveGameFile;
 @property (nonatomic, retain) NSString *fullUserName;

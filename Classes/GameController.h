@@ -40,7 +40,6 @@
    BOOL rotated;
    SystemSoundID clickSound;
    NSTimer *timer;
-   GameLevel gameLevel;
    Move ponderMove;
    BOOL engineIsPlaying;
    BOOL isPondering;
@@ -77,7 +76,6 @@
 - (void)rotateBoard:(BOOL)rotate;
 - (void)playClickSound;
 - (void)displaySearchStats:(NSString *)searchStats;
-- (void)setGameLevel:(GameLevel)newGameLevel;
 - (void)doEngineMove:(Move)m;
 - (void)engineGo;
 - (void)engineMadeMove:(NSArray *)array;

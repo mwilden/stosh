@@ -26,7 +26,6 @@
 @dynamic colorScheme, pieceSet, figurineNotation;
 @dynamic playStyle, moveSound;
 @dynamic permanentBrain;
-@dynamic gameLevel, gameLevelWasChanged;
 @dynamic saveGameFile, fullUserName;
 @dynamic displayMoveGestureStepForwardHint, displayMoveGestureTakebackHint;
 @dynamic playStyleWasChanged, strength, strengthWasChanged;
@@ -78,8 +77,6 @@
       darkSquareColor = lightSquareColor = highlightColor = nil;
       [self updateColors];
 
-      gameLevel = LEVEL_GAME_IN_5;
-      gameLevelWasChanged = NO;
       playStyleWasChanged = NO;
       strengthWasChanged = NO;
 
@@ -329,23 +326,6 @@
       o = [[Options alloc] init];
    }
    return o;
-}
-
-
-- (GameLevel)gameLevel {
-   return gameLevel;
-}
-
-
-- (void)setGameLevel:(GameLevel)newGameLevel {
-   gameLevel = newGameLevel;
-   gameLevelWasChanged = YES;
-}
-
-- (BOOL)gameLevelWasChanged {
-   BOOL result = gameLevelWasChanged;
-   gameLevelWasChanged = NO;
-   return result;
 }
 
 

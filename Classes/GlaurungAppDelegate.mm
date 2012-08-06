@@ -64,13 +64,11 @@ using namespace Chess;
 - (void)applicationWillTerminate:(UIApplication *)application {
 	NSLog(@"GlaurungAppDelegate applicationWillTerminate:");
 	
-	// Save the current game, level and game mode so we can recover it the next
+	// Save the current game so we can recover it the next
 	// time the program starts up:
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject: [[gameController game] pgnString]
 				 forKey: @"lastGame"];
-	[defaults setInteger: ((int)[[Options sharedOptions] gameLevel] + 1)
-				  forKey: @"gameLevel"];
 	[defaults setBool: [gameController rotated]
 			   forKey: @"rotateBoard"];
 	[defaults synchronize];
@@ -124,12 +122,6 @@ using namespace Chess;
 		[gameController
          gameFromFEN: @"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"];
 	
-	int gameLevel = [defaults integerForKey: @"gameLevel"];
-	if (gameLevel) {
-		[[Options sharedOptions] setGameLevel: (GameLevel)(gameLevel - 1)];
-		[gameController setGameLevel: [[Options sharedOptions] gameLevel]];
-	}
-	
 	if ([defaults objectForKey: @"rotateBoard"])
 		[gameController rotateBoard: [defaults boolForKey: @"rotateBoard"]];
 }
@@ -137,13 +129,7 @@ using namespace Chess;
 
 - (void)dealloc {
 	NSLog(@"GlaurungAppDelegate dealloc");
-	/*
-     [viewController release];
-     [gameController release];
-     [window release];
-	 */
 	[super dealloc];
 }
-
 
 @end

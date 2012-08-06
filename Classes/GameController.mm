@@ -45,7 +45,6 @@ using namespace Chess;
       pendingFrom = SQ_NONE;
       pendingTo = SQ_NONE;
       rotated = NO;
-      gameLevel = [[Options sharedOptions] gameLevel];
       engineIsPlaying = NO;
 
       [[NSNotificationCenter defaultCenter]
@@ -117,7 +116,6 @@ using namespace Chess;
    [pieceViews release];
 
    game = [[Game alloc] initWithGameController: self];
-   gameLevel = [[Options sharedOptions] gameLevel];
 
    [game setWhitePlayer:
             ((false)?
@@ -814,12 +812,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
   [searchStatsView setText: @""];
 }
 
-
-- (void)setGameLevel:(GameLevel)newGameLevel {
-   NSLog(@"new game level: %d", newGameLevel);
-   gameLevel = newGameLevel;
-}
-
 - (void)doEngineMove:(Move)m {
    Square to = move_to(m);
    if (move_is_long_castle(m)) to += 2;
@@ -973,7 +965,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       game = [[Game alloc] initWithGameController: self];
    }
 
-   gameLevel = [[Options sharedOptions] gameLevel];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;
@@ -995,7 +986,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [pieceViews release];
 
    game = [[Game alloc] initWithGameController: self FEN: fen];
-   gameLevel = [[Options sharedOptions] gameLevel];
    pieceViews = [[NSMutableArray alloc] init];
    pendingFrom = SQ_NONE;
    pendingTo = SQ_NONE;

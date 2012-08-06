@@ -19,7 +19,6 @@
 #import "BoardViewController.h"
 #import "GameController.h"
 #import "GameDetailsTableController.h"
-#import "LevelViewController.h"
 #import "LoadFileListController.h"
 #import "MoveListView.h"
 #import "Options.h"
@@ -151,7 +150,7 @@
                          delegate: self
                 cancelButtonTitle: @"Cancel"
                  destructiveButtonTitle: nil
-                otherButtonTitles: @"New game", @"Save game", @"Load game", @"Edit position", @"Level/Game mode", nil];
+                otherButtonTitles: @"New game", @"Save game", @"Load game", @"Edit position",  nil];
    newGameMenu = [[UIActionSheet alloc] initWithTitle: nil
                                              delegate: self
                                     cancelButtonTitle: @"Cancel"
@@ -166,7 +165,6 @@
                                         @"Take back", @"Step forward", @"Take back all", @"Step forward all", @"Move now", nil];
    optionsMenu = nil;
    saveMenu = nil;
-   levelsMenu = nil;
    loadMenu = nil;
    popoverMenu = nil;
 }
@@ -230,7 +228,6 @@
    [moveMenu release];
    [optionsMenu release];
    [saveMenu release];
-   [levelsMenu release];
    [loadMenu release];
    [popoverMenu release];
    [super dealloc];
@@ -266,9 +263,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
          [self editPosition];
          break;
       case 4:
-         [self showLevelsMenu];
-         break;
-      case 5:
          break;
       default:
          NSLog(@"Not implemented yet");
@@ -344,11 +338,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [optionsMenu release];
       optionsMenu = nil;
    }
-   if (levelsMenu != nil) {
-      [levelsMenu dismissPopoverAnimated: YES];
-      [levelsMenu release];
-      levelsMenu = nil;
-   }
    if (saveMenu != nil) {
       [saveMenu dismissPopoverAnimated: YES];
       [saveMenu release];
@@ -402,36 +391,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [optionsMenu dismissPopoverAnimated: YES];
    [optionsMenu release];
    optionsMenu = nil;
-   [navigationController release];
-}
-
-
-- (void)showLevelsMenu {
-   NSLog(@"levels menu");
-   LevelViewController *lvc;
-   lvc = [[LevelViewController alloc] initWithBoardViewController: self];
-   navigationController =
-      [[UINavigationController alloc]
-         initWithRootViewController: lvc];
-   [lvc release];
-  levelsMenu = [[UIPopoverController alloc]
-                  initWithContentViewController: navigationController];
-  [levelsMenu presentPopoverFromBarButtonItem: gameButton
-                     permittedArrowDirections: UIPopoverArrowDirectionAny
-                                     animated: YES];
-}
-
-
-- (void)levelWasChanged {
-   [gameController setGameLevel: [[Options sharedOptions] gameLevel]];
-}
-
-
-- (void)levelsMenuDonePressed {
-   NSLog(@"options menu done");
-  [levelsMenu dismissPopoverAnimated: YES];
-  [levelsMenu release];
-  levelsMenu = nil;
    [navigationController release];
 }
 

@@ -35,7 +35,7 @@
    UIActivityIndicatorView *activityIndicator;
    UIActionSheet *gameMenu, *newGameMenu, *moveMenu;
    UIBarButtonItem *gameButton, *optionsButton;
-   UIPopoverController *optionsMenu, *saveMenu, *levelsMenu, *loadMenu;
+   UIPopoverController *optionsMenu, *saveMenu, *loadMenu;
    UIPopoverController *popoverMenu;
 }
 
@@ -47,9 +47,6 @@
 - (void)toolbarButtonPressed:(id)sender;
 - (void)showOptionsMenu;
 - (void)optionsMenuDonePressed;
-- (void)showLevelsMenu;
-- (void)levelWasChanged;
-- (void)levelsMenuDonePressed;
 - (void)editPosition;
 - (void)editPositionCancelPressed;
 - (void)editPositionDonePressed:(NSString *)fen;
