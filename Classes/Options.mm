@@ -23,12 +23,9 @@
 
 @synthesize darkSquareColor, lightSquareColor, highlightColor;
 @synthesize darkSquareImage, lightSquareImage;
-@dynamic colorScheme, pieceSet;
 
 - (id)init {
    if (self = [super init]) {
-      pieceSet = [@"USCF" retain];
-      colorScheme = [@"Blue" retain];
       darkSquareColor = lightSquareColor = highlightColor = nil;
       [self updateColors];
    }
@@ -54,8 +51,6 @@
 - (void)dealloc {
    [darkSquareImage release];
    [lightSquareImage release];
-   [colorScheme release];
-   [pieceSet release];
    [super dealloc];
 }
 

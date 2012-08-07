@@ -48,7 +48,7 @@
          @"WQueen", @"WKing", nil, nil, @"BPawn", @"BKnight",
          @"BBishop", @"BRook", @"BQueen", @"BKing", nil
       };
-      NSString *pieceSet = [[Options sharedOptions] pieceSet];
+      NSString *pieceSet = @"USCF";
       for (Piece p = WP; p <= BK; p++) {
          if (piece_is_ok(p))
             pieceImages[p] =

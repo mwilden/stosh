@@ -43,10 +43,6 @@ using namespace Chess;
       lightSquareImage = [[[Options sharedOptions] lightSquareImage] retain];
       selectedSquare = SQ_NONE;
       fromSquare = SQ_NONE;
-      [[NSNotificationCenter defaultCenter] addObserver: self
-                                               selector:@selector(colorsChanged:)
-                                                   name: @"StockfishColorSchemeChanged"
-                                                 object: nil];
       lastMoveView = nil;
       sqSize = frame.size.width / 8;
    }

@@ -40,12 +40,6 @@ using namespace Chess;
       pendingFrom = SQ_NONE;
       pendingTo = SQ_NONE;
       rotated = NO;
-
-      [[NSNotificationCenter defaultCenter]
-         addObserver: self
-            selector: @selector(pieceSetChanged:)
-                name: @"StockfishPieceSetChanged"
-              object: nil];
    }
    return self;
 }
@@ -718,19 +712,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       }
       else
          pieceImages[p] = nil;
-   }
-}
-
-
-- (void)pieceSetChanged:(NSNotification *)aNotification {
-   [self loadPieceImages];
-   for (Square sq = SQ_A1; sq <= SQ_H8; sq++) {
-      Square s = [self rotateSquare: sq];
-      if ([self pieceOn: s] != EMPTY) {
-         PieceImageView *piv = [self pieceImageViewForSquare: sq];
-         [piv setImage: pieceImages[[self pieceOn: s]]];
-         [piv setNeedsDisplay];
-      }
    }
 }
 

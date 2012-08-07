@@ -66,7 +66,6 @@
 - (void)rotateBoard:(BOOL)rotate;
 - (void)gameEndTest;
 - (void)loadPieceImages;
-- (void)pieceSetChanged:(NSNotification *)aNotification;
 - (void)gameFromPGNString:(NSString *)pgnString;
 - (void)gameFromFEN:(NSString *)fen;
 - (void)piecesSetUserInteractionEnabled:(BOOL)enable;
