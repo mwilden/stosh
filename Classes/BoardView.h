@@ -47,7 +47,6 @@ using namespace Chess;
 - (CGPoint)originOfSquare:(Square)sq;
 - (CGRect)rectForSquare:(Square)sq;
 - (void)selectionMovedToPoint:(CGPoint)sq;
-- (void)colorsChanged:(NSNotification *)aNotification;
 - (void)showLastMoveWithFrom:(Square)s1 to:(Square)s2;
 - (void)hideLastMove;
 - (void)pieceTouchedAtSquare:(Square)s;

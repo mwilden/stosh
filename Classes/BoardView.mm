@@ -118,20 +118,6 @@ using namespace Chess;
    }
 }
 
-
-- (void)colorsChanged:(NSNotification *)aNotification {
-   darkSquareColor = [[Options sharedOptions] darkSquareColor];
-   lightSquareColor = [[Options sharedOptions] lightSquareColor];
-   [darkSquareImage release];
-   darkSquareImage = [[[Options sharedOptions] darkSquareImage] retain];
-   [lightSquareImage release];
-   lightSquareImage = [[[Options sharedOptions] lightSquareImage] retain];
-   if (lastMoveView)
-      [lastMoveView setNeedsDisplay];
-   [self setNeedsDisplay];
-}
-
-
 - (void)showLastMoveWithFrom:(Square)s1 to:(Square)s2 {
    if (lastMoveView)
       [lastMoveView removeFromSuperview];
