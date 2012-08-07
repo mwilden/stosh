@@ -73,8 +73,7 @@
 
 /// Override UITextView's setText: method by converting hyphens to non-breaking
 /// hyphens, to prevent notation of castling moves to be split between two
-/// lines. Also replaces piece characters with figurines if this option is
-/// switched on.
+/// lines.
 
 - (void)setText:(NSString *)string {
    unichar c = 0x2011;
