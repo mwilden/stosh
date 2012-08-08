@@ -29,6 +29,8 @@ using namespace Chess;
 
 @implementation GameController
 
+@synthesize game, rotated;
+
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv {
    if (self == [super init]) {
