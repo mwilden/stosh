@@ -205,7 +205,6 @@
 		1796FFF911D392620074E5B7 /* AlphaWQueen@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF9811D392620074E5B7 /* AlphaWQueen@2x.tiff */; };
 		1796FFFA11D392620074E5B7 /* AlphaWRook.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF9911D392620074E5B7 /* AlphaWRook.tiff */; };
 		1796FFFB11D392620074E5B7 /* AlphaWRook@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF9A11D392620074E5B7 /* AlphaWRook@2x.tiff */; };
-		17D23EBF127C0A940018E053 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D23EBC127C0A940018E053 /* Icon-72.png */; };
 		17D23EC0127C0A940018E053 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D23EBD127C0A940018E053 /* Icon-Small-50.png */; };
 		17D23EC1127C0A940018E053 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D23EBE127C0A940018E053 /* Icon-Small.png */; };
 		17D23EF2127C162B0018E053 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 17D23EF1127C162B0018E053 /* iTunesArtwork */; };
@@ -1523,7 +1522,6 @@
 				175103BB1278AF4500A59D5B /* USCFWPawn96.tiff in Resources */,
 				175103BC1278AF4500A59D5B /* USCFWQueen96.tiff in Resources */,
 				175103BD1278AF4500A59D5B /* USCFWRook96.tiff in Resources */,
-				17D23EBF127C0A940018E053 /* Icon-72.png in Resources */,
 				17D23EC0127C0A940018E053 /* Icon-Small-50.png in Resources */,
 				17D23EC1127C0A940018E053 /* Icon-Small.png in Resources */,
 				17D23EF2127C162B0018E053 /* iTunesArtwork in Resources */,
