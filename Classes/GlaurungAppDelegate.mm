@@ -54,11 +54,6 @@ using namespace Chess;
 	[defaults setBool: [gameController rotated]
 			   forKey: @"rotateBoard"];
 	[defaults synchronize];
-	
-	[viewController release];
-	[gameController release];
-	[[Options sharedOptions] release];
-	[window release];
 }
 
 

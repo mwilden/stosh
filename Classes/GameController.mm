@@ -15,7 +15,7 @@ using namespace Chess;
 
 - (id)initWithBoardView:(BoardView *)bv
            moveListView:(MoveListView *)mlv {
-   if (self == [super init]) {
+   if (self = [super init]) {
       boardView = bv;
       moveListView = mlv;
 
@@ -235,7 +235,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             destructiveButtonTitle: nil
             otherButtonTitles: @"Queen", @"Rook", @"Knight", @"Bishop", nil];
       [menu showInView: [boardView superview]];
-      return;
+       menu = nil;
    }
 
    // HACK: Castling. The user probably tries to move the king two squares to

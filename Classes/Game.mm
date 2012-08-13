@@ -47,7 +47,7 @@
 
 
 - (id)initWithGameController:(GameController *)gc PGNString:(NSString *)string {
-   [self initWithGameController: gc];
+   self = [self initWithGameController: gc];
 
    GameParser *gp = [[GameParser alloc] initWithString: string];
    PGNToken token[1];

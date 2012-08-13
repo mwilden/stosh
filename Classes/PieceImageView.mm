@@ -12,7 +12,7 @@
 - (id)initWithFrame:(CGRect)frame
      gameController:(GameController *)controller
           boardView:(BoardView *)bView {
-   if (self == [super initWithFrame: frame]) {
+   if (self = [super initWithFrame: frame]) {
       sqSize = [bView sqSize];
       square = make_square(File(frame.origin.x / sqSize),
                            Rank((7*sqSize - frame.origin.y) / sqSize));
