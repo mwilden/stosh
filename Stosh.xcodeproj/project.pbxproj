@@ -133,7 +133,7 @@
 		1796018A11D3C4960074E5B7 /* LightMarble.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796018611D3C4960074E5B7 /* LightMarble.tiff */; };
 		1796018B11D3C4960074E5B7 /* LightMarble@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796018711D3C4960074E5B7 /* LightMarble@2x.tiff */; };
 		179601B811D3CDA00074E5B7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 179601B711D3CDA00074E5B7 /* Icon@2x.png */; };
-		1796FEA111D391570074E5B7 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEA011D391570074E5B7 /* main.mm */; };
+		1796FEA111D391570074E5B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEA011D391570074E5B7 /* main.m */; };
 		1796FEDF11D391AA0074E5B7 /* application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEA811D391AA0074E5B7 /* application.cpp */; };
 		1796FEE011D391AA0074E5B7 /* benchmark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEAA11D391AA0074E5B7 /* benchmark.cpp */; };
 		1796FEE111D391AA0074E5B7 /* bitbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEAC11D391AA0074E5B7 /* bitbase.cpp */; };
@@ -450,7 +450,7 @@
 		1796018611D3C4960074E5B7 /* LightMarble.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = LightMarble.tiff; path = Images/LightMarble.tiff; sourceTree = "<group>"; };
 		1796018711D3C4960074E5B7 /* LightMarble@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "LightMarble@2x.tiff"; path = "Images/LightMarble@2x.tiff"; sourceTree = "<group>"; };
 		179601B711D3CDA00074E5B7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		1796FEA011D391570074E5B7 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		1796FEA011D391570074E5B7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1796FEA811D391AA0074E5B7 /* application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = application.cpp; path = Engine/application.cpp; sourceTree = SOURCE_ROOT; };
 		1796FEA911D391AA0074E5B7 /* application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = application.h; path = Engine/application.h; sourceTree = SOURCE_ROOT; };
 		1796FEAA11D391AA0074E5B7 /* benchmark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = benchmark.cpp; path = Engine/benchmark.cpp; sourceTree = SOURCE_ROOT; };
@@ -1291,25 +1291,17 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1796FEA011D391570074E5B7 /* main.m */,
+				103C8E2A15D87A83009C7083 /* Stosh_Prefix.pch */,
 				1796005911D3938F0074E5B7 /* Chess */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				1796FEA511D3916D0074E5B7 /* Engine */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				1751000A1272E39500A59D5B /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = CustomTemplate;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				1796FEA011D391570074E5B7 /* main.mm */,
-				103C8E2A15D87A83009C7083 /* Stosh_Prefix.pch */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -1683,7 +1675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1796FEA111D391570074E5B7 /* main.mm in Sources */,
+				1796FEA111D391570074E5B7 /* main.m in Sources */,
 				1796FEDF11D391AA0074E5B7 /* application.cpp in Sources */,
 				1796FEE011D391AA0074E5B7 /* benchmark.cpp in Sources */,
 				1796FEE111D391AA0074E5B7 /* bitbase.cpp in Sources */,
