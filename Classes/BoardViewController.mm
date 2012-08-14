@@ -140,51 +140,8 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-                                         duration:(NSTimeInterval)duration {
-   NSLog(@"will rotate!");
-   //[rootView sizeToFit];
-}
-
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromOrientation {
-   NSLog(@"did rotate, preparing to move and resize views");
-   if ([self interfaceOrientation] == UIInterfaceOrientationLandscapeLeft ||
-       [self interfaceOrientation] == UIInterfaceOrientationLandscapeRight) {
-      [boardView setFrame: CGRectMake(5.0f, 49.0f, 640.0f, 640.0f)];
-      [moveListView setFrame: CGRectMake(656.0f, 116.0f, 360.0f, 573.0f)];
-   }
-   else {
-      [boardView setFrame: CGRectMake(8.0f, 52.0f, 752.0f, 752.0f)];
-      [moveListView setFrame: CGRectMake(203.0f, 814.0f, 760.0f-203.0f, 126.0f)];
-   }
-   [gameController updateMoveList];
-}
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-[super viewDidLoad];
-}
-*/
-
- /*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
-
-- (void)didReceiveMemoryWarning {
-   [super didReceiveMemoryWarning]; // Releases the view if it doesn't have a superview
-   // Release anything that's not essential, such as cached data
-}
-
 
 - (void)dealloc {
    [contentView release];
