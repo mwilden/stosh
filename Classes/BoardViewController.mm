@@ -99,16 +99,6 @@
 
   [contentView bringSubviewToFront: boardView];
 
-  // Activity indicator
-  activityIndicator =
-     [[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(0,0,30,30)];
-  [activityIndicator setCenter: CGPointMake(160.0f, 180.0f)];
-  [activityIndicator
-     setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhite];
-  [contentView addSubview: activityIndicator];
-  [activityIndicator startAnimating];
-  [activityIndicator release];
-
    // Action sheets for menus.
    gameMenu = [[UIActionSheet alloc]
                     initWithTitle: nil
@@ -304,15 +294,5 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [boardView hideLastMove];
    [gameController gameFromFEN: fen];
 }
-
-
-- (void)stopActivityIndicator {
-   if (activityIndicator) {
-      [activityIndicator stopAnimating];
-      [activityIndicator removeFromSuperview];
-      activityIndicator = nil;
-   }
-}
-
 
 @end

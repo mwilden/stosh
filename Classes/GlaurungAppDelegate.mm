@@ -83,7 +83,6 @@ using namespace Chess;
 
 - (void)backgroundInitFinished:(id)anObject {
 	[gameController showPieces];
-	[viewController stopActivityIndicator];
 	
 	[viewController setGameController: gameController];
 	[[viewController boardView] setGameController: gameController];

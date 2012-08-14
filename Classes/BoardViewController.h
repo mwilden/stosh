@@ -11,7 +11,6 @@
    MoveListView *moveListView;
    GameController *gameController;
    UINavigationController *navigationController;
-   UIActivityIndicatorView *activityIndicator;
    UIActionSheet *gameMenu, *newGameMenu, *moveMenu;
    UIBarButtonItem *gameButton, *optionsButton;
    UIPopoverController *optionsMenu, *saveMenu, *loadMenu;
@@ -28,6 +27,5 @@
 - (void)editPosition;
 - (void)editPositionCancelPressed;
 - (void)editPositionDonePressed:(NSString *)fen;
-- (void)stopActivityIndicator;
 
 @end
