@@ -1,13 +1,11 @@
 #import <UIKit/UIKit.h>
 
 #import "BoardView.h"
-#import "RootView.h"
 
 @class GameController;
 @class MoveListView;
 
 @interface BoardViewController : UIViewController <UIActionSheetDelegate> {
-   RootView *rootView;
    UIView *contentView;
    BoardView *boardView;
    MoveListView *moveListView;

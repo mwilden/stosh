@@ -28,19 +28,13 @@
 
   // Content view
   CGRect appRect = [[UIScreen mainScreen] applicationFrame];
-  rootView = [[RootView alloc] initWithFrame: appRect];
-  [rootView setAutoresizesSubviews: YES];
-  [rootView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
-                                  UIViewAutoresizingFlexibleHeight)];
   appRect.origin = CGPointMake(0.0f, 0.0f);
   contentView = [[UIView alloc] initWithFrame: appRect];
   [contentView setAutoresizesSubviews: YES];
   [contentView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth |
                                      UIViewAutoresizingFlexibleHeight)];
   [contentView setBackgroundColor: [UIColor lightGrayColor]];
-  [rootView addSubview: contentView];
-  [self setView: rootView];
-  [rootView release];
+  [self setView: contentView];
   [contentView release];
 
   // Board

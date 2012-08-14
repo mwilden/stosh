@@ -175,7 +175,6 @@
 		1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2B11D3921A0074E5B7 /* PGN.mm */; };
 		1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */; };
 		1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3311D3921A0074E5B7 /* Queue.mm */; };
-		1796FF7611D3921A0074E5B7 /* RootView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3F11D3921A0074E5B7 /* RootView.mm */; };
 		1796FF7811D3921A0074E5B7 /* SelectedPieceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */; };
 		1796FF7911D3921A0074E5B7 /* SelectedSquareView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4511D3921A0074E5B7 /* SelectedSquareView.mm */; };
 		1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4711D3921A0074E5B7 /* SetupBoardView.mm */; };
@@ -541,8 +540,6 @@
 		1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PieceImageView.mm; path = Classes/PieceImageView.mm; sourceTree = "<group>"; };
 		1796FF3211D3921A0074E5B7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Classes/Queue.h; sourceTree = "<group>"; };
 		1796FF3311D3921A0074E5B7 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Queue.mm; path = Classes/Queue.mm; sourceTree = "<group>"; };
-		1796FF3E11D3921A0074E5B7 /* RootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootView.h; path = Classes/RootView.h; sourceTree = "<group>"; };
-		1796FF3F11D3921A0074E5B7 /* RootView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RootView.mm; path = Classes/RootView.mm; sourceTree = "<group>"; };
 		1796FF4211D3921A0074E5B7 /* SelectedPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedPieceView.h; path = Classes/SelectedPieceView.h; sourceTree = "<group>"; };
 		1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectedPieceView.mm; path = Classes/SelectedPieceView.mm; sourceTree = "<group>"; };
 		1796FF4411D3921A0074E5B7 /* SelectedSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedSquareView.h; path = Classes/SelectedSquareView.h; sourceTree = "<group>"; };
@@ -1272,8 +1269,6 @@
 				1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */,
 				1796FF3211D3921A0074E5B7 /* Queue.h */,
 				1796FF3311D3921A0074E5B7 /* Queue.mm */,
-				1796FF3E11D3921A0074E5B7 /* RootView.h */,
-				1796FF3F11D3921A0074E5B7 /* RootView.mm */,
 				1796FF4211D3921A0074E5B7 /* SelectedPieceView.h */,
 				1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */,
 				1796FF4411D3921A0074E5B7 /* SelectedSquareView.h */,
@@ -1707,7 +1702,6 @@
 				1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */,
 				1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */,
 				1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */,
-				1796FF7611D3921A0074E5B7 /* RootView.mm in Sources */,
 				1796FF7811D3921A0074E5B7 /* SelectedPieceView.mm in Sources */,
 				1796FF7911D3921A0074E5B7 /* SelectedSquareView.mm in Sources */,
 				1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */,
