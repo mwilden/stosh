@@ -235,7 +235,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
             destructiveButtonTitle: nil
             otherButtonTitles: @"Queen", @"Rook", @"Knight", @"Bishop", nil];
       [menu showInView: [boardView superview]];
-       menu = nil;
+      [menu release];
    }
 
    // HACK: Castling. The user probably tries to move the king two squares to
@@ -309,13 +309,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 - (void)promotionMenu {
-   [[[UIActionSheet alloc]
-       initWithTitle: @"Promote to:"
-            delegate: self
-       cancelButtonTitle: nil
-       destructiveButtonTitle: nil
-       otherButtonTitles: @"Queen", @"Rook", @"Knight", @"Bishop", nil]
-      showInView: [boardView superview]];
+    UIActionSheet* sheet = [[UIActionSheet alloc]
+      initWithTitle: @"Promote to:"
+      delegate: self
+      cancelButtonTitle: nil
+      destructiveButtonTitle: nil
+      otherButtonTitles: @"Queen", @"Rook", @"Knight", @"Bishop", nil];
+    [sheet showInView: [boardView superview]];
+    [sheet release];
 }
 
 

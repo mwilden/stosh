@@ -127,19 +127,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-   [contentView release];
-   [boardView release];
-   [moveListView release];
-   [gameMenu release];
-   [newGameMenu release];
-   [moveMenu release];
-   [optionsMenu release];
-   [popoverMenu release];
-   [super dealloc];
-}
-
-
 - (void)alertView:(UIAlertView *)alertView
 clickedButtonAtIndex:(NSInteger)buttonIndex {
    if ([[alertView title] isEqualToString: @"Start new game?"]) {

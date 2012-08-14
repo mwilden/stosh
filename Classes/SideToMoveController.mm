@@ -56,6 +56,7 @@
    [segmentedControl setSegmentedControlStyle: UISegmentedControlStylePlain];
    [contentView addSubview: segmentedControl];
    [segmentedControl release];
+   [contentView release];
 }
 
 
