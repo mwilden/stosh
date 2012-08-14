@@ -18,3 +18,15 @@ end
 Given /^I launch the app using iOS (\d\.\d) and the (iphone|ipad) simulator$/ do |sdk, version|
   launch_app app_path, sdk, version
 end
+
+Given /^(\w+) plays? (\w+)$/ do |player, move|
+  pending
+end
+
+Then /^captured pieces should show one black pawn$/ do
+  pending
+end
+
+Then /^captured pieces should show one white pawn and one black pawn$/ do
+  pending
+end
