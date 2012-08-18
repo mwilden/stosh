@@ -590,8 +590,6 @@ static NSString* breakLinesInString(NSString *string) {
 /// Clean up.
 
 - (void)dealloc {
-   NSLog(@"Game dealloc");
-
    delete startPosition;
    delete currentPosition;
 
