@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B2460D15E01EA5006CF8C2 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2460C15E01EA5006CF8C2 /* Game.mm */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
 		175100881273260E00A59D5B /* AlphaBBishop96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 175100681273260E00A59D5B /* AlphaBBishop96.tiff */; };
 		1751008A1273260E00A59D5B /* AlphaBKing96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1751006A1273260E00A59D5B /* AlphaBKing96.tiff */; };
@@ -163,7 +164,6 @@
 		1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */; };
 		1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0111D3921A0074E5B7 /* ChessMove.mm */; };
 		1796FF5C11D3921A0074E5B7 /* EpSquareController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */; };
-		1796FF5D11D3921A0074E5B7 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0D11D3921A0074E5B7 /* Game.mm */; };
 		1796FF5E11D3921A0074E5B7 /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0F11D3921A0074E5B7 /* GameController.mm */; };
 		1796FF6111D3921A0074E5B7 /* GameParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1511D3921A0074E5B7 /* GameParser.mm */; };
 		1796FF6311D3921A0074E5B7 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1911D3921A0074E5B7 /* StoshAppDelegate.mm */; };
@@ -359,6 +359,8 @@
 
 /* Begin PBXFileReference section */
 		103C8E2A15D87A83009C7083 /* Stosh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stosh_Prefix.pch; sourceTree = "<group>"; };
+		10B2460B15E01EA5006CF8C2 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		10B2460C15E01EA5006CF8C2 /* Game.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Game.mm; sourceTree = "<group>"; };
 		1751000B1272E39500A59D5B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		175100681273260E00A59D5B /* AlphaBBishop96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop96.tiff; path = "Images-iPad/AlphaBBishop96.tiff"; sourceTree = "<group>"; };
 		1751006A1273260E00A59D5B /* AlphaBKing96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing96.tiff; path = "Images-iPad/AlphaBKing96.tiff"; sourceTree = "<group>"; };
@@ -516,8 +518,6 @@
 		1796FF0111D3921A0074E5B7 /* ChessMove.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ChessMove.mm; path = Classes/ChessMove.mm; sourceTree = "<group>"; };
 		1796FF0A11D3921A0074E5B7 /* EpSquareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpSquareController.h; path = Classes/EpSquareController.h; sourceTree = "<group>"; };
 		1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EpSquareController.mm; path = Classes/EpSquareController.mm; sourceTree = "<group>"; };
-		1796FF0C11D3921A0074E5B7 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Classes/Game.h; sourceTree = "<group>"; };
-		1796FF0D11D3921A0074E5B7 /* Game.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Game.mm; path = Classes/Game.mm; sourceTree = "<group>"; };
 		1796FF0E11D3921A0074E5B7 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameController.h; path = Classes/GameController.h; sourceTree = "<group>"; };
 		1796FF0F11D3921A0074E5B7 /* GameController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameController.mm; path = Classes/GameController.mm; sourceTree = "<group>"; };
 		1796FF1411D3921A0074E5B7 /* GameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameParser.h; path = Classes/GameParser.h; sourceTree = "<group>"; };
@@ -803,6 +803,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10B2460A15E01EA5006CF8C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10B2460B15E01EA5006CF8C2 /* Game.h */,
+				10B2460C15E01EA5006CF8C2 /* Game.mm */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1751000A1272E39500A59D5B /* Resources-iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -1232,6 +1241,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				10B2460A15E01EA5006CF8C2 /* Models */,
 				1796FEA011D391570074E5B7 /* main.m */,
 				1796FEF611D3921A0074E5B7 /* AboutController.h */,
 				1796FEF711D3921A0074E5B7 /* AboutController.mm */,
@@ -1245,8 +1255,6 @@
 				1796FF0111D3921A0074E5B7 /* ChessMove.mm */,
 				1796FF0A11D3921A0074E5B7 /* EpSquareController.h */,
 				1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */,
-				1796FF0C11D3921A0074E5B7 /* Game.h */,
-				1796FF0D11D3921A0074E5B7 /* Game.mm */,
 				1796FF0E11D3921A0074E5B7 /* GameController.h */,
 				1796FF0F11D3921A0074E5B7 /* GameController.mm */,
 				1796FF1411D3921A0074E5B7 /* GameParser.h */,
@@ -1690,7 +1698,6 @@
 				1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */,
 				1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */,
 				1796FF5C11D3921A0074E5B7 /* EpSquareController.mm in Sources */,
-				1796FF5D11D3921A0074E5B7 /* Game.mm in Sources */,
 				1796FF5E11D3921A0074E5B7 /* GameController.mm in Sources */,
 				1796FF6111D3921A0074E5B7 /* GameParser.mm in Sources */,
 				1796FF6311D3921A0074E5B7 /* StoshAppDelegate.mm in Sources */,
@@ -1724,6 +1731,7 @@
 				1796008D11D393A60074E5B7 /* value.cpp in Sources */,
 				179600BD11D395860074E5B7 /* ucioption.cpp in Sources */,
 				179600BE11D395860074E5B7 /* value.cpp in Sources */,
+				10B2460D15E01EA5006CF8C2 /* Game.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
