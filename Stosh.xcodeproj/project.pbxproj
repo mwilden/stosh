@@ -28,7 +28,6 @@
 		10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */; };
 		10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463F15E021D0006CF8C2 /* PieceImageView.mm */; };
 		10B2465D15E021D0006CF8C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464315E021D0006CF8C2 /* main.m */; };
-		10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464515E021D0006CF8C2 /* Queue.mm */; };
 		10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */; };
 		10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2466D15E03D31006CF8C2 /* AboutController.mm */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
@@ -395,8 +394,6 @@
 		10B2463E15E021D0006CF8C2 /* PieceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceImageView.h; sourceTree = "<group>"; };
 		10B2463F15E021D0006CF8C2 /* PieceImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PieceImageView.mm; sourceTree = "<group>"; };
 		10B2464315E021D0006CF8C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		10B2464415E021D0006CF8C2 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
-		10B2464515E021D0006CF8C2 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Queue.mm; sourceTree = "<group>"; };
 		10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoshAppDelegate.h; sourceTree = "<group>"; };
 		10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoshAppDelegate.mm; sourceTree = "<group>"; };
 		10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Stosh-Info.plist"; sourceTree = "<group>"; };
@@ -887,8 +884,6 @@
 				10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */,
 				10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */,
 				10B2464315E021D0006CF8C2 /* main.m */,
-				10B2464415E021D0006CF8C2 /* Queue.h */,
-				10B2464515E021D0006CF8C2 /* Queue.mm */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -1753,7 +1748,6 @@
 				10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */,
 				10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */,
 				10B2465D15E021D0006CF8C2 /* main.m in Sources */,
-				10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */,
 				10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */,
 				10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */,
 			);
