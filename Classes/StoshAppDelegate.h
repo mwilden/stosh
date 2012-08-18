@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
-#import "BoardViewController.h"
-#import "GameController.h"
+@class BoardViewController;
+@class GameController;
 
 @interface StoshAppDelegate : NSObject <UIApplicationDelegate> {
    UIWindow *window;

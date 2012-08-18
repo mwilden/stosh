@@ -3,6 +3,8 @@
 #import "StoshAppDelegate.h"
 #import "Options.h"
 #import "PGN.h"
+#import "BoardViewController.h"
+#import "GameController.h"
 
 #include <sys/stat.h>
 
@@ -44,8 +46,6 @@ using namespace Chess;
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	NSLog(@"GlaurungAppDelegate applicationWillTerminate:");
-	
 	// Save the current game so we can recover it the next
 	// time the program starts up:
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -99,12 +99,6 @@ using namespace Chess;
 	
 	if ([defaults objectForKey: @"rotateBoard"])
 		[gameController rotateBoard: [defaults boolForKey: @"rotateBoard"]];
-}
-
-
-- (void)dealloc {
-	NSLog(@"GlaurungAppDelegate dealloc");
-	[super dealloc];
 }
 
 @end
