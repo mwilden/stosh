@@ -1,6 +1,6 @@
 #import "TargetConditionals.h"
 
-#import "GlaurungAppDelegate.h"
+#import "StoshAppDelegate.h"
 #import "Options.h"
 #import "PGN.h"
 
@@ -14,7 +14,7 @@
 
 using namespace Chess;
 
-@implementation GlaurungAppDelegate
+@implementation StoshAppDelegate
 
 @synthesize window, viewController, gameController;
 

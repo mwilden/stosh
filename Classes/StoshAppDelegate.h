@@ -3,7 +3,7 @@
 #import "BoardViewController.h"
 #import "GameController.h"
 
-@interface GlaurungAppDelegate : NSObject <UIApplicationDelegate> {
+@interface StoshAppDelegate : NSObject <UIApplicationDelegate> {
    UIWindow *window;
    BoardViewController *viewController;
    GameController *gameController;
