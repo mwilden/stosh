@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#include "../Chess/piece.h"
+#include "piece.h"
 
 using namespace Chess;
 

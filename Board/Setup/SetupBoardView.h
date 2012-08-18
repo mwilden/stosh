@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
 
-#include "../Chess/bitboard.h"
-#include "../Chess/piece.h"
-#include "../Chess/square.h"
+#include "bitboard.h"
+#include "piece.h"
+#include "square.h"
 
 using namespace Chess;
 

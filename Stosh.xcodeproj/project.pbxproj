@@ -7,7 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10B2460D15E01EA5006CF8C2 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2460C15E01EA5006CF8C2 /* Game.mm */; };
+		10B2464815E021D0006CF8C2 /* BoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461415E021D0006CF8C2 /* BoardView.mm */; };
+		10B2464915E021D0006CF8C2 /* BoardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461615E021D0006CF8C2 /* BoardViewController.mm */; };
+		10B2464A15E021D0006CF8C2 /* LastMoveView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461815E021D0006CF8C2 /* LastMoveView.mm */; };
+		10B2464B15E021D0006CF8C2 /* MoveListView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461A15E021D0006CF8C2 /* MoveListView.mm */; };
+		10B2464C15E021D0006CF8C2 /* CastleRightsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461D15E021D0006CF8C2 /* CastleRightsController.mm */; };
+		10B2464D15E021D0006CF8C2 /* EpSquareController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2461F15E021D0006CF8C2 /* EpSquareController.mm */; };
+		10B2464E15E021D0006CF8C2 /* SelectedPieceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462115E021D0006CF8C2 /* SelectedPieceView.mm */; };
+		10B2464F15E021D0006CF8C2 /* SelectedSquareView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462315E021D0006CF8C2 /* SelectedSquareView.mm */; };
+		10B2465015E021D0006CF8C2 /* SetupBoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462515E021D0006CF8C2 /* SetupBoardView.mm */; };
+		10B2465115E021D0006CF8C2 /* SetupViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462715E021D0006CF8C2 /* SetupViewController.mm */; };
+		10B2465215E021D0006CF8C2 /* SideToMoveController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462915E021D0006CF8C2 /* SideToMoveController.mm */; };
+		10B2465315E021D0006CF8C2 /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462C15E021D0006CF8C2 /* GameController.mm */; };
+		10B2465415E021D0006CF8C2 /* ChessMove.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2462F15E021D0006CF8C2 /* ChessMove.mm */; };
+		10B2465515E021D0006CF8C2 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463115E021D0006CF8C2 /* Game.mm */; };
+		10B2465615E021D0006CF8C2 /* GameParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463315E021D0006CF8C2 /* GameParser.mm */; };
+		10B2465715E021D0006CF8C2 /* PGN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463515E021D0006CF8C2 /* PGN.mm */; };
+		10B2465815E021D0006CF8C2 /* Options.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463815E021D0006CF8C2 /* Options.mm */; };
+		10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */; };
+		10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */; };
+		10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463F15E021D0006CF8C2 /* PieceImageView.mm */; };
+		10B2465C15E021D0006CF8C2 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464215E021D0006CF8C2 /* AboutController.mm */; };
+		10B2465D15E021D0006CF8C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464315E021D0006CF8C2 /* main.m */; };
+		10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464515E021D0006CF8C2 /* Queue.mm */; };
+		10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
 		175100881273260E00A59D5B /* AlphaBBishop96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 175100681273260E00A59D5B /* AlphaBBishop96.tiff */; };
 		1751008A1273260E00A59D5B /* AlphaBKing96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1751006A1273260E00A59D5B /* AlphaBKing96.tiff */; };
@@ -134,7 +157,6 @@
 		1796018A11D3C4960074E5B7 /* LightMarble.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796018611D3C4960074E5B7 /* LightMarble.tiff */; };
 		1796018B11D3C4960074E5B7 /* LightMarble@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796018711D3C4960074E5B7 /* LightMarble@2x.tiff */; };
 		179601B811D3CDA00074E5B7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 179601B711D3CDA00074E5B7 /* Icon@2x.png */; };
-		1796FEA111D391570074E5B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEA011D391570074E5B7 /* main.m */; };
 		1796FEDF11D391AA0074E5B7 /* application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEA811D391AA0074E5B7 /* application.cpp */; };
 		1796FEE011D391AA0074E5B7 /* benchmark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEAA11D391AA0074E5B7 /* benchmark.cpp */; };
 		1796FEE111D391AA0074E5B7 /* bitbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEAC11D391AA0074E5B7 /* bitbase.cpp */; };
@@ -158,28 +180,6 @@
 		1796FEF311D391AA0074E5B7 /* search.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FED611D391AA0074E5B7 /* search.cpp */; };
 		1796FEF411D391AA0074E5B7 /* tt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEDA11D391AA0074E5B7 /* tt.cpp */; };
 		1796FEF511D391AA0074E5B7 /* uci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEDD11D391AA0074E5B7 /* uci.cpp */; };
-		1796FF5211D3921A0074E5B7 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEF711D3921A0074E5B7 /* AboutController.mm */; };
-		1796FF5311D3921A0074E5B7 /* BoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEF911D3921A0074E5B7 /* BoardView.mm */; };
-		1796FF5411D3921A0074E5B7 /* BoardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */; };
-		1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */; };
-		1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0111D3921A0074E5B7 /* ChessMove.mm */; };
-		1796FF5C11D3921A0074E5B7 /* EpSquareController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */; };
-		1796FF5E11D3921A0074E5B7 /* GameController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF0F11D3921A0074E5B7 /* GameController.mm */; };
-		1796FF6111D3921A0074E5B7 /* GameParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1511D3921A0074E5B7 /* GameParser.mm */; };
-		1796FF6311D3921A0074E5B7 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1911D3921A0074E5B7 /* StoshAppDelegate.mm */; };
-		1796FF6411D3921A0074E5B7 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */; };
-		1796FF6511D3921A0074E5B7 /* LastMoveView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */; };
-		1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2311D3921A0074E5B7 /* MoveListView.mm */; };
-		1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2711D3921A0074E5B7 /* Options.mm */; };
-		1796FF6B11D3921A0074E5B7 /* OptionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2911D3921A0074E5B7 /* OptionsViewController.mm */; };
-		1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2B11D3921A0074E5B7 /* PGN.mm */; };
-		1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */; };
-		1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF3311D3921A0074E5B7 /* Queue.mm */; };
-		1796FF7811D3921A0074E5B7 /* SelectedPieceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */; };
-		1796FF7911D3921A0074E5B7 /* SelectedSquareView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4511D3921A0074E5B7 /* SelectedSquareView.mm */; };
-		1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4711D3921A0074E5B7 /* SetupBoardView.mm */; };
-		1796FF7B11D3921A0074E5B7 /* SetupViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4911D3921A0074E5B7 /* SetupViewController.mm */; };
-		1796FF7C11D3921A0074E5B7 /* SideToMoveController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */; };
 		1796FFE411D392620074E5B7 /* AlphaBBishop.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8311D392620074E5B7 /* AlphaBBishop.tiff */; };
 		1796FFE511D392620074E5B7 /* AlphaBBishop@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8411D392620074E5B7 /* AlphaBBishop@2x.tiff */; };
 		1796FFE611D392620074E5B7 /* AlphaBKing.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1796FF8511D392620074E5B7 /* AlphaBKing.tiff */; };
@@ -358,9 +358,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		103C8E2A15D87A83009C7083 /* Stosh_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stosh_Prefix.pch; sourceTree = "<group>"; };
-		10B2460B15E01EA5006CF8C2 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		10B2460C15E01EA5006CF8C2 /* Game.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Game.mm; sourceTree = "<group>"; };
+		10B2461315E021D0006CF8C2 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		10B2461415E021D0006CF8C2 /* BoardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardView.mm; sourceTree = "<group>"; };
+		10B2461515E021D0006CF8C2 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
+		10B2461615E021D0006CF8C2 /* BoardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BoardViewController.mm; sourceTree = "<group>"; };
+		10B2461715E021D0006CF8C2 /* LastMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastMoveView.h; sourceTree = "<group>"; };
+		10B2461815E021D0006CF8C2 /* LastMoveView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LastMoveView.mm; sourceTree = "<group>"; };
+		10B2461915E021D0006CF8C2 /* MoveListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveListView.h; sourceTree = "<group>"; };
+		10B2461A15E021D0006CF8C2 /* MoveListView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoveListView.mm; sourceTree = "<group>"; };
+		10B2461C15E021D0006CF8C2 /* CastleRightsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastleRightsController.h; sourceTree = "<group>"; };
+		10B2461D15E021D0006CF8C2 /* CastleRightsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CastleRightsController.mm; sourceTree = "<group>"; };
+		10B2461E15E021D0006CF8C2 /* EpSquareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpSquareController.h; sourceTree = "<group>"; };
+		10B2461F15E021D0006CF8C2 /* EpSquareController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EpSquareController.mm; sourceTree = "<group>"; };
+		10B2462015E021D0006CF8C2 /* SelectedPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPieceView.h; sourceTree = "<group>"; };
+		10B2462115E021D0006CF8C2 /* SelectedPieceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectedPieceView.mm; sourceTree = "<group>"; };
+		10B2462215E021D0006CF8C2 /* SelectedSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedSquareView.h; sourceTree = "<group>"; };
+		10B2462315E021D0006CF8C2 /* SelectedSquareView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectedSquareView.mm; sourceTree = "<group>"; };
+		10B2462415E021D0006CF8C2 /* SetupBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupBoardView.h; sourceTree = "<group>"; };
+		10B2462515E021D0006CF8C2 /* SetupBoardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SetupBoardView.mm; sourceTree = "<group>"; };
+		10B2462615E021D0006CF8C2 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		10B2462715E021D0006CF8C2 /* SetupViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SetupViewController.mm; sourceTree = "<group>"; };
+		10B2462815E021D0006CF8C2 /* SideToMoveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideToMoveController.h; sourceTree = "<group>"; };
+		10B2462915E021D0006CF8C2 /* SideToMoveController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SideToMoveController.mm; sourceTree = "<group>"; };
+		10B2462B15E021D0006CF8C2 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		10B2462C15E021D0006CF8C2 /* GameController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameController.mm; sourceTree = "<group>"; };
+		10B2462E15E021D0006CF8C2 /* ChessMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessMove.h; sourceTree = "<group>"; };
+		10B2462F15E021D0006CF8C2 /* ChessMove.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ChessMove.mm; sourceTree = "<group>"; };
+		10B2463015E021D0006CF8C2 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		10B2463115E021D0006CF8C2 /* Game.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Game.mm; sourceTree = "<group>"; };
+		10B2463215E021D0006CF8C2 /* GameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameParser.h; sourceTree = "<group>"; };
+		10B2463315E021D0006CF8C2 /* GameParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameParser.mm; sourceTree = "<group>"; };
+		10B2463415E021D0006CF8C2 /* PGN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGN.h; sourceTree = "<group>"; };
+		10B2463515E021D0006CF8C2 /* PGN.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PGN.mm; sourceTree = "<group>"; };
+		10B2463715E021D0006CF8C2 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		10B2463815E021D0006CF8C2 /* Options.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Options.mm; sourceTree = "<group>"; };
+		10B2463915E021D0006CF8C2 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionsViewController.mm; sourceTree = "<group>"; };
+		10B2463C15E021D0006CF8C2 /* HighlightedSquaresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightedSquaresView.h; sourceTree = "<group>"; };
+		10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighlightedSquaresView.mm; sourceTree = "<group>"; };
+		10B2463E15E021D0006CF8C2 /* PieceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceImageView.h; sourceTree = "<group>"; };
+		10B2463F15E021D0006CF8C2 /* PieceImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PieceImageView.mm; sourceTree = "<group>"; };
+		10B2464115E021D0006CF8C2 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		10B2464215E021D0006CF8C2 /* AboutController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutController.mm; sourceTree = "<group>"; };
+		10B2464315E021D0006CF8C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10B2464415E021D0006CF8C2 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		10B2464515E021D0006CF8C2 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Queue.mm; sourceTree = "<group>"; };
+		10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoshAppDelegate.h; sourceTree = "<group>"; };
+		10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoshAppDelegate.mm; sourceTree = "<group>"; };
+		10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Stosh-Info.plist"; sourceTree = "<group>"; };
 		1751000B1272E39500A59D5B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		175100681273260E00A59D5B /* AlphaBBishop96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop96.tiff; path = "Images-iPad/AlphaBBishop96.tiff"; sourceTree = "<group>"; };
 		1751006A1273260E00A59D5B /* AlphaBKing96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing96.tiff; path = "Images-iPad/AlphaBKing96.tiff"; sourceTree = "<group>"; };
@@ -450,7 +495,6 @@
 		1796018611D3C4960074E5B7 /* LightMarble.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = LightMarble.tiff; path = Images/LightMarble.tiff; sourceTree = "<group>"; };
 		1796018711D3C4960074E5B7 /* LightMarble@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "LightMarble@2x.tiff"; path = "Images/LightMarble@2x.tiff"; sourceTree = "<group>"; };
 		179601B711D3CDA00074E5B7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		1796FEA011D391570074E5B7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1796FEA811D391AA0074E5B7 /* application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = application.cpp; path = Engine/application.cpp; sourceTree = SOURCE_ROOT; };
 		1796FEA911D391AA0074E5B7 /* application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = application.h; path = Engine/application.h; sourceTree = SOURCE_ROOT; };
 		1796FEAA11D391AA0074E5B7 /* benchmark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = benchmark.cpp; path = Engine/benchmark.cpp; sourceTree = SOURCE_ROOT; };
@@ -506,50 +550,6 @@
 		1796FEDC11D391AA0074E5B7 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = Engine/types.h; sourceTree = SOURCE_ROOT; };
 		1796FEDD11D391AA0074E5B7 /* uci.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = uci.cpp; path = Engine/uci.cpp; sourceTree = SOURCE_ROOT; };
 		1796FEDE11D391AA0074E5B7 /* uci.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uci.h; path = Engine/uci.h; sourceTree = SOURCE_ROOT; };
-		1796FEF611D3921A0074E5B7 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutController.h; path = Classes/AboutController.h; sourceTree = "<group>"; };
-		1796FEF711D3921A0074E5B7 /* AboutController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AboutController.mm; path = Classes/AboutController.mm; sourceTree = "<group>"; };
-		1796FEF811D3921A0074E5B7 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardView.h; path = Classes/BoardView.h; sourceTree = "<group>"; };
-		1796FEF911D3921A0074E5B7 /* BoardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BoardView.mm; path = Classes/BoardView.mm; sourceTree = "<group>"; };
-		1796FEFA11D3921A0074E5B7 /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardViewController.h; path = Classes/BoardViewController.h; sourceTree = "<group>"; };
-		1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BoardViewController.mm; path = Classes/BoardViewController.mm; sourceTree = "<group>"; };
-		1796FEFC11D3921A0074E5B7 /* CastleRightsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CastleRightsController.h; path = Classes/CastleRightsController.h; sourceTree = "<group>"; };
-		1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CastleRightsController.mm; path = Classes/CastleRightsController.mm; sourceTree = "<group>"; };
-		1796FF0011D3921A0074E5B7 /* ChessMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChessMove.h; path = Classes/ChessMove.h; sourceTree = "<group>"; };
-		1796FF0111D3921A0074E5B7 /* ChessMove.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ChessMove.mm; path = Classes/ChessMove.mm; sourceTree = "<group>"; };
-		1796FF0A11D3921A0074E5B7 /* EpSquareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpSquareController.h; path = Classes/EpSquareController.h; sourceTree = "<group>"; };
-		1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EpSquareController.mm; path = Classes/EpSquareController.mm; sourceTree = "<group>"; };
-		1796FF0E11D3921A0074E5B7 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameController.h; path = Classes/GameController.h; sourceTree = "<group>"; };
-		1796FF0F11D3921A0074E5B7 /* GameController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameController.mm; path = Classes/GameController.mm; sourceTree = "<group>"; };
-		1796FF1411D3921A0074E5B7 /* GameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameParser.h; path = Classes/GameParser.h; sourceTree = "<group>"; };
-		1796FF1511D3921A0074E5B7 /* GameParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameParser.mm; path = Classes/GameParser.mm; sourceTree = "<group>"; };
-		1796FF1811D3921A0074E5B7 /* StoshAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoshAppDelegate.h; path = Classes/StoshAppDelegate.h; sourceTree = "<group>"; };
-		1796FF1911D3921A0074E5B7 /* StoshAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StoshAppDelegate.mm; path = Classes/StoshAppDelegate.mm; sourceTree = "<group>"; };
-		1796FF1A11D3921A0074E5B7 /* HighlightedSquaresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighlightedSquaresView.h; path = Classes/HighlightedSquaresView.h; sourceTree = "<group>"; };
-		1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HighlightedSquaresView.mm; path = Classes/HighlightedSquaresView.mm; sourceTree = "<group>"; };
-		1796FF1C11D3921A0074E5B7 /* LastMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastMoveView.h; path = Classes/LastMoveView.h; sourceTree = "<group>"; };
-		1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = LastMoveView.mm; path = Classes/LastMoveView.mm; sourceTree = "<group>"; };
-		1796FF2211D3921A0074E5B7 /* MoveListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveListView.h; path = Classes/MoveListView.h; sourceTree = "<group>"; };
-		1796FF2311D3921A0074E5B7 /* MoveListView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoveListView.mm; path = Classes/MoveListView.mm; sourceTree = "<group>"; };
-		1796FF2611D3921A0074E5B7 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = Classes/Options.h; sourceTree = "<group>"; };
-		1796FF2711D3921A0074E5B7 /* Options.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Options.mm; path = Classes/Options.mm; sourceTree = "<group>"; };
-		1796FF2811D3921A0074E5B7 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsViewController.h; path = Classes/OptionsViewController.h; sourceTree = "<group>"; };
-		1796FF2911D3921A0074E5B7 /* OptionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OptionsViewController.mm; path = Classes/OptionsViewController.mm; sourceTree = "<group>"; };
-		1796FF2A11D3921A0074E5B7 /* PGN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PGN.h; path = Classes/PGN.h; sourceTree = "<group>"; };
-		1796FF2B11D3921A0074E5B7 /* PGN.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PGN.mm; path = Classes/PGN.mm; sourceTree = "<group>"; };
-		1796FF2E11D3921A0074E5B7 /* PieceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieceImageView.h; path = Classes/PieceImageView.h; sourceTree = "<group>"; };
-		1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PieceImageView.mm; path = Classes/PieceImageView.mm; sourceTree = "<group>"; };
-		1796FF3211D3921A0074E5B7 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Classes/Queue.h; sourceTree = "<group>"; };
-		1796FF3311D3921A0074E5B7 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Queue.mm; path = Classes/Queue.mm; sourceTree = "<group>"; };
-		1796FF4211D3921A0074E5B7 /* SelectedPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedPieceView.h; path = Classes/SelectedPieceView.h; sourceTree = "<group>"; };
-		1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectedPieceView.mm; path = Classes/SelectedPieceView.mm; sourceTree = "<group>"; };
-		1796FF4411D3921A0074E5B7 /* SelectedSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectedSquareView.h; path = Classes/SelectedSquareView.h; sourceTree = "<group>"; };
-		1796FF4511D3921A0074E5B7 /* SelectedSquareView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SelectedSquareView.mm; path = Classes/SelectedSquareView.mm; sourceTree = "<group>"; };
-		1796FF4611D3921A0074E5B7 /* SetupBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetupBoardView.h; path = Classes/SetupBoardView.h; sourceTree = "<group>"; };
-		1796FF4711D3921A0074E5B7 /* SetupBoardView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SetupBoardView.mm; path = Classes/SetupBoardView.mm; sourceTree = "<group>"; };
-		1796FF4811D3921A0074E5B7 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetupViewController.h; path = Classes/SetupViewController.h; sourceTree = "<group>"; };
-		1796FF4911D3921A0074E5B7 /* SetupViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SetupViewController.mm; path = Classes/SetupViewController.mm; sourceTree = "<group>"; };
-		1796FF4A11D3921A0074E5B7 /* SideToMoveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideToMoveController.h; path = Classes/SideToMoveController.h; sourceTree = "<group>"; };
-		1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SideToMoveController.mm; path = Classes/SideToMoveController.mm; sourceTree = "<group>"; };
 		1796FF8311D392620074E5B7 /* AlphaBBishop.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop.tiff; path = Images/AlphaBBishop.tiff; sourceTree = "<group>"; };
 		1796FF8411D392620074E5B7 /* AlphaBBishop@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "AlphaBBishop@2x.tiff"; path = "Images/AlphaBBishop@2x.tiff"; sourceTree = "<group>"; };
 		1796FF8511D392620074E5B7 /* AlphaBKing.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing.tiff; path = Images/AlphaBKing.tiff; sourceTree = "<group>"; };
@@ -803,13 +803,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10B2460A15E01EA5006CF8C2 /* Models */ = {
+		10B2461215E021D0006CF8C2 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				10B2460B15E01EA5006CF8C2 /* Game.h */,
-				10B2460C15E01EA5006CF8C2 /* Game.mm */,
+				10B2461315E021D0006CF8C2 /* BoardView.h */,
+				10B2461415E021D0006CF8C2 /* BoardView.mm */,
+				10B2461515E021D0006CF8C2 /* BoardViewController.h */,
+				10B2461615E021D0006CF8C2 /* BoardViewController.mm */,
+				10B2461715E021D0006CF8C2 /* LastMoveView.h */,
+				10B2461815E021D0006CF8C2 /* LastMoveView.mm */,
+				10B2461915E021D0006CF8C2 /* MoveListView.h */,
+				10B2461A15E021D0006CF8C2 /* MoveListView.mm */,
+				10B2461B15E021D0006CF8C2 /* Setup */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
+		10B2461B15E021D0006CF8C2 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				10B2461C15E021D0006CF8C2 /* CastleRightsController.h */,
+				10B2461D15E021D0006CF8C2 /* CastleRightsController.mm */,
+				10B2461E15E021D0006CF8C2 /* EpSquareController.h */,
+				10B2461F15E021D0006CF8C2 /* EpSquareController.mm */,
+				10B2462015E021D0006CF8C2 /* SelectedPieceView.h */,
+				10B2462115E021D0006CF8C2 /* SelectedPieceView.mm */,
+				10B2462215E021D0006CF8C2 /* SelectedSquareView.h */,
+				10B2462315E021D0006CF8C2 /* SelectedSquareView.mm */,
+				10B2462415E021D0006CF8C2 /* SetupBoardView.h */,
+				10B2462515E021D0006CF8C2 /* SetupBoardView.mm */,
+				10B2462615E021D0006CF8C2 /* SetupViewController.h */,
+				10B2462715E021D0006CF8C2 /* SetupViewController.mm */,
+				10B2462815E021D0006CF8C2 /* SideToMoveController.h */,
+				10B2462915E021D0006CF8C2 /* SideToMoveController.mm */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		10B2462A15E021D0006CF8C2 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				10B2462B15E021D0006CF8C2 /* GameController.h */,
+				10B2462C15E021D0006CF8C2 /* GameController.mm */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		10B2462D15E021D0006CF8C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				10B2462E15E021D0006CF8C2 /* ChessMove.h */,
+				10B2462F15E021D0006CF8C2 /* ChessMove.mm */,
+				10B2463015E021D0006CF8C2 /* Game.h */,
+				10B2463115E021D0006CF8C2 /* Game.mm */,
+				10B2463215E021D0006CF8C2 /* GameParser.h */,
+				10B2463315E021D0006CF8C2 /* GameParser.mm */,
+				10B2463415E021D0006CF8C2 /* PGN.h */,
+				10B2463515E021D0006CF8C2 /* PGN.mm */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		10B2463615E021D0006CF8C2 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				10B2463715E021D0006CF8C2 /* Options.h */,
+				10B2463815E021D0006CF8C2 /* Options.mm */,
+				10B2463915E021D0006CF8C2 /* OptionsViewController.h */,
+				10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */,
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		10B2463B15E021D0006CF8C2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				10B2463C15E021D0006CF8C2 /* HighlightedSquaresView.h */,
+				10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */,
+				10B2463E15E021D0006CF8C2 /* PieceImageView.h */,
+				10B2463F15E021D0006CF8C2 /* PieceImageView.mm */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		10B2464015E021D0006CF8C2 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */,
+				10B2464115E021D0006CF8C2 /* AboutController.h */,
+				10B2464215E021D0006CF8C2 /* AboutController.mm */,
+				10B2464315E021D0006CF8C2 /* main.m */,
+				10B2464415E021D0006CF8C2 /* Queue.h */,
+				10B2464515E021D0006CF8C2 /* Queue.mm */,
+				10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */,
+				10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		1751000A1272E39500A59D5B /* Resources-iPad */ = {
@@ -1241,59 +1330,18 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				10B2460A15E01EA5006CF8C2 /* Models */,
-				1796FEA011D391570074E5B7 /* main.m */,
-				1796FEF611D3921A0074E5B7 /* AboutController.h */,
-				1796FEF711D3921A0074E5B7 /* AboutController.mm */,
-				1796FEF811D3921A0074E5B7 /* BoardView.h */,
-				1796FEF911D3921A0074E5B7 /* BoardView.mm */,
-				1796FEFA11D3921A0074E5B7 /* BoardViewController.h */,
-				1796FEFB11D3921A0074E5B7 /* BoardViewController.mm */,
-				1796FEFC11D3921A0074E5B7 /* CastleRightsController.h */,
-				1796FEFD11D3921A0074E5B7 /* CastleRightsController.mm */,
-				1796FF0011D3921A0074E5B7 /* ChessMove.h */,
-				1796FF0111D3921A0074E5B7 /* ChessMove.mm */,
-				1796FF0A11D3921A0074E5B7 /* EpSquareController.h */,
-				1796FF0B11D3921A0074E5B7 /* EpSquareController.mm */,
-				1796FF0E11D3921A0074E5B7 /* GameController.h */,
-				1796FF0F11D3921A0074E5B7 /* GameController.mm */,
-				1796FF1411D3921A0074E5B7 /* GameParser.h */,
-				1796FF1511D3921A0074E5B7 /* GameParser.mm */,
-				1796FF1811D3921A0074E5B7 /* StoshAppDelegate.h */,
-				1796FF1911D3921A0074E5B7 /* StoshAppDelegate.mm */,
-				1796FF1A11D3921A0074E5B7 /* HighlightedSquaresView.h */,
-				1796FF1B11D3921A0074E5B7 /* HighlightedSquaresView.mm */,
-				1796FF1C11D3921A0074E5B7 /* LastMoveView.h */,
-				1796FF1D11D3921A0074E5B7 /* LastMoveView.mm */,
-				1796FF2211D3921A0074E5B7 /* MoveListView.h */,
-				1796FF2311D3921A0074E5B7 /* MoveListView.mm */,
-				1796FF2611D3921A0074E5B7 /* Options.h */,
-				1796FF2711D3921A0074E5B7 /* Options.mm */,
-				1796FF2811D3921A0074E5B7 /* OptionsViewController.h */,
-				1796FF2911D3921A0074E5B7 /* OptionsViewController.mm */,
-				1796FF2A11D3921A0074E5B7 /* PGN.h */,
-				1796FF2B11D3921A0074E5B7 /* PGN.mm */,
-				1796FF2E11D3921A0074E5B7 /* PieceImageView.h */,
-				1796FF2F11D3921A0074E5B7 /* PieceImageView.mm */,
-				1796FF3211D3921A0074E5B7 /* Queue.h */,
-				1796FF3311D3921A0074E5B7 /* Queue.mm */,
-				1796FF4211D3921A0074E5B7 /* SelectedPieceView.h */,
-				1796FF4311D3921A0074E5B7 /* SelectedPieceView.mm */,
-				1796FF4411D3921A0074E5B7 /* SelectedSquareView.h */,
-				1796FF4511D3921A0074E5B7 /* SelectedSquareView.mm */,
-				1796FF4611D3921A0074E5B7 /* SetupBoardView.h */,
-				1796FF4711D3921A0074E5B7 /* SetupBoardView.mm */,
-				1796FF4811D3921A0074E5B7 /* SetupViewController.h */,
-				1796FF4911D3921A0074E5B7 /* SetupViewController.mm */,
-				1796FF4A11D3921A0074E5B7 /* SideToMoveController.h */,
-				1796FF4B11D3921A0074E5B7 /* SideToMoveController.mm */,
+				10B2461215E021D0006CF8C2 /* Board */,
+				10B2462A15E021D0006CF8C2 /* Game */,
+				10B2462D15E021D0006CF8C2 /* Models */,
+				10B2463615E021D0006CF8C2 /* Options */,
+				10B2463B15E021D0006CF8C2 /* Shared */,
+				10B2464015E021D0006CF8C2 /* System */,
 				1796005911D3938F0074E5B7 /* Chess */,
 				1796FEA511D3916D0074E5B7 /* Engine */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				1751000A1272E39500A59D5B /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				103C8E2A15D87A83009C7083 /* Stosh_Prefix.pch */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1668,7 +1716,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1796FEA111D391570074E5B7 /* main.m in Sources */,
 				1796FEDF11D391AA0074E5B7 /* application.cpp in Sources */,
 				1796FEE011D391AA0074E5B7 /* benchmark.cpp in Sources */,
 				1796FEE111D391AA0074E5B7 /* bitbase.cpp in Sources */,
@@ -1692,28 +1739,6 @@
 				1796FEF311D391AA0074E5B7 /* search.cpp in Sources */,
 				1796FEF411D391AA0074E5B7 /* tt.cpp in Sources */,
 				1796FEF511D391AA0074E5B7 /* uci.cpp in Sources */,
-				1796FF5211D3921A0074E5B7 /* AboutController.mm in Sources */,
-				1796FF5311D3921A0074E5B7 /* BoardView.mm in Sources */,
-				1796FF5411D3921A0074E5B7 /* BoardViewController.mm in Sources */,
-				1796FF5511D3921A0074E5B7 /* CastleRightsController.mm in Sources */,
-				1796FF5711D3921A0074E5B7 /* ChessMove.mm in Sources */,
-				1796FF5C11D3921A0074E5B7 /* EpSquareController.mm in Sources */,
-				1796FF5E11D3921A0074E5B7 /* GameController.mm in Sources */,
-				1796FF6111D3921A0074E5B7 /* GameParser.mm in Sources */,
-				1796FF6311D3921A0074E5B7 /* StoshAppDelegate.mm in Sources */,
-				1796FF6411D3921A0074E5B7 /* HighlightedSquaresView.mm in Sources */,
-				1796FF6511D3921A0074E5B7 /* LastMoveView.mm in Sources */,
-				1796FF6811D3921A0074E5B7 /* MoveListView.mm in Sources */,
-				1796FF6A11D3921A0074E5B7 /* Options.mm in Sources */,
-				1796FF6B11D3921A0074E5B7 /* OptionsViewController.mm in Sources */,
-				1796FF6C11D3921A0074E5B7 /* PGN.mm in Sources */,
-				1796FF6E11D3921A0074E5B7 /* PieceImageView.mm in Sources */,
-				1796FF7011D3921A0074E5B7 /* Queue.mm in Sources */,
-				1796FF7811D3921A0074E5B7 /* SelectedPieceView.mm in Sources */,
-				1796FF7911D3921A0074E5B7 /* SelectedSquareView.mm in Sources */,
-				1796FF7A11D3921A0074E5B7 /* SetupBoardView.mm in Sources */,
-				1796FF7B11D3921A0074E5B7 /* SetupViewController.mm in Sources */,
-				1796FF7C11D3921A0074E5B7 /* SideToMoveController.mm in Sources */,
 				1796007F11D393A60074E5B7 /* bitbase.mm in Sources */,
 				1796008011D393A60074E5B7 /* bitboard.cpp in Sources */,
 				1796008111D393A60074E5B7 /* book.cpp in Sources */,
@@ -1731,7 +1756,30 @@
 				1796008D11D393A60074E5B7 /* value.cpp in Sources */,
 				179600BD11D395860074E5B7 /* ucioption.cpp in Sources */,
 				179600BE11D395860074E5B7 /* value.cpp in Sources */,
-				10B2460D15E01EA5006CF8C2 /* Game.mm in Sources */,
+				10B2464815E021D0006CF8C2 /* BoardView.mm in Sources */,
+				10B2464915E021D0006CF8C2 /* BoardViewController.mm in Sources */,
+				10B2464A15E021D0006CF8C2 /* LastMoveView.mm in Sources */,
+				10B2464B15E021D0006CF8C2 /* MoveListView.mm in Sources */,
+				10B2464C15E021D0006CF8C2 /* CastleRightsController.mm in Sources */,
+				10B2464D15E021D0006CF8C2 /* EpSquareController.mm in Sources */,
+				10B2464E15E021D0006CF8C2 /* SelectedPieceView.mm in Sources */,
+				10B2464F15E021D0006CF8C2 /* SelectedSquareView.mm in Sources */,
+				10B2465015E021D0006CF8C2 /* SetupBoardView.mm in Sources */,
+				10B2465115E021D0006CF8C2 /* SetupViewController.mm in Sources */,
+				10B2465215E021D0006CF8C2 /* SideToMoveController.mm in Sources */,
+				10B2465315E021D0006CF8C2 /* GameController.mm in Sources */,
+				10B2465415E021D0006CF8C2 /* ChessMove.mm in Sources */,
+				10B2465515E021D0006CF8C2 /* Game.mm in Sources */,
+				10B2465615E021D0006CF8C2 /* GameParser.mm in Sources */,
+				10B2465715E021D0006CF8C2 /* PGN.mm in Sources */,
+				10B2465815E021D0006CF8C2 /* Options.mm in Sources */,
+				10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */,
+				10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */,
+				10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */,
+				10B2465C15E021D0006CF8C2 /* AboutController.mm in Sources */,
+				10B2465D15E021D0006CF8C2 /* main.m in Sources */,
+				10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */,
+				10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1748,8 +1796,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Stosh_Prefix.pch;
-				INFOPLIST_FILE = "Stosh-Info.plist";
+				GCC_PREFIX_HEADER = System/Stosh_Prefix.pch;
+				INFOPLIST_FILE = "System/Stosh-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Stosh;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1768,10 +1816,10 @@
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Stosh_Prefix.pch;
+				GCC_PREFIX_HEADER = System/Stosh_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_THUMB_SUPPORT = NO;
-				INFOPLIST_FILE = "Stosh-Info.plist";
+				INFOPLIST_FILE = "System/Stosh-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = (
 					"-DNDEBUG",
