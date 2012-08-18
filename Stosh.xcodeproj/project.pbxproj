@@ -27,10 +27,10 @@
 		10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */; };
 		10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */; };
 		10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463F15E021D0006CF8C2 /* PieceImageView.mm */; };
-		10B2465C15E021D0006CF8C2 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464215E021D0006CF8C2 /* AboutController.mm */; };
 		10B2465D15E021D0006CF8C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464315E021D0006CF8C2 /* main.m */; };
 		10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464515E021D0006CF8C2 /* Queue.mm */; };
 		10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */; };
+		10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2466D15E03D31006CF8C2 /* AboutController.mm */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
 		175100881273260E00A59D5B /* AlphaBBishop96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 175100681273260E00A59D5B /* AlphaBBishop96.tiff */; };
 		1751008A1273260E00A59D5B /* AlphaBKing96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1751006A1273260E00A59D5B /* AlphaBKing96.tiff */; };
@@ -394,14 +394,14 @@
 		10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HighlightedSquaresView.mm; sourceTree = "<group>"; };
 		10B2463E15E021D0006CF8C2 /* PieceImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieceImageView.h; sourceTree = "<group>"; };
 		10B2463F15E021D0006CF8C2 /* PieceImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PieceImageView.mm; sourceTree = "<group>"; };
-		10B2464115E021D0006CF8C2 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
-		10B2464215E021D0006CF8C2 /* AboutController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutController.mm; sourceTree = "<group>"; };
 		10B2464315E021D0006CF8C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		10B2464415E021D0006CF8C2 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		10B2464515E021D0006CF8C2 /* Queue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Queue.mm; sourceTree = "<group>"; };
 		10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoshAppDelegate.h; sourceTree = "<group>"; };
 		10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StoshAppDelegate.mm; sourceTree = "<group>"; };
 		10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Stosh-Info.plist"; sourceTree = "<group>"; };
+		10B2466C15E03D31006CF8C2 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		10B2466D15E03D31006CF8C2 /* AboutController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutController.mm; sourceTree = "<group>"; };
 		1751000B1272E39500A59D5B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		175100681273260E00A59D5B /* AlphaBBishop96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop96.tiff; path = "Images-iPad/AlphaBBishop96.tiff"; sourceTree = "<group>"; };
 		1751006A1273260E00A59D5B /* AlphaBKing96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing96.tiff; path = "Images-iPad/AlphaBKing96.tiff"; sourceTree = "<group>"; };
@@ -859,6 +859,8 @@
 		10B2463615E021D0006CF8C2 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				10B2466C15E03D31006CF8C2 /* AboutController.h */,
+				10B2466D15E03D31006CF8C2 /* AboutController.mm */,
 				10B2463715E021D0006CF8C2 /* Options.h */,
 				10B2463815E021D0006CF8C2 /* Options.mm */,
 				10B2463915E021D0006CF8C2 /* OptionsViewController.h */,
@@ -884,8 +886,6 @@
 				10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */,
 				10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */,
 				10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */,
-				10B2464115E021D0006CF8C2 /* AboutController.h */,
-				10B2464215E021D0006CF8C2 /* AboutController.mm */,
 				10B2464315E021D0006CF8C2 /* main.m */,
 				10B2464415E021D0006CF8C2 /* Queue.h */,
 				10B2464515E021D0006CF8C2 /* Queue.mm */,
@@ -1752,10 +1752,10 @@
 				10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */,
 				10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */,
 				10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */,
-				10B2465C15E021D0006CF8C2 /* AboutController.mm in Sources */,
 				10B2465D15E021D0006CF8C2 /* main.m in Sources */,
 				10B2465E15E021D0006CF8C2 /* Queue.mm in Sources */,
 				10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */,
+				10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
