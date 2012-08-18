@@ -889,14 +889,14 @@
 		10B2464015E021D0006CF8C2 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */,
+				10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */,
 				10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */,
 				10B2464115E021D0006CF8C2 /* AboutController.h */,
 				10B2464215E021D0006CF8C2 /* AboutController.mm */,
 				10B2464315E021D0006CF8C2 /* main.m */,
 				10B2464415E021D0006CF8C2 /* Queue.h */,
 				10B2464515E021D0006CF8C2 /* Queue.mm */,
-				10B2464615E021D0006CF8C2 /* StoshAppDelegate.h */,
-				10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */,
 			);
 			path = System;
 			sourceTree = "<group>";
