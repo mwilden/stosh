@@ -1,9 +1,6 @@
 #import "AboutController.h"
-#import "PGN.h"
-
 
 @implementation AboutController
-
 
 - (id)init {
    if (self = [super init]) {

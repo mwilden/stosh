@@ -1,10 +1,12 @@
 #import "BoardViewController.h"
+#import "BoardView.h"
 #import "GameController.h"
 #import "MoveListView.h"
 #import "Options.h"
 #import "OptionsViewController.h"
 #import "PGN.h"
 #import "SetupViewController.h"
+#import "Game.h"
 
 @implementation BoardViewController
 
@@ -238,7 +240,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
 
 - (void)optionsMenuDonePressed {
-   NSLog(@"options menu done");
    [optionsMenu dismissPopoverAnimated: YES];
    [optionsMenu release];
    optionsMenu = nil;

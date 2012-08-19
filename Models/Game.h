@@ -1,12 +1,9 @@
-#import <Foundation/Foundation.h>
+@class GameController;
+@class ChessMove;
 
-#import "ChessMove.h"
-
-#include "../Chess/position.h"
+#import "position.h"
 
 using namespace Chess;
-
-@class GameController;
 
 @interface Game : NSObject {
    GameController *gameController;

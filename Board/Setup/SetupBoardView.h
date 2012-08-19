@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 #include "bitboard.h"
 #include "piece.h"
 #include "square.h"

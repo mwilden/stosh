@@ -1,6 +1,4 @@
 #import "HighlightedSquaresView.h"
-#import "Options.h"
-
 
 @implementation HighlightedSquaresView
 

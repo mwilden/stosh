@@ -1,6 +1,3 @@
-#import <Foundation/Foundation.h>
-#import "TargetConditionals.h"
-
 #define SANDBOX
 
 #if defined(SANDBOX)

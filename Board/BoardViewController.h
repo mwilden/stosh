@@ -1,7 +1,4 @@
-#import <UIKit/UIKit.h>
-
-#import "BoardView.h"
-
+@class BoardView;
 @class GameController;
 @class MoveListView;
 

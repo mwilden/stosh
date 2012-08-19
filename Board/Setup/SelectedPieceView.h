@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 #include "piece.h"
 
 using namespace Chess;

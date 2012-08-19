@@ -7,7 +7,6 @@
 
 #import "position.h"
 
-
 @implementation SetupBoardView
 
 @synthesize selectedPieceView;

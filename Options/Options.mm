@@ -1,6 +1,5 @@
 #import "Options.h"
 
-
 @implementation Options
 
 @synthesize darkSquareColor, lightSquareColor, highlightColor;

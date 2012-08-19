@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 @class GameController;
 
 @interface MoveListView : UITextView {

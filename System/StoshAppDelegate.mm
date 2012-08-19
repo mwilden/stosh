@@ -1,18 +1,17 @@
-#import "TargetConditionals.h"
-
 #import "StoshAppDelegate.h"
 #import "Options.h"
 #import "PGN.h"
 #import "BoardViewController.h"
 #import "GameController.h"
+#import "Game.h"
 
 #include <sys/stat.h>
 
-#include "../Chess/bitboard.h"
-#include "../Chess/direction.h"
-#include "../Chess/mersenne.h"
-#include "../Chess/movepick.h"
-#include "../Chess/position.h"
+#include "bitboard.h"
+#include "direction.h"
+#include "mersenne.h"
+#include "movepick.h"
+#include "position.h"
 
 using namespace Chess;
 

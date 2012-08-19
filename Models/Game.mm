@@ -3,8 +3,9 @@
 #import "GameParser.h"
 #import "Options.h"
 #import "PGN.h"
+#import "ChessMove.h"
 
-#include "../Chess/san.h"
+#include "san.h"
 
 @implementation Game
 

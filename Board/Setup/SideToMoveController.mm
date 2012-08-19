@@ -5,7 +5,6 @@
 #import "SetupViewController.h"
 #import "SideToMoveController.h"
 
-
 @implementation SideToMoveController
 
 - (id)initWithFen:(NSString *)aFen {

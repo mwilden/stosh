@@ -1,5 +1,3 @@
-#import <UIKit/UIKit.h>
-
 @interface Options : NSObject {
    UIColor *darkSquareColor, *lightSquareColor, *highlightColor;
    UIImage *darkSquareImage, *lightSquareImage;

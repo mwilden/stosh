@@ -1,6 +1,4 @@
-#import <UIKit/UIKit.h>
-
-#include "../Chess/square.h"
+#include "square.h"
 
 using namespace Chess;
 

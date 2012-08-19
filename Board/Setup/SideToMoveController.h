@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+@class SetupBoardView;
 
 @interface SideToMoveController : UIViewController {
    SetupBoardView *boardView;

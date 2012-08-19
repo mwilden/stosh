@@ -1,5 +1,3 @@
-#import <Foundation/Foundation.h>
-
 #define PGN_STRING_SIZE 256
 
 enum {

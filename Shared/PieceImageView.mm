@@ -1,6 +1,6 @@
 #import "GameController.h"
 #import "PieceImageView.h"
-
+#import "BoardView.h"
 
 @implementation PieceImageView
 

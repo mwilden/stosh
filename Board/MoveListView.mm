@@ -1,7 +1,6 @@
 #import "GameController.h"
 #import "MoveListView.h"
 
-
 @implementation MoveListView
 
 @synthesize gameController;

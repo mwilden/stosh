@@ -1,8 +1,6 @@
 #import "SelectedSquareView.h"
 
-
 @implementation SelectedSquareView
-
 
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame:frame]) {

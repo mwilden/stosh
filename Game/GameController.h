@@ -1,13 +1,12 @@
-#import <Foundation/Foundation.h>
-#import <AudioToolbox/AudioServices.h>
-
-#import "BoardView.h"
-#import "Game.h"
-#import "Options.h"
-
+@class BoardView;
+@class Game;
 @class LastMoveView;
 @class MoveListView;
 @class PieceImageView;
+
+#include "position.h"
+
+using namespace Chess;
 
 @interface GameController : NSObject <UIActionSheetDelegate> {
    BoardView *boardView;

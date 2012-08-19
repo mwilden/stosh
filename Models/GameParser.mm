@@ -1,6 +1,5 @@
 #import "GameParser.h"
 
-
 // constants
 
 static const int CHAR_EOF = 256;

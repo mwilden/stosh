@@ -3,7 +3,6 @@
 
 @implementation LastMoveView
 
-
 - (id)initWithFrame:(CGRect)frame fromSq:(Square)fSq toSq:(Square)tSq {
    if (self = [super initWithFrame:frame]) {
       square1 = fSq;

@@ -1,6 +1,4 @@
-#import <Foundation/Foundation.h>
-
-#include "../Chess/position.h"
+#include "position.h"
 
 using namespace Chess;
 

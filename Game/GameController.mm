@@ -4,8 +4,11 @@
 #import "Options.h"
 #import "PieceImageView.h"
 #import "PGN.h"
+#import "Game.h"
+#import "BoardView.h"
+#import "ChessMove.h"
 
-#include "../Chess/misc.h"
+#include "misc.h"
 
 using namespace Chess;
 

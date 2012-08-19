@@ -1,6 +1,3 @@
-#import <UIKit/UIKit.h>
-
-
 @interface SelectedSquareView : UIView {
    BOOL hidden;
    float size;

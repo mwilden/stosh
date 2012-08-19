@@ -6,7 +6,7 @@
 #import "PieceImageView.h"
 #import "SelectedSquareView.h"
 
-#include "../Chess/position.h"
+#include "position.h"
 
 using namespace Chess;
 
