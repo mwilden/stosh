@@ -9,8 +9,8 @@
    GameController *gameController;
    UINavigationController *navigationController;
    UIActionSheet *gameMenu, *newGameMenu, *moveMenu;
-   UIBarButtonItem *gameButton, *optionsButton;
-   UIPopoverController *optionsMenu, *saveMenu, *loadMenu;
+   UIBarButtonItem *gameButton;
+   UIPopoverController *saveMenu, *loadMenu;
    UIPopoverController *popoverMenu;
 }
 
@@ -19,8 +19,6 @@
 @property (nonatomic, assign) GameController *gameController;
 
 - (void)toolbarButtonPressed:(id)sender;
-- (void)showOptionsMenu;
-- (void)optionsMenuDonePressed;
 - (void)editPosition;
 - (void)editPositionCancelPressed;
 - (void)editPositionDonePressed:(NSString *)fen;

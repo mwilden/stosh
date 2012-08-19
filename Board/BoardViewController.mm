@@ -2,7 +2,6 @@
 #import "BoardView.h"
 #import "GameController.h"
 #import "MoveListView.h"
-#import "OptionsViewController.h"
 #import "PGN.h"
 #import "SetupViewController.h"
 #import "Game.h"
@@ -69,15 +68,6 @@
   [button release];
   gameButton = button;
 
-  button = [[UIBarButtonItem alloc] initWithTitle: @"Options"
-                                            style: UIBarButtonItemStyleBordered
-                                           target: self
-                                           action: @selector(toolbarButtonPressed:)];
-  //[button setWidth: 60.0f];
-  [buttons addObject: button];
-  [button release];
-  optionsButton = button;
-
   button = [[UIBarButtonItem alloc] initWithTitle: @"Flip"
                                             style: UIBarButtonItemStyleBordered
                                            target: self
@@ -119,7 +109,6 @@
                             destructiveButtonTitle: nil
                                  otherButtonTitles:
                                         @"Take back", @"Step forward", @"Take back all", @"Step forward all", @"Move now", nil];
-   optionsMenu = nil;
    popoverMenu = nil;
 }
 
@@ -194,11 +183,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
       [newGameMenu dismissWithClickedButtonIndex: -1 animated: YES];
    if ([moveMenu isVisible])
       [moveMenu dismissWithClickedButtonIndex: -1 animated: YES];
-   if (optionsMenu != nil) {
-      [optionsMenu dismissPopoverAnimated: YES];
-      [optionsMenu release];
-      optionsMenu = nil;
-   }
    if (popoverMenu != nil) {
       [popoverMenu dismissPopoverAnimated: YES];
       [popoverMenu release];
@@ -208,8 +192,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    if ([title isEqualToString: @"Game"]) {
       [gameMenu showFromBarButtonItem: sender animated: YES];
    }
-   else if ([title isEqualToString: @"Options"])
-      [self showOptionsMenu];
    else if ([title isEqualToString: @"Flip"])
       [gameController rotateBoard];
    else if ([title isEqualToString: @"Move"]) {
@@ -220,30 +202,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    else
       NSLog(@"%@", [sender title]);
 }
-
-
-- (void)showOptionsMenu {
-   OptionsViewController *ovc;
-   ovc = [[OptionsViewController alloc] initWithBoardViewController: self];
-   navigationController =
-      [[UINavigationController alloc]
-         initWithRootViewController: ovc];
-   [ovc release];
-   optionsMenu = [[UIPopoverController alloc]
-                   initWithContentViewController: navigationController];
-   [optionsMenu presentPopoverFromBarButtonItem: optionsButton
-                      permittedArrowDirections: UIPopoverArrowDirectionAny
-                                      animated: YES];
-}
-
-
-- (void)optionsMenuDonePressed {
-   [optionsMenu dismissPopoverAnimated: YES];
-   [optionsMenu release];
-   optionsMenu = nil;
-   [navigationController release];
-}
-
 
 - (void)editPosition {
    SetupViewController *svc =
@@ -260,7 +218,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
                       permittedArrowDirections: UIPopoverArrowDirectionAny
                                       animated: NO];
 }
-
 
 - (void)editPositionCancelPressed {
    NSLog(@"edit position cancel");
