@@ -4,9 +4,9 @@ using namespace Chess;
 
 @interface LastMoveView : UIView {
    Square square1, square2;
-   float sqSize;
+   float squareSize;
 }
 
-- (id)initWithFrame:(CGRect)frame fromSq:(Square)fSq toSq:(Square)tSq;
+- (id)initWithFrame:(CGRect)frame fromSquare:(Square)fs toSquare:(Square)ts;
 
 @end

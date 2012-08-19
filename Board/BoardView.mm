@@ -88,8 +88,8 @@ using namespace Chess;
       [lastMoveView removeFromSuperview];
    lastMoveView =
       [[LastMoveView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 8*sqSize, 8*sqSize)
-                                   fromSq: s1
-                                     toSq: s2];
+                                   fromSquare: s1
+                                     toSquare: s2];
    [lastMoveView setUserInteractionEnabled: NO];
    [lastMoveView setOpaque: NO];
    [self addSubview: lastMoveView];
