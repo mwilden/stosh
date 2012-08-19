@@ -12,23 +12,16 @@
     return self;
 }
 
-
 - (void)drawRect:(CGRect)rect {
-    int f, r;
+    [self drawSquare: square1];
+    [self drawSquare: square2]  ;
+}
 
+- (void)drawSquare:(Square) square {
     [[Board highlightColor] set];
-    CGRect frame;
-
-    f = int(square_file(square1));
-    r = 7 - int(square_rank(square1));
-    frame = CGRectMake(f * squareSize, r * squareSize, squareSize, squareSize);
-    UIRectFrame(frame);
-    UIRectFrame(CGRectInset(frame, 1.0f, 1.0f));
-    UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
-    UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
-    f = int(square_file(square2));
-    r = 7 - int(square_rank(square2));
-    frame = CGRectMake(f * squareSize, r * squareSize, squareSize, squareSize);
+    int f = int(square_file(square));
+    int r = 7 - int(square_rank(square));
+    CGRect frame = CGRectMake(f * squareSize, r * squareSize, squareSize, squareSize);
     UIRectFrame(frame);
     UIRectFrame(CGRectInset(frame, 1.0f, 1.0f));
     UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
@@ -36,3 +29,5 @@
 }
 
 @end
+
+
