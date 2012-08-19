@@ -98,17 +98,19 @@ using namespace Chess;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-   if (fromSquare != SQ_NONE) {
-      CGPoint pt = [[touches anyObject] locationInView: self];
-      Square fSq = fromSquare, tSq = [self squareAtPoint: pt];
-      [self hideLastMove];
-      if ([gameController pieceCanMoveFrom: fSq to: tSq])
-         [gameController animateMoveFrom: fSq to: tSq];
-   }
-   else {
-      [self hideLastMove];
-   }
-   fromSquare = SQ_NONE;
+    if (fromSquare != SQ_NONE) {
+        CGPoint pt = [[touches anyObject] locationInView: self];
+        Square fSq = fromSquare, tSq = [self squareAtPoint: pt];
+        [self hideLastMove];
+        if ([gameController pieceCanMoveFrom: fSq to: tSq]) {
+            [gameController animateMoveFrom: fSq to: tSq];
+            [self showLastMoveWithFrom:fSq to:tSq];
+        }
+    }
+    else {
+        [self hideLastMove];
+    }
+    fromSquare = SQ_NONE;
 }
 
 

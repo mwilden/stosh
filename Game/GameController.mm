@@ -304,6 +304,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
    [game doMoveFrom: fSq to: tSq promotion: prom];
    [self updateMoveList];
    pendingFrom = pendingTo = SQ_NONE;
+    [boardView showLastMoveWithFrom:fSq to:tSq];
 
    [self gameEndTest];
 }
