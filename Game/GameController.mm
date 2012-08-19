@@ -399,9 +399,9 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 
    sq = [self rotateSquare: sq];
 
-   float sqSize = [boardView sqSize];
-   CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
-   rect.origin = CGPointMake((int(sq)%8) * sqSize, (7-int(sq)/8) * sqSize);
+   float squareSize = [boardView squareSize];
+   CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
+   rect.origin = CGPointMake((int(sq)%8) * squareSize, (7-int(sq)/8) * squareSize);
    PieceImageView *piv = [[PieceImageView alloc] initWithFrame: rect
                                                 gameController: self
                                                      boardView: boardView];
@@ -610,14 +610,14 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 /// subviews to the board view.
 
 - (void)showPieces {
-   float sqSize = [boardView sqSize];
-   CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
+   float squareSize = [boardView squareSize];
+   CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
    for (Square sq = SQ_A1; sq <= SQ_H8; sq++) {
       Square s = [self rotateSquare: sq];
       Piece p = [self pieceOn: s];
       if (p != EMPTY) {
          assert(piece_is_ok(p));
-         rect.origin = CGPointMake((int(s)%8) * sqSize, (7-int(s)/8) * sqSize);
+         rect.origin = CGPointMake((int(s)%8) * squareSize, (7-int(s)/8) * squareSize);
          PieceImageView *piv = [[PieceImageView alloc] initWithFrame: rect
                                                       gameController: self
                                                            boardView: boardView];

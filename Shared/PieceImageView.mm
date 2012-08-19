@@ -10,9 +10,9 @@
      gameController:(GameController *)controller
           boardView:(BoardView *)bView {
    if (self = [super initWithFrame: frame]) {
-      sqSize = [bView sqSize];
-      square = make_square(File(frame.origin.x / sqSize),
-                           Rank((7*sqSize - frame.origin.y) / sqSize));
+      squareSize = [bView squareSize];
+      square = make_square(File(frame.origin.x / squareSize),
+                           Rank((7*squareSize - frame.origin.y) / squareSize));
       location = frame.origin;
       gameController = controller;
       boardView = bView;
@@ -33,9 +33,9 @@
 - (void)moveAnimationFinished:(NSString *)animationID
                      finished:(BOOL)finished
                       context:(void *)context {
-   CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
-   CGPoint endPt = CGPointMake(int(square_file(square)) * sqSize,
-                               (7-int(square_rank(square))) * sqSize);
+   CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
+   CGPoint endPt = CGPointMake(int(square_file(square)) * squareSize,
+                               (7-int(square_rank(square))) * squareSize);
 
    [UIView beginAnimations: nil context: context];
    [UIView setAnimationDelegate: self];
@@ -52,9 +52,9 @@
 - (void)fastMoveAnimationFinished:(NSString *)animationID
                          finished:(BOOL)finished
                           context:(void *)context {
-   CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
-   CGPoint endPt = CGPointMake(int(square_file(square)) * sqSize,
-                               (7-int(square_rank(square))) * sqSize);
+   CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
+   CGPoint endPt = CGPointMake(int(square_file(square)) * squareSize,
+                               (7-int(square_rank(square))) * squareSize);
 
    [UIView beginAnimations: nil context: context];
    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
@@ -77,11 +77,11 @@
    square = newSquare;
 
    CGPoint startPt = [self frame].origin;
-   CGPoint endPt = CGPointMake(int(square_file(square)) * sqSize,
-                               (7-int(square_rank(square))) * sqSize);
+   CGPoint endPt = CGPointMake(int(square_file(square)) * squareSize,
+                               (7-int(square_rank(square))) * squareSize);
    CGPoint pt = CGPointMake(endPt.x + (endPt.x - startPt.x) * 0.15f,
                             endPt.y + (endPt.y - startPt.y) * 0.15f);
-   CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
+   CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
    CGContextRef context = UIGraphicsGetCurrentContext();
 
    [[self superview] bringSubviewToFront: self];
@@ -162,9 +162,9 @@
          // Make the piece slide smoothly to the center of the square:
 
          CGPoint endPt =
-            CGPointMake(int(square_file(releasedSquare)) * sqSize,
-                        (7-int(square_rank(releasedSquare))) * sqSize);
-         CGRect rect = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
+            CGPointMake(int(square_file(releasedSquare)) * squareSize,
+                        (7-int(square_rank(releasedSquare))) * squareSize);
+         CGRect rect = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
          CGContextRef context = UIGraphicsGetCurrentContext();
          [UIView beginAnimations: nil context: context];
          [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];

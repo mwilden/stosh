@@ -13,7 +13,7 @@ using namespace Chess;
    CGPoint location;
    BOOL isBeingDragged;
    BOOL wasDraggedAwayFromSquare;
-   float sqSize;
+   float squareSize;
 }
 
 @property (nonatomic, assign) CGPoint location;

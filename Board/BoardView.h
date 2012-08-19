@@ -14,12 +14,12 @@ using namespace Chess;
    SelectedSquareView *selectedSquareView;
    Square fromSquare, selectedSquare;
    LastMoveView *lastMoveView;
-   float sqSize;
+   float squareSize;
 }
 
 @property (nonatomic, assign) GameController *gameController;
 @property (nonatomic, readonly) Square fromSquare;
-@property (nonatomic, readonly) float sqSize;
+@property (nonatomic, readonly) float squareSize;
 
 - (Square)squareAtPoint:(CGPoint)point;
 - (CGPoint)originOfSquare:(Square)sq;

@@ -12,18 +12,16 @@ using namespace Chess;
 
 @implementation BoardView
 
-@synthesize gameController, fromSquare, sqSize;
+@synthesize gameController, fromSquare, squareSize;
 
 - (id)initWithFrame:(CGRect)frame {
-   if (self = [super initWithFrame: frame]) {
-      selectedSquare = SQ_NONE;
-      fromSquare = SQ_NONE;
-      lastMoveView = nil;
-      sqSize = frame.size.width / 8;
-   }
-   return self;
-}
+    self = [super initWithFrame: frame];
+    if (!self) return self;
 
+    squareSize = frame.size.width / 8;
+    
+    return self;
+}
 
 - (void)setFrame:(CGRect)frame {
    [super setFrame: frame];
@@ -31,36 +29,34 @@ using namespace Chess;
    selectedSquare = SQ_NONE;
    fromSquare = SQ_NONE;
    lastMoveView = nil;
-   sqSize = frame.size.width / 8;
+   squareSize = frame.size.width / 8;
    [gameController redrawPieces];
 }
 
-
-/// drawRect: for BoardView just draws the squares.
 
 - (void)drawRect:(CGRect)rect {
     int i, j;
     for (i = 0; i < 8; i++)
         for (j = 0; j < 8; j++) {
             [(((i + j) & 1)? [Board darkSquareColor] : [Board lightSquareColor]) set];
-            UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
+            UIRectFill(CGRectMake(i*squareSize, j*squareSize, squareSize, squareSize));
         }
 }
 
 
 - (Square)squareAtPoint:(CGPoint)point {
-   return make_square(File(point.x / sqSize), Rank((8*sqSize-point.y) / sqSize));
+   return make_square(File(point.x / squareSize), Rank((8*squareSize-point.y) / squareSize));
 }
 
 
 - (CGPoint)originOfSquare:(Square)sq {
-   return CGPointMake(int(square_file(sq)) * sqSize,
-                      (7 - int(square_rank(sq))) * sqSize);
+   return CGPointMake(int(square_file(sq)) * squareSize,
+                      (7 - int(square_rank(sq))) * squareSize);
 }
 
 
 - (CGRect)rectForSquare:(Square)sq {
-   CGRect r = CGRectMake(0.0f, 0.0f, sqSize, sqSize);
+   CGRect r = CGRectMake(0.0f, 0.0f, squareSize, squareSize);
    r.origin = [self originOfSquare: sq];
    return r;
 }
@@ -74,8 +70,8 @@ using namespace Chess;
          if (highlightedSquares[i] == s) {
             selectedSquare = s;
             [selectedSquareView
-               moveToPoint: CGPointMake(int(square_file(s)) * sqSize - 30.0f,
-                                        (7-int(square_rank(s))) * sqSize - 30.0f)];
+               moveToPoint: CGPointMake(int(square_file(s)) * squareSize - 30.0f,
+                                        (7-int(square_rank(s))) * squareSize - 30.0f)];
             return;
          }
       [selectedSquareView hide];
@@ -87,7 +83,7 @@ using namespace Chess;
    if (lastMoveView)
       [lastMoveView removeFromSuperview];
    lastMoveView =
-      [[LastMoveView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 8*sqSize, 8*sqSize)
+      [[LastMoveView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 8*squareSize, 8*squareSize)
                                    fromSquare: s1
                                      toSquare: s2];
    [lastMoveView setUserInteractionEnabled: NO];

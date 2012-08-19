@@ -3,7 +3,7 @@
 using namespace Chess;
 
 @interface SelectionRectangle : UIView {
-   float sqSize;
+   float squareSize;
 }
 - (void)moveToPoint:(CGPoint)point;
 @end
@@ -12,7 +12,7 @@ using namespace Chess;
 @interface SelectedPieceView : UIView {
    Piece selectedPiece;
    SelectionRectangle *selRect;
-   float sqSize;
+   float squareSize;
 }
 
 @property (nonatomic, readonly) Piece selectedPiece;

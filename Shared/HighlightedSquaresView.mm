@@ -11,7 +11,7 @@
          squares[i] = sqs[i];
       squares[i] = SQ_NONE;
       selectedSquare = SQ_NONE;
-      sqSize = frame.size.width / 8;
+      squareSize = frame.size.width / 8;
    }
    return self;
 }

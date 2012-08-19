@@ -6,7 +6,7 @@
 
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame: frame]) {
-      sqSize = frame.size.width / 8;
+      squareSize = frame.size.width / 8;
    }
    return self;
 }
@@ -39,7 +39,7 @@
 
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame: frame]) {
-      sqSize = 40.0f;
+      squareSize = 40.0f;
 
       UIImage *pieceImages[16];
 
@@ -62,7 +62,7 @@
       UIImageView *iv;
       for (int i = 0; i < 6; i++)
          for (int j = 0; j < 2; j++) {
-            CGRect r = CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize);
+            CGRect r = CGRectMake(i*squareSize, j*squareSize, squareSize, squareSize);
             iv = [[UIImageView alloc] initWithFrame: r];
             [iv setImage: pieceImages[(i+1) + (1-j)*8]];
             [self addSubview: iv];
@@ -71,7 +71,7 @@
       for (Piece p = WP; p <= BK; p++)
          [pieceImages[p] release];
       selRect = [[SelectionRectangle alloc]
-                  initWithFrame: CGRectMake(0.0f, sqSize, sqSize, sqSize)];
+                  initWithFrame: CGRectMake(0.0f, squareSize, squareSize, squareSize)];
       [selRect setOpaque: NO];
       [self addSubview: selRect];
 
@@ -87,24 +87,24 @@
     for (i = 0; i < 6; i++)
         for (j = 0; j < 2; j++) {
             [(((i + j) & 1)? [Board lightSquareColor] : [Board darkSquareColor]) set];
-            UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
+            UIRectFill(CGRectMake(i*squareSize, j*squareSize, squareSize, squareSize));
         }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
    CGPoint pt = [[touches anyObject] locationInView: self];
-   int row = (int)(pt.y / sqSize);
-   int column = (int)(pt.x / sqSize);
-   [selRect moveToPoint: CGPointMake(column*sqSize, row*sqSize)];
+   int row = (int)(pt.y / squareSize);
+   int column = (int)(pt.x / squareSize);
+   [selRect moveToPoint: CGPointMake(column*squareSize, row*squareSize)];
    selectedPiece = piece_of_color_and_type(Color(1-row), PieceType(1+column));
 }
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
    CGPoint pt = [[touches anyObject] locationInView: self];
-   int row = (int)(pt.y / sqSize);
-   int column = (int)(pt.x / sqSize);
-   [selRect moveToPoint: CGPointMake(column*sqSize, row*sqSize)];
+   int row = (int)(pt.y / squareSize);
+   int column = (int)(pt.x / squareSize);
+   [selRect moveToPoint: CGPointMake(column*squareSize, row*squareSize)];
    selectedPiece = piece_of_color_and_type(Color(1-row), PieceType(1+column));
 }
 

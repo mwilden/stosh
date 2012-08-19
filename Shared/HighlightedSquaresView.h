@@ -5,7 +5,7 @@ using namespace Chess;
 @interface HighlightedSquaresView : UIView {
    Square squares[32];
    Square selectedSquare;
-   float sqSize;
+   float squareSize;
 }
 
 @property (nonatomic, assign) Square selectedSquare;
