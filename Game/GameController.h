@@ -1,6 +1,5 @@
 @class BoardView;
 @class Game;
-@class LastMoveView;
 @class MoveListView;
 @class PieceImageView;
 
@@ -17,7 +16,6 @@ using namespace Chess;
    Square pendingFrom, pendingTo; // HACK for handling promotions.
    BOOL rotated;
    NSTimer *timer;
-   LastMoveView *lastMoveView;
 }
 
 @property (nonatomic, readonly) Game *game;
