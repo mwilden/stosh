@@ -8,8 +8,6 @@ using namespace Chess;
 @class SelectedSquareView;
 
 @interface BoardView : UIView {
-   UIColor *darkSquareColor, *lightSquareColor;
-   UIImage *darkSquareImage, *lightSquareImage;
    GameController *gameController;
    HighlightedSquaresView *highlightedSquaresView;
    Square highlightedSquares[32];

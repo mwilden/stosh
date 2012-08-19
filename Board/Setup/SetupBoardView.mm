@@ -18,8 +18,6 @@
       controller = c;
       startFen = [fen retain];
       phase = aPhase;
-      darkSquareColor = [[Board darkSquareColor] retain];
-      lightSquareColor = [[Board lightSquareColor] retain];
       pieceViews = [[NSMutableArray alloc] init];
 
       static NSString *pieceImageNames[16] = {
@@ -71,7 +69,7 @@
     int i, j;
     for (i = 0; i < 8; i++)
         for (j = 0; j < 8; j++) {
-            [(((i + j) & 1)? darkSquareColor : lightSquareColor) set];
+            [(((i + j) & 1)? [Board darkSquareColor] : [Board lightSquareColor]) set];
             UIRectFill(CGRectMake(i*40.0f, j*40.0f, 40.0f, 40.0f));
         }
 }
@@ -401,8 +399,6 @@
 
 
 - (void)dealloc {
-   [darkSquareColor release];
-   [lightSquareColor release];
    [pieceViews release];
    [startFen release];
    for (Piece p = WP; p <= BK; p++)

@@ -16,8 +16,6 @@ enum SetupPhase {
 };
 
 @interface SetupBoardView : UIView {
-   UIColor *darkSquareColor, *lightSquareColor;
-   UIImage *darkSquareImage, *lightSquareImage;
    id controller;
    Piece board[64];
    NSMutableArray *pieceViews;

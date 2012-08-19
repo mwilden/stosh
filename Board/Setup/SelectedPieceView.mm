@@ -90,11 +90,9 @@
 
 - (void)drawRect:(CGRect)rect {
     int i, j;
-    UIColor *darkSquareColor = [Board darkSquareColor];
-    UIColor *lightSquareColor = [Board lightSquareColor];
     for (i = 0; i < 6; i++)
         for (j = 0; j < 2; j++) {
-            [(((i + j) & 1)? lightSquareColor : darkSquareColor) set];
+            [(((i + j) & 1)? [Board lightSquareColor] : [Board darkSquareColor]) set];
             UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
         }
 }

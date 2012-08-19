@@ -14,13 +14,8 @@ using namespace Chess;
 
 @synthesize gameController, fromSquare, sqSize;
 
-/// initWithFrame: for BoardView simply initializes the square colors with
-/// a brownish color scheme.
-
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame: frame]) {
-      darkSquareColor = [Board darkSquareColor];
-      lightSquareColor = [Board lightSquareColor];
       selectedSquare = SQ_NONE;
       fromSquare = SQ_NONE;
       lastMoveView = nil;
@@ -47,7 +42,7 @@ using namespace Chess;
     int i, j;
     for (i = 0; i < 8; i++)
         for (j = 0; j < 8; j++) {
-            [(((i + j) & 1)? darkSquareColor : lightSquareColor) set];
+            [(((i + j) & 1)? [Board darkSquareColor] : [Board lightSquareColor]) set];
             UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
         }
 }
@@ -156,10 +151,6 @@ using namespace Chess;
 /// Clean up.
 
 - (void)dealloc {
-   [darkSquareColor release];
-   [lightSquareColor release];
-   [darkSquareImage release];
-   [lightSquareImage release];
    [[NSNotificationCenter defaultCenter] removeObserver: self];
    [super dealloc];
 }
