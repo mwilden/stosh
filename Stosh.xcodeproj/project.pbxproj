@@ -23,13 +23,13 @@
 		10B2465515E021D0006CF8C2 /* Game.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463115E021D0006CF8C2 /* Game.mm */; };
 		10B2465615E021D0006CF8C2 /* GameParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463315E021D0006CF8C2 /* GameParser.mm */; };
 		10B2465715E021D0006CF8C2 /* PGN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463515E021D0006CF8C2 /* PGN.mm */; };
-		10B2465815E021D0006CF8C2 /* Options.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463815E021D0006CF8C2 /* Options.mm */; };
 		10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */; };
 		10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463D15E021D0006CF8C2 /* HighlightedSquaresView.mm */; };
 		10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2463F15E021D0006CF8C2 /* PieceImageView.mm */; };
 		10B2465D15E021D0006CF8C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464315E021D0006CF8C2 /* main.m */; };
 		10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2464715E021D0006CF8C2 /* StoshAppDelegate.mm */; };
 		10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10B2466D15E03D31006CF8C2 /* AboutController.mm */; };
+		10FE6E3415E06F91006C2CEA /* Board.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10FE6E3315E06F91006C2CEA /* Board.mm */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
 		175100881273260E00A59D5B /* AlphaBBishop96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 175100681273260E00A59D5B /* AlphaBBishop96.tiff */; };
 		1751008A1273260E00A59D5B /* AlphaBKing96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1751006A1273260E00A59D5B /* AlphaBKing96.tiff */; };
@@ -385,8 +385,6 @@
 		10B2463315E021D0006CF8C2 /* GameParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameParser.mm; sourceTree = "<group>"; };
 		10B2463415E021D0006CF8C2 /* PGN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGN.h; sourceTree = "<group>"; };
 		10B2463515E021D0006CF8C2 /* PGN.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PGN.mm; sourceTree = "<group>"; };
-		10B2463715E021D0006CF8C2 /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
-		10B2463815E021D0006CF8C2 /* Options.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Options.mm; sourceTree = "<group>"; };
 		10B2463915E021D0006CF8C2 /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
 		10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionsViewController.mm; sourceTree = "<group>"; };
 		10B2463C15E021D0006CF8C2 /* HighlightedSquaresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighlightedSquaresView.h; sourceTree = "<group>"; };
@@ -399,6 +397,8 @@
 		10B2466115E02F4C006CF8C2 /* Stosh-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Stosh-Info.plist"; sourceTree = "<group>"; };
 		10B2466C15E03D31006CF8C2 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		10B2466D15E03D31006CF8C2 /* AboutController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AboutController.mm; sourceTree = "<group>"; };
+		10FE6E3115E06E4D006C2CEA /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		10FE6E3315E06F91006C2CEA /* Board.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Board.mm; sourceTree = "<group>"; };
 		1751000B1272E39500A59D5B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		175100681273260E00A59D5B /* AlphaBBishop96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBBishop96.tiff; path = "Images-iPad/AlphaBBishop96.tiff"; sourceTree = "<group>"; };
 		1751006A1273260E00A59D5B /* AlphaBKing96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = AlphaBKing96.tiff; path = "Images-iPad/AlphaBKing96.tiff"; sourceTree = "<group>"; };
@@ -795,6 +795,8 @@
 		10B2461215E021D0006CF8C2 /* Board */ = {
 			isa = PBXGroup;
 			children = (
+				10FE6E3115E06E4D006C2CEA /* Board.h */,
+				10FE6E3315E06F91006C2CEA /* Board.mm */,
 				10B2461315E021D0006CF8C2 /* BoardView.h */,
 				10B2461415E021D0006CF8C2 /* BoardView.mm */,
 				10B2461515E021D0006CF8C2 /* BoardViewController.h */,
@@ -858,8 +860,6 @@
 			children = (
 				10B2466C15E03D31006CF8C2 /* AboutController.h */,
 				10B2466D15E03D31006CF8C2 /* AboutController.mm */,
-				10B2463715E021D0006CF8C2 /* Options.h */,
-				10B2463815E021D0006CF8C2 /* Options.mm */,
 				10B2463915E021D0006CF8C2 /* OptionsViewController.h */,
 				10B2463A15E021D0006CF8C2 /* OptionsViewController.mm */,
 			);
@@ -1743,13 +1743,13 @@
 				10B2465515E021D0006CF8C2 /* Game.mm in Sources */,
 				10B2465615E021D0006CF8C2 /* GameParser.mm in Sources */,
 				10B2465715E021D0006CF8C2 /* PGN.mm in Sources */,
-				10B2465815E021D0006CF8C2 /* Options.mm in Sources */,
 				10B2465915E021D0006CF8C2 /* OptionsViewController.mm in Sources */,
 				10B2465A15E021D0006CF8C2 /* HighlightedSquaresView.mm in Sources */,
 				10B2465B15E021D0006CF8C2 /* PieceImageView.mm in Sources */,
 				10B2465D15E021D0006CF8C2 /* main.m in Sources */,
 				10B2465F15E021D0006CF8C2 /* StoshAppDelegate.mm in Sources */,
 				10B2466E15E03D31006CF8C2 /* AboutController.mm in Sources */,
+				10FE6E3415E06F91006C2CEA /* Board.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

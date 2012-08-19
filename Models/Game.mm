@@ -1,7 +1,6 @@
 #import "Game.h"
 #import "GameController.h"
 #import "GameParser.h"
-#import "Options.h"
 #import "PGN.h"
 #import "ChessMove.h"
 

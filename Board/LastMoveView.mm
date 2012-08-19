@@ -1,5 +1,5 @@
 #import "LastMoveView.h"
-#import "Options.h"
+#import "Board.h"
 
 @implementation LastMoveView
 
@@ -16,7 +16,7 @@
 - (void)drawRect:(CGRect)rect {
    int f, r;
 
-   [[[Options sharedOptions] highlightColor] set];
+   [[Board highlightColor] set];
    CGRect frame;
 
    f = int(square_file(square1));

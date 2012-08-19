@@ -2,7 +2,7 @@
 #import "GameController.h"
 #import "HighlightedSquaresView.h"
 #import "LastMoveView.h"
-#import "Options.h"
+#import "Board.h"
 #import "PieceImageView.h"
 #import "SelectedSquareView.h"
 
@@ -19,10 +19,8 @@ using namespace Chess;
 
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame: frame]) {
-      darkSquareColor = [[Options sharedOptions] darkSquareColor];
-      lightSquareColor = [[Options sharedOptions] lightSquareColor];
-      darkSquareImage = [[[Options sharedOptions] darkSquareImage] retain];
-      lightSquareImage = [[[Options sharedOptions] lightSquareImage] retain];
+      darkSquareColor = [Board darkSquareColor];
+      lightSquareColor = [Board lightSquareColor];
       selectedSquare = SQ_NONE;
       fromSquare = SQ_NONE;
       lastMoveView = nil;
@@ -46,18 +44,12 @@ using namespace Chess;
 /// drawRect: for BoardView just draws the squares.
 
 - (void)drawRect:(CGRect)rect {
-   int i, j;
-   for (i = 0; i < 8; i++)
-      for (j = 0; j < 8; j++) {
-         if (darkSquareImage && lightSquareImage) {
-            [(((i + j) & 1)? darkSquareImage : lightSquareImage)
-               drawAtPoint: CGPointMake(i * sqSize, j * sqSize)];
-         }
-         else {
+    int i, j;
+    for (i = 0; i < 8; i++)
+        for (j = 0; j < 8; j++) {
             [(((i + j) & 1)? darkSquareColor : lightSquareColor) set];
             UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
-         }
-      }
+        }
 }
 
 

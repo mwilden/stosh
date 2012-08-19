@@ -1,5 +1,4 @@
 #import "BoardViewController.h"
-#import "Options.h"
 #import "SelectedPieceView.h"
 #import "SetupBoardView.h"
 #import "SetupViewController.h"

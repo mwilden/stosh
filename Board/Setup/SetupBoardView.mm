@@ -1,5 +1,5 @@
 #import "HighlightedSquaresView.h"
-#import "Options.h"
+#import "Board.h"
 #import "SelectedPieceView.h"
 #import "SelectedSquareView.h"
 #import "SetupBoardView.h"
@@ -18,10 +18,8 @@
       controller = c;
       startFen = [fen retain];
       phase = aPhase;
-      darkSquareColor = [[[Options sharedOptions] darkSquareColor] retain];
-      lightSquareColor = [[[Options sharedOptions] lightSquareColor] retain];
-      darkSquareImage = [[[Options sharedOptions] darkSquareImage] retain];
-      lightSquareImage = [[[Options sharedOptions] lightSquareImage] retain];
+      darkSquareColor = [[Board darkSquareColor] retain];
+      lightSquareColor = [[Board lightSquareColor] retain];
       pieceViews = [[NSMutableArray alloc] init];
 
       static NSString *pieceImageNames[16] = {
@@ -70,18 +68,12 @@
 
 
 - (void)drawRect:(CGRect)rect {
-   int i, j;
-   for (i = 0; i < 8; i++)
-      for (j = 0; j < 8; j++) {
-         if (darkSquareImage && lightSquareImage) {
-            [(((i + j) & 1)? darkSquareImage : lightSquareImage)
-               drawAtPoint: CGPointMake(i * 40.0f, j * 40.0f)];
-         }
-         else {
+    int i, j;
+    for (i = 0; i < 8; i++)
+        for (j = 0; j < 8; j++) {
             [(((i + j) & 1)? darkSquareColor : lightSquareColor) set];
             UIRectFill(CGRectMake(i*40.0f, j*40.0f, 40.0f, 40.0f));
-         }
-      }
+        }
 }
 
 

@@ -1,6 +1,5 @@
 #import "AboutController.h"
 #import "BoardViewController.h"
-#import "Options.h"
 #import "OptionsViewController.h"
 
 @implementation OptionsViewController

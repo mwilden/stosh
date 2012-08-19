@@ -2,7 +2,6 @@
 #import "BoardView.h"
 #import "GameController.h"
 #import "MoveListView.h"
-#import "Options.h"
 #import "OptionsViewController.h"
 #import "PGN.h"
 #import "SetupViewController.h"

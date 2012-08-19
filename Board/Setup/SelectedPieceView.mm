@@ -1,4 +1,4 @@
-#import "Options.h"
+#import "Board.h"
 #import "SelectedPieceView.h"
 
 @implementation SelectionRectangle : UIView {
@@ -12,7 +12,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-   [[[Options sharedOptions] highlightColor] set];
+   [[Board highlightColor] set];
    UIRectFrame(CGRectMake(0.0f, 0.0f, 40.0f, 40.0f));
    UIRectFrame(CGRectMake(1.0f, 1.0f, 38.0f, 38.0f));
    /*
@@ -88,26 +88,16 @@
    return self;
 }
 
-
 - (void)drawRect:(CGRect)rect {
-   int i, j;
-   UIColor *darkSquareColor = [[Options sharedOptions] darkSquareColor];
-   UIColor *lightSquareColor = [[Options sharedOptions] lightSquareColor];
-   UIImage *darkSquareImage = [[Options sharedOptions] darkSquareImage];
-   UIImage *lightSquareImage = [[Options sharedOptions] lightSquareImage];
-   for (i = 0; i < 6; i++)
-      for (j = 0; j < 2; j++) {
-         if (darkSquareImage && lightSquareImage) {
-            [(((i + j) & 1)? darkSquareImage : lightSquareImage)
-               drawAtPoint: CGPointMake(i * sqSize, j * sqSize)];
-         }
-         else {
+    int i, j;
+    UIColor *darkSquareColor = [Board darkSquareColor];
+    UIColor *lightSquareColor = [Board lightSquareColor];
+    for (i = 0; i < 6; i++)
+        for (j = 0; j < 2; j++) {
             [(((i + j) & 1)? lightSquareColor : darkSquareColor) set];
             UIRectFill(CGRectMake(i*sqSize, j*sqSize, sqSize, sqSize));
-         }
-      }
+        }
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
    CGPoint pt = [[touches anyObject] locationInView: self];

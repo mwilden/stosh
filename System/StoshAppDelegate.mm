@@ -1,5 +1,4 @@
 #import "StoshAppDelegate.h"
-#import "Options.h"
 #import "PGN.h"
 #import "BoardViewController.h"
 #import "GameController.h"

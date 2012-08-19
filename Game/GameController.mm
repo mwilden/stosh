@@ -1,7 +1,6 @@
 #import "GameController.h"
 #import "LastMoveView.h"
 #import "MoveListView.h"
-#import "Options.h"
 #import "PieceImageView.h"
 #import "PGN.h"
 #import "Game.h"
