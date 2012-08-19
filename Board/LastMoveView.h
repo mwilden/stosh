@@ -1,10 +1,10 @@
-#include "square.h"
+#include "move.h"
 
 using namespace Chess;
 
 @interface LastMoveView : UIView {
-   Square square1, square2;
-   float squareSize;
+   Move move;
+   int squareSize;
 }
 
 - (id)initWithFrame:(CGRect)frame fromSquare:(Square)fs toSquare:(Square)ts;

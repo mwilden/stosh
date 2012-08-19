@@ -1,31 +1,31 @@
 #import "LastMoveView.h"
 #import "Board.h"
 
+using namespace Chess;
+
 @implementation LastMoveView
 
 - (id)initWithFrame:(CGRect)frame fromSquare:(Square)fromSquare toSquare:(Square)toSquare {
     if (self = [super initWithFrame:frame]) {
-        square1 = fromSquare;
-        square2 = toSquare;
+        move = make_move(fromSquare, toSquare);
         squareSize = frame.size.width / 8;
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect {
-    [self drawSquare: square1];
-    [self drawSquare: square2]  ;
+    [self drawSquare: move_from(move)];
+    [self drawSquare: move_to(move)];
 }
 
-- (void)drawSquare:(Square) square {
+- (void)drawSquare:(Square)square {
+    int file = int(square_file(square));
+    int rank = 7 - int(square_rank(square));
+    CGRect frame = CGRectMake(file * squareSize, rank * squareSize, squareSize, squareSize);
     [[Board highlightColor] set];
-    int f = int(square_file(square));
-    int r = 7 - int(square_rank(square));
-    CGRect frame = CGRectMake(f * squareSize, r * squareSize, squareSize, squareSize);
-    UIRectFrame(frame);
-    UIRectFrame(CGRectInset(frame, 1.0f, 1.0f));
-    UIRectFrame(CGRectInset(frame, 2.0f, 2.0f));
-    UIRectFrame(CGRectInset(frame, 3.0f, 3.0f));
+    for (int i = 0; i < 4; ++i) {
+        UIRectFrame(CGRectInset(frame, i, i));
+    }
 }
 
 @end
