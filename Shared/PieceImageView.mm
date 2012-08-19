@@ -6,9 +6,6 @@
 
 @synthesize location, square;
 
-/// initWithFrame:gameController is the designated initializer for the
-/// PieceImageView class.
-
 - (id)initWithFrame:(CGRect)frame
      gameController:(GameController *)controller
           boardView:(BoardView *)bView {
@@ -29,7 +26,6 @@
 - (void)moveAnimationFinished2:(NSString *)animationID
                       finished:(BOOL)finished
                        context:(void *)context {
-   // The animation is finished, allow the user to touch pieces again:
    [gameController piecesSetUserInteractionEnabled: YES];
 }
 
@@ -215,13 +211,5 @@
    }
    wasDraggedAwayFromSquare = NO;
 }
-
-
-/// Cleanup.
-
-- (void)dealloc {
-   [super dealloc];
-}
-
 
 @end

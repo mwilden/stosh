@@ -15,12 +15,7 @@
    [[Board highlightColor] set];
    UIRectFrame(CGRectMake(0.0f, 0.0f, 40.0f, 40.0f));
    UIRectFrame(CGRectMake(1.0f, 1.0f, 38.0f, 38.0f));
-   /*
-     UIRectFrame(CGRectMake(0.0f, 0.0f, sqSize, sqSize));
-     UIRectFrame(CGRectMake(1.0f, 1.0f, sqSize-2.0, sqSize-2.0));
-   */
 }
-
 
 - (void)moveToPoint:(CGPoint)point {
    CGRect r = [self frame];
@@ -44,7 +39,6 @@
 
 - (id)initWithFrame:(CGRect)frame {
    if (self = [super initWithFrame: frame]) {
-      //sqSize = frame.size.width / 8;
       sqSize = 40.0f;
 
       UIImage *pieceImages[16];
@@ -113,11 +107,5 @@
    [selRect moveToPoint: CGPointMake(column*sqSize, row*sqSize)];
    selectedPiece = piece_of_color_and_type(Color(1-row), PieceType(1+column));
 }
-
-
-- (void)dealloc {
-   [super dealloc];
-}
-
 
 @end
