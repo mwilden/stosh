@@ -141,7 +141,6 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 clickedButtonAtIndex:(NSInteger)buttonIndex {
    NSString *title = [actionSheet title];
 
-   NSLog(@"Menu: %@ selection: %d", title, buttonIndex);
    if (actionSheet == gameMenu || [title isEqualToString: @"Game"]) {
       switch(buttonIndex) {
       case 0:

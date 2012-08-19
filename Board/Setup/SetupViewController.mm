@@ -26,7 +26,6 @@
    contentView = [[UIView alloc] initWithFrame: r];
    [self setView: contentView];
    [contentView setBackgroundColor: [UIColor whiteColor]];
-   NSLog(@"the frame is %@", NSStringFromCGRect(r));
 
    // Create a UISegmentedControl as a menu at the top of the screen
    NSArray *buttonNames =
