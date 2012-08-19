@@ -65,7 +65,6 @@
 		10FE6E7C15E079F0006C2CEA /* USCFWRook96.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 10FE6E5815E079F0006C2CEA /* USCFWRook96.tiff */; };
 		10FE6E7D15E079F0006C2CEA /* USCFWRook@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 10FE6E5915E079F0006C2CEA /* USCFWRook@2x.tiff */; };
 		1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1751000B1272E39500A59D5B /* MainWindow-iPad.xib */; };
-		1796004C11D392F20074E5B7 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 1796004A11D392F20074E5B7 /* about.html */; };
 		1796007F11D393A60074E5B7 /* bitbase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1796005C11D393A60074E5B7 /* bitbase.mm */; };
 		1796008011D393A60074E5B7 /* bitboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796005D11D393A60074E5B7 /* bitboard.cpp */; };
 		1796008111D393A60074E5B7 /* book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1796005F11D393A60074E5B7 /* book.cpp */; };
@@ -191,7 +190,6 @@
 		10FE6E5815E079F0006C2CEA /* USCFWRook96.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = USCFWRook96.tiff; sourceTree = "<group>"; };
 		10FE6E5915E079F0006C2CEA /* USCFWRook@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "USCFWRook@2x.tiff"; sourceTree = "<group>"; };
 		1751000B1272E39500A59D5B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
-		1796004A11D392F20074E5B7 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = about.html; path = HTML/about.html; sourceTree = "<group>"; };
 		1796005B11D393A60074E5B7 /* bitbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitbase.h; path = Chess/bitbase.h; sourceTree = "<group>"; };
 		1796005C11D393A60074E5B7 /* bitbase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bitbase.mm; path = Chess/bitbase.mm; sourceTree = "<group>"; };
 		1796005D11D393A60074E5B7 /* bitboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bitboard.cpp; path = Chess/bitboard.cpp; sourceTree = "<group>"; };
@@ -443,14 +441,6 @@
 			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
-		1796004911D392E90074E5B7 /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				1796004A11D392F20074E5B7 /* about.html */,
-			);
-			name = HTML;
-			sourceTree = "<group>";
-		};
 		1796005911D3938F0074E5B7 /* Chess */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,7 +581,6 @@
 			isa = PBXGroup;
 			children = (
 				10FE6E3515E079F0006C2CEA /* Images */,
-				1796004911D392E90074E5B7 /* HTML */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -655,7 +644,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1796004C11D392F20074E5B7 /* about.html in Resources */,
 				1751000C1272E39500A59D5B /* MainWindow-iPad.xib in Resources */,
 				10FE6E5A15E079F0006C2CEA /* USCFBBishop.tiff in Resources */,
 				10FE6E5B15E079F0006C2CEA /* USCFBBishop96.tiff in Resources */,
