@@ -6,10 +6,12 @@ using namespace Chess;
 @implementation LastMoveView
 
 - (id)initWithFrame:(CGRect)frame fromSquare:(Square)fromSquare toSquare:(Square)toSquare {
-    if (self = [super initWithFrame:frame]) {
-        move = make_move(fromSquare, toSquare);
-        squareSize = frame.size.width / 8;
-    }
+    self = [super initWithFrame:frame];
+    if (!self) return self;
+    
+    move = make_move(fromSquare, toSquare);
+    squareSize = frame.size.width / 8;
+    
     return self;
 }
 
