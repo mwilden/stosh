@@ -11,8 +11,7 @@ using namespace Chess;
    GameController *gameController;
    HighlightedSquaresView *highlightedSquaresView;
    Square highlightedSquares[32];
-   SelectedSquareView *selectedSquareView;
-   Square fromSquare, selectedSquare;
+   Square fromSquare;
    LastMoveView *lastMoveView;
    float squareSize;
 }
@@ -24,7 +23,6 @@ using namespace Chess;
 - (Square)squareAtPoint:(CGPoint)point;
 - (CGPoint)originOfSquare:(Square)sq;
 - (CGRect)rectForSquare:(Square)sq;
-- (void)selectionMovedToPoint:(CGPoint)sq;
 - (void)showLastMoveWithFrom:(Square)s1 to:(Square)s2;
 - (void)hideLastMove;
 - (void)pieceTouchedAtSquare:(Square)s;

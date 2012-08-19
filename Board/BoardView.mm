@@ -4,7 +4,6 @@
 #import "LastMoveView.h"
 #import "Board.h"
 #import "PieceImageView.h"
-#import "SelectedSquareView.h"
 
 #include "position.h"
 
@@ -26,7 +25,6 @@ using namespace Chess;
 - (void)setFrame:(CGRect)frame {
    [super setFrame: frame];
    [self hideLastMove];
-   selectedSquare = SQ_NONE;
    fromSquare = SQ_NONE;
    lastMoveView = nil;
    squareSize = frame.size.width / 8;
@@ -62,23 +60,6 @@ using namespace Chess;
 }
 
 
-- (void)selectionMovedToPoint: (CGPoint)point {
-   Square s = [self squareAtPoint: point];
-   if (s != selectedSquare) {
-      int i;
-      for (i = 0; highlightedSquares[i] != SQ_NONE; i++)
-         if (highlightedSquares[i] == s) {
-            selectedSquare = s;
-            [selectedSquareView
-               moveToPoint: CGPointMake(int(square_file(s)) * squareSize - 30.0f,
-                                        (7-int(square_rank(s))) * squareSize - 30.0f)];
-            return;
-         }
-      [selectedSquareView hide];
-      selectedSquare = SQ_NONE;
-   }
-}
-
 - (void)showLastMoveWithFrom:(Square)s1 to:(Square)s2 {
    if (lastMoveView)
       [lastMoveView removeFromSuperview];
@@ -102,6 +83,9 @@ using namespace Chess;
 }
 
 
+// These touches happen when user taps the board to move the
+// currently selected piece (in fromSquare)
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
    if (fromSquare == SQ_NONE)
       [self hideLastMove];
@@ -110,17 +94,8 @@ using namespace Chess;
       if ([self squareAtPoint: pt] == fromSquare) {
          [self hideLastMove];
       }
-      else
-         [self selectionMovedToPoint: pt];
    }
 }
-
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-   if (fromSquare != SQ_NONE)
-      [self selectionMovedToPoint: [[touches anyObject] locationInView: self]];
-}
-
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
    if (fromSquare != SQ_NONE) {

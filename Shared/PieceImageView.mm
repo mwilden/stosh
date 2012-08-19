@@ -142,7 +142,6 @@
           [boardView squareAtPoint: boardPt] != square) {
          wasDraggedAwayFromSquare = YES;
       }
-      [boardView selectionMovedToPoint: boardPt];
    }
 }
 
